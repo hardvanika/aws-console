@@ -702,7 +702,7 @@ class Site extends Component {
     var hops = Math.abs(to - from);
     var dur = hops <= 1 ? (this.props.speed ?? 700) : Math.min(5200, 520 * hops);
     var t0 = performance.now();
-    this.setState({ open: false, moving: true, reach: from, from0: from });
+    this.setState({ moving: true, reach: from, from0: from });
     var tick = (now) => {
       var u = Math.min(1, (now - t0) / dur);
       var e = u < 0.5 ? 2 * u * u : 1 - Math.pow(-2 * u + 2, 2) / 2;
