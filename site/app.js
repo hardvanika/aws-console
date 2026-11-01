@@ -210,7 +210,7 @@ const view = (v) => html`
 
         
         ${v.showHint ? html`
-          <div style="position: absolute; left: 10px; top: 390px; width: 200px; padding: 14px 16px; border-radius: 16px; border: 1px solid #c8c3d8; box-sizing: border-box; font-size: 13px; color: #0f141a" class="banner"><strong>You are the request.</strong> Press Send request or click any service to travel through the network.</div>
+          <div style="position: absolute; left: 10px; top: 390px; width: 200px; padding: 10px 12px 10px 10px; border-radius: 12px; border: 2px solid #006ce0; background: #f0fbff; box-sizing: border-box; font-size: 13px; line-height: 18px; color: #0f141a; display: flex; gap: 8px"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="#006ce0" stroke-width="2" stroke-linejoin="round" aria-hidden="true" style="flex: none; margin-top: 2px"><circle cx="8" cy="8" r="7"></circle><path d="M8 12V7M8 6V4"></path></svg><span><strong>You are the request.</strong> Press Send request or click any service to travel through the network.</span></div>
         ` : null}
 
         
