@@ -105,20 +105,26 @@ const view = (v) => html`
   </div>
   <div class="app-body" style="flex: 1 1 auto; min-height: 0; display: flex">
     
-    <nav class="sidenav" aria-label="Services" style="display: ${v.navDisp}; flex: none; width: 240px; border-right: 1px solid #c6c6cd; padding: 20px 0; overflow-y: auto; box-sizing: border-box; flex-direction: column">
-      <div style="padding: 0 24px 16px; font-size: 18px; line-height: 22px; font-weight: 700"><a href="#" onClick=${v.restart} style="color: #0f141a; font-weight: 700">Ivan Dmitriev</a></div>
-      <div class="qline" style="margin: 0 0 16px"></div>
-      <div style="padding: 0 24px 8px; font-weight: 700; color: #424650">Request path</div>
-      ${(v.nodes || []).map((n) => html`
-        <a class="navlink" href="#" onClick=${n.pick} style="display: block; padding: 4px 24px 4px 36px; color: ${n.navC}; font-weight: ${n.navW}; text-decoration: none">${n.num}. ${n.label}</a>
-      `)}
-      <div style="height: 1px; background: #c6c6cd; margin: 16px 24px"></div>
-      <div style="padding: 0 24px 8px; font-weight: 700; color: #424650">Socials</div>
-      <div class="extlist" style="padding: 0 24px">
-        <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/ivan-dmitriev-uc3m/">LinkedIn</a>
-        <a target="_blank" rel="noopener" href="https://github.com/hardvanika">GitHub</a>
-        <a href=${v.bcUrl} target="_blank" rel="noopener">AWS Builder Center</a>
+    <nav class="sidenav" aria-label="Services" style="display: ${v.navDisp}; flex: none; width: 260px; border-right: 1px solid #c6c6cd; padding: 22px 0 20px; overflow-y: auto; box-sizing: border-box; flex-direction: column">
+      <div style="display: flex; align-items: center; justify-content: space-between; padding: 0 16px 14px 28px">
+        <a href="#" onClick=${v.restart} style="color: #0f141a; font-size: 18px; line-height: 22px; font-weight: 700; text-decoration: none">Ivan Dmitriev</a>
+        <button onClick=${v.toggleNav} aria-label="Close navigation" title="Close navigation" style="background: none; border: 0; cursor: pointer; padding: 4px; display: flex"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M9 2 L4 7 L9 12" fill="none" stroke="#424650" stroke-width="2"></path></svg></button>
       </div>
+      <a class="navlink" href="#" onClick=${v.restart} style="display: block; padding: 4px 24px 4px 28px; color: #424650; text-decoration: none">Overview</a>
+      <a class="navlink" href="#" onClick=${v.menuInfo} style="display: block; padding: 4px 24px 4px 28px; color: #424650; text-decoration: none">About this page</a>
+      <a class="navlink" href="https://github.com/hardvanika/aws-console" target="_blank" rel="noopener" style="display: block; padding: 4px 24px 4px 28px; color: #424650; text-decoration: none; font-weight: 400">Source code</a>
+      <button onClick=${v.toggleReq} aria-expanded=${v.reqOpen} style="display: flex; align-items: center; gap: 8px; width: 100%; background: none; border: 0; cursor: pointer; padding: 14px 24px 6px 10px; font: 700 18px/22px 'Hind', 'Open Sans', sans-serif; color: #0f141a; text-align: left"><svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true" style="transform: rotate(${v.reqRot}deg); transition: transform .15s"><path d="M1 2 H9 L5 8 Z" fill="#0f141a"></path></svg>Request path</button>
+      ${v.reqOpen ? html`
+        ${(v.nodes || []).map((n) => html`
+          <a class="navlink" href="#" onClick=${n.pick} style="display: flex; align-items: center; gap: 12px; padding: 4px 16px 4px 28px; color: ${n.navC}; font-weight: ${n.navW}; text-decoration: none">${n.num}. ${n.label}${n.isNew ? html`<span style="font-size: 12px; font-weight: 700; color: #006ce0; border-bottom: 1px dashed #006ce0; line-height: 15px">New</span>` : null}</a>
+        `)}
+      ` : null}
+      <button onClick=${v.toggleSoc} aria-expanded=${v.socOpen} style="display: flex; align-items: center; gap: 8px; width: 100%; background: none; border: 0; cursor: pointer; padding: 14px 24px 6px 10px; font: 700 18px/22px 'Hind', 'Open Sans', sans-serif; color: #0f141a; text-align: left"><svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true" style="transform: rotate(${v.socRot}deg); transition: transform .15s"><path d="M1 2 H9 L5 8 Z" fill="#0f141a"></path></svg>Socials</button>
+      ${v.socOpen ? html`
+        <a class="navlink" target="_blank" rel="noopener" href="https://www.linkedin.com/in/ivan-dmitriev-uc3m/" style="display: block; padding: 4px 24px 4px 28px; color: #424650; font-weight: 400">LinkedIn</a>
+        <a class="navlink" target="_blank" rel="noopener" href="https://github.com/hardvanika" style="display: block; padding: 4px 24px 4px 28px; color: #424650; font-weight: 400">GitHub</a>
+        <a class="navlink" target="_blank" rel="noopener" href=${v.bcUrl} style="display: block; padding: 4px 24px 4px 28px; color: #424650; font-weight: 400">AWS Builder Center</a>
+      ` : null}
     </nav>
 
     
@@ -825,6 +831,7 @@ class Site extends Component {
         ring: step === k && !st.moving ? '0 0 0 3px #FFFFFF, 0 0 0 6px #FF9900' : (st.moving && st.reach === k && k !== st.from0 ? '0 0 0 3px #FFFFFF, 0 0 0 5px #FFD49A' : 'none'),
         navC: step === k ? '#006ce0' : '#424650',
         navW: step === k ? 700 : 400,
+        isNew: k === 6,
         pick: (e) => { if (e && e.preventDefault) e.preventDefault(); this.go(k); }
       };
     });
@@ -880,13 +887,15 @@ class Site extends Component {
       close: () => this.setState({ open: false }),
       termOpen: st.termOpen, cmd: st.cmd,
       bannerOpen: st.bannerOpen,
+      reqOpen: !st.reqClosed, reqRot: st.reqClosed ? -90 : 0, toggleReq: () => this.setState({ reqClosed: !this.state.reqClosed }),
+      socOpen: !st.socClosed, socRot: st.socClosed ? -90 : 0, toggleSoc: () => this.setState({ socClosed: !this.state.socClosed }),
       footC: st.termOpen ? '#42b4ff' : '#ebebf0',
       navDisp: st.navHidden ? 'none' : 'flex',
       toggleNav: () => { if (window.innerWidth <= 900) { this.setState({ menu: this.state.menu === 'services' ? '' : 'services' }); return; } this.setState({ navHidden: !this.state.navHidden }); setTimeout(this.onResize, 30); },
       closeBanner: () => { this.setState({ bannerOpen: false }); setTimeout(this.onResize, 30); },
       bcUrl: this.BC,
       mInfo: st.menu === 'info',
-      menuInfo: (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ menu: this.state.menu === 'info' ? '' : 'info' }); },
+      menuInfo: (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ bannerOpen: true, menu: this.state.menu === 'info' ? '' : 'info' }); },
       closeA: (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ open: false }); },
       goEdge: () => this.go(1), goPub: () => this.go(3), goPriv: () => this.go(6), goContact: () => this.go(10),
       regionLink: (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ menu: 'region' }); },
