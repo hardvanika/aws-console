@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ivan Dmitriev · You are the request</title>
+<meta name="description" content="Ivan Dmitriev, AWS Student Builder Group Leader at UC3M. You are an HTTP request travelling through my AWS architecture.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFFFFF}
+a{color:#006ce0;text-decoration:none}
+a:hover{text-decoration:underline;color:#002b66}
+.btnN:hover{background:#fff7eb !important;color:#0f141a !important;border-color:#EC7211 !important}
+.btnP:hover{background:#EC7211 !important;border-color:#EC7211 !important}
+.navlink:hover{color:#006ce0 !important}
+.tnav:hover{color:#f9f9fa !important}
+@media (max-width: 900px){.sidenav{display:none !important}.search{display:none !important}}
+.segH{animation:flowH .9s linear infinite}
+.segV{animation:flowV .9s linear infinite}
+@keyframes flowH{from{background-position:0 0}to{background-position:12px 0}}
+@keyframes flowV{from{background-position:0 0}to{background-position:0 12px}}
+.win{animation:winIn .35s ease-out both}
+@keyframes winIn{from{opacity:0;transform:translateY(8px) scale(.98)}to{opacity:1;transform:none}}
+.pulse{animation:pulse 1.2s ease-out infinite}
+.writing{animation:writing 1.6s ease-in-out infinite}
+@keyframes writing{0%,100%{opacity:1}50%{opacity:.45}}
+@keyframes pulse{from{box-shadow:0 0 0 0 rgba(255,153,0,.7)}to{box-shadow:0 0 0 14px rgba(255,153,0,0)}}
+.node:hover .lbl{color:#0972D3}
+@media (prefers-reduced-motion: reduce){.segH,.segV,.win,.pulse,.writing{animation:none}}
+</style>
+<script>window.SITE_CONFIG = { apiUrl: '' };</script>
+<script src="config.js"></script>
+</head>
+<body>
+<div id="app"></div>
+<script type="module" src="app.js"></script>
+</body>
+</html>
