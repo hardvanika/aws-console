@@ -5,8 +5,6 @@ const view = (v) => html`
 
   
   <header style="flex: none; position: relative; z-index: 60; height: 44px; background: #161d26; display: flex; align-items: center; gap: 14px; padding: 0 16px; border-bottom: 1px solid #424650">
-    <a href="#" onClick=${v.restart} aria-label="Home" title="Home" class="mark" style="flex: none; width: 26px; height: 26px; border-radius: 6px; background: linear-gradient(225deg, #026be1 0%, #5d47ff 55%, #710bea 100%); display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6" fill="none" stroke="#ffffff" stroke-width="1.8"></circle><circle cx="8" cy="8" r="2.4" fill="#ffffff"></circle></svg></a>
-    <span aria-hidden="true" style="width: 1px; height: 24px; background: #8c8c94; flex: none"></span>
     ${v.anyMenu ? html`<div onClick=${v.closeMenus} style="position: fixed; inset: 0; z-index: 45"></div>` : null}
     <div style="position: relative; z-index: 56">
     <button class="tnav" onClick=${v.menuServices} aria-expanded=${v.mServices} aria-label="All services" title="All services" style="background: none; border: 0; cursor: pointer; display: flex; align-items: center; gap: 4px; padding: 6px; border-radius: 4px; color: #dedee3; font: 700 14px 'Hind', 'Open Sans', sans-serif">
@@ -144,7 +142,7 @@ const view = (v) => html`
                 <p style="margin: 0">Press <b>Send request</b>, click any service, use the search bar, or type <code>curl https://ivan.dmitriev</code> in CloudShell.</p>
               </div>
             ` : null}</h1>
-          <div style="margin-top: 4px; color: #0f141a; max-width: 980px">Born in Moscow, raised between Bulgaria, Greece and Spain, now in Madrid. Communities opened doors for me, so now I open them for others: AWS Student Builder Group Leader at UC3M and VP of I2C. Borders changed, the builder didn't.</div>
+          <div style="margin-top: 4px; color: #0f141a; max-width: 980px">Born in Moscow, moved between Bulgaria, Greece and Spain, now in Madrid. Communities opened doors for me, so now I open them for others: AWS Student Builder Group Leader at UC3M and VP of I2C. Borders changed, the builder didn't.</div>
           <div style="margin-top: 12px"><div style="display: flex; flex-wrap: wrap; gap: 8px">
           <button class="btnN" onClick=${v.prev} style="min-height: 30px; padding: 4px 20px; border-radius: 20px; border: 2px solid #006ce0; background: #ffffff; color: #006ce0; font: 700 14px 'Hind', 'Open Sans', sans-serif; cursor: pointer">Previous</button>
           <button class="btnN" onClick=${v.togglePlay} style="min-height: 30px; padding: 4px 20px; border-radius: 20px; border: 2px solid #006ce0; background: #ffffff; color: #006ce0; font: 700 14px 'Hind', 'Open Sans', sans-serif; cursor: pointer">${v.playLabel}</button>
@@ -834,7 +832,7 @@ class Site extends Component {
         ring: step === k && !st.moving ? '0 0 0 3px #FFFFFF, 0 0 0 6px #FF9900' : (st.moving && st.reach === k && k !== st.from0 ? '0 0 0 3px #FFFFFF, 0 0 0 5px #FFD49A' : 'none'),
         navC: step === k ? '#006ce0' : '#424650',
         navW: step === k ? 700 : 400,
-        isNew: k === 6,
+        isNew: false,
         pick: (e) => { if (e && e.preventDefault) e.preventDefault(); this.go(k); }
       };
     });
