@@ -29,6 +29,24 @@ a:hover{text-decoration:underline;color:#002b66}
 @keyframes pulse{from{box-shadow:0 0 0 0 rgba(255,153,0,.7)}to{box-shadow:0 0 0 14px rgba(255,153,0,0)}}
 .node:hover .lbl{color:#0972D3}
 .win > div + div > *{flex-shrink:0}
+@media (max-width: 760px){
+.app-root{height:auto !important;min-height:100vh !important;overflow:visible !important}
+.app-body{display:block !important}
+.app-main{padding:12px 16px 16px !important}
+.app-main h1{font-size:22px !important}
+.stage{flex:none !important;height:calc((100vw - 32px) * 0.56);min-height:190px}
+.stage .win{display:none !important}
+.win-m{position:fixed !important;left:8px !important;right:8px !important;bottom:8px !important;top:auto !important;width:auto !important;max-height:72vh !important;z-index:50 !important}
+.hide-m{display:none !important}
+header [role=menu]{position:fixed !important;left:8px !important;right:8px !important;top:44px !important;width:auto !important;z-index:95 !important;max-height:75vh;overflow-y:auto}
+.svc-menu{grid-template-columns:1fr !important}
+.info-pop{width:auto !important;max-width:calc(100vw - 32px)}
+.shell:not([style*="fixed"]){height:320px !important}
+.shell-title{display:none !important}
+.app-foot{height:auto !important;grid-template-columns:1fr !important;padding:8px 16px !important;text-align:center;gap:4px !important}
+.app-foot > span{justify-content:center}
+}
+@media (min-width: 761px){.win-m{display:none !important}}
 @media (prefers-reduced-motion: reduce){.segH,.segV,.win,.pulse,.writing{animation:none}}
 </style>
 <script>window.SITE_CONFIG = { apiUrl: '' };</script>

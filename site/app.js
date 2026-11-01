@@ -1,7 +1,7 @@
 import { html, render, Component } from './vendor/htm-preact-standalone.module.js';
 
 const view = (v) => html`
-<div style="height: 100vh; min-height: 560px; overflow: hidden; display: flex; flex-direction: column; background: #ffffff; color: #0f141a; font-family: 'Open Sans', 'Helvetica Neue', Roboto, Arial, sans-serif; font-size: 14px; line-height: 20px">
+<div class="app-root" style="height: 100vh; min-height: 560px; overflow: hidden; display: flex; flex-direction: column; background: #ffffff; color: #0f141a; font-family: 'Open Sans', 'Helvetica Neue', Roboto, Arial, sans-serif; font-size: 14px; line-height: 20px">
 
   
   <header style="flex: none; position: relative; z-index: 60; height: 40px; background: #161d26; display: flex; align-items: center; gap: 16px; padding: 0 16px; border-bottom: 1px solid #424650">
@@ -13,7 +13,7 @@ const view = (v) => html`
       Services <span style="font-size: 10px">▾</span>
     </button>
     ${v.mServices ? html`
-      <div role="menu" style="position: absolute; top: 36px; z-index: 55; background: #ffffff; border-radius: 8px; box-shadow: 0px 1px 1px 1px #e9ebed, 0px 6px 36px #0007161a; padding: 6px 0; left: 0; width: 560px; padding: 12px 0; display: grid; grid-template-columns: 1fr 1fr">
+      <div class="svc-menu" role="menu" style="position: absolute; top: 36px; z-index: 55; background: #ffffff; border-radius: 8px; box-shadow: 0px 1px 1px 1px #e9ebed, 0px 6px 36px #0007161a; padding: 6px 0; left: 0; width: 560px; padding: 12px 0; display: grid; grid-template-columns: 1fr 1fr">
         ${(v.svcMenu || []).map((g) => html`
           <div style="padding: 4px 8px 8px">
             <div style="padding: 4px 8px; font-weight: 700; font-size: 12px; color: #656871; text-transform: none">${g.cat}</div>
@@ -61,7 +61,7 @@ const view = (v) => html`
       ` : null}
     </div>
     <div style="position: relative; z-index: 56">
-      <button class="tnav" onClick=${v.menuHelp} aria-label="Help" title="Help" style="background: none; border: 0; cursor: pointer; display: flex; align-items: center; gap: 4px; padding: 4px 6px; border-radius: 4px; color: #dedee3; font: 700 14px 'Open Sans', sans-serif"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#dedee3" stroke-width="2" aria-hidden="true"><circle cx="8" cy="8" r="7"></circle><path d="M6.2 6.2 C6.2 5 7 4.4 8 4.4 C9 4.4 9.8 5.1 9.8 6 C9.8 7.3 8 7.4 8 9"></path><circle cx="8" cy="11.6" r="0.6" fill="#dedee3" stroke="none"></circle></svg></button>
+      <button class="tnav hide-m" onClick=${v.menuHelp} aria-label="Help" title="Help" style="background: none; border: 0; cursor: pointer; display: flex; align-items: center; gap: 4px; padding: 4px 6px; border-radius: 4px; color: #dedee3; font: 700 14px 'Open Sans', sans-serif"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#dedee3" stroke-width="2" aria-hidden="true"><circle cx="8" cy="8" r="7"></circle><path d="M6.2 6.2 C6.2 5 7 4.4 8 4.4 C9 4.4 9.8 5.1 9.8 6 C9.8 7.3 8 7.4 8 9"></path><circle cx="8" cy="11.6" r="0.6" fill="#dedee3" stroke="none"></circle></svg></button>
       ${v.mHelp ? html`
         <div role="menu" style="position: absolute; top: 36px; z-index: 55; background: #ffffff; border-radius: 8px; box-shadow: 0px 1px 1px 1px #e9ebed, 0px 6px 36px #0007161a; padding: 6px 0; right: 0; width: 260px">
           <button role="menuitem" onClick=${v.helpCommands} style="display: flex; align-items: center; gap: 10px; width: 100%; text-align: left; padding: 6px 16px; background: none; border: 0; cursor: pointer; font: 400 14px 'Open Sans', sans-serif; color: #0f141a; text-decoration: none; box-sizing: border-box">CloudShell commands</button>
@@ -73,7 +73,7 @@ const view = (v) => html`
       ` : null}
     </div>
     <div style="position: relative; z-index: 56">
-      <button class="tnav" onClick=${v.menuRegion} style="background: none; border: 0; cursor: pointer; display: flex; align-items: center; gap: 4px; padding: 4px 6px; border-radius: 4px; color: #dedee3; font: 700 14px 'Open Sans', sans-serif">${v.regionName} <span style="font-size: 10px">▾</span></button>
+      <button class="tnav hide-m" onClick=${v.menuRegion} style="background: none; border: 0; cursor: pointer; display: flex; align-items: center; gap: 4px; padding: 4px 6px; border-radius: 4px; color: #dedee3; font: 700 14px 'Open Sans', sans-serif">${v.regionName} <span style="font-size: 10px">▾</span></button>
       ${v.mRegion ? html`
         <div role="menu" style="position: absolute; top: 36px; z-index: 55; background: #ffffff; border-radius: 8px; box-shadow: 0px 1px 1px 1px #e9ebed, 0px 6px 36px #0007161a; padding: 6px 0; right: 0; width: 280px">
           ${(v.regions || []).map((rg) => html`
@@ -83,7 +83,7 @@ const view = (v) => html`
       ` : null}
     </div>
     <div style="position: relative; z-index: 56">
-      <button class="tnav" onClick=${v.menuAccount} style="background: none; border: 0; cursor: pointer; display: flex; align-items: center; gap: 4px; padding: 4px 6px; border-radius: 4px; color: #dedee3; font: 700 14px 'Open Sans', sans-serif">Ivan Dmitriev <span style="font-size: 10px">▾</span></button>
+      <button class="tnav hide-m" onClick=${v.menuAccount} style="background: none; border: 0; cursor: pointer; display: flex; align-items: center; gap: 4px; padding: 4px 6px; border-radius: 4px; color: #dedee3; font: 700 14px 'Open Sans', sans-serif">Ivan Dmitriev <span style="font-size: 10px">▾</span></button>
       ${v.mAccount ? html`
         <div role="menu" style="position: absolute; top: 36px; z-index: 55; background: #ffffff; border-radius: 8px; box-shadow: 0px 1px 1px 1px #e9ebed, 0px 6px 36px #0007161a; padding: 6px 0; right: 0; width: 280px">
           <div style="padding: 8px 16px 10px; border-bottom: 1px solid #ebebf0"><strong style="display: block">Ivan Dmitriev</strong><span style="font-size: 12px; color: #656871">AWS Student Builder Group Leader · UC3M</span></div>
@@ -98,7 +98,7 @@ const view = (v) => html`
     </div>
   </header>
 
-  <div style="flex: 1 1 auto; min-height: 0; display: flex">
+  <div class="app-body" style="flex: 1 1 auto; min-height: 0; display: flex">
     
     <nav class="sidenav" aria-label="Services" style="flex: none; width: 240px; border-right: 1px solid #c6c6cd; padding: 20px 0; overflow-y: auto; box-sizing: border-box; display: flex; flex-direction: column">
       <div style="padding: 0 24px 16px; font-size: 18px; line-height: 22px; font-weight: 700"><a href="#" onClick=${v.restart} style="color: #0f141a">Ivan Dmitriev</a></div>
@@ -115,13 +115,13 @@ const view = (v) => html`
     </nav>
 
     
-    <main style="flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; padding: 14px 32px 16px; gap: 12px; box-sizing: border-box">
+    <main class="app-main" style="flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; padding: 14px 32px 16px; gap: 12px; box-sizing: border-box">
       <div style="font-size: 14px; color: #656871"><a href="#" onClick=${v.restart}>ivan-dmitriev</a> <span style="color: #8c8c94; margin: 0 6px">›</span> Architecture</div>
       <div style="display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 10px 24px">
         <div style="flex: 1 1 520px; max-width: 900px">
           <h1 style="margin: 0; font-size: 24px; line-height: 30px; font-weight: 700; position: relative">Ivan Dmitriev <a href="#" onClick=${v.menuInfo} style="font-size: 14px; font-weight: 700; margin-left: 6px">Info</a>
             ${v.mInfo ? html`
-              <div role="dialog" style="position: absolute; top: 34px; z-index: 100; background: #ffffff; border-radius: 8px; box-shadow: 0px 1px 1px 1px #e9ebed, 0px 6px 36px #0007161a; padding: 14px 16px; left: 0; width: 420px; font-size: 14px; line-height: 20px; font-weight: 400; color: #0f141a">
+              <div class="info-pop" role="dialog" style="position: absolute; top: 34px; z-index: 100; background: #ffffff; border-radius: 8px; box-shadow: 0px 1px 1px 1px #e9ebed, 0px 6px 36px #0007161a; padding: 14px 16px; left: 0; width: 420px; font-size: 14px; line-height: 20px; font-weight: 400; color: #0f141a">
                 <strong style="display: block; font-size: 16px; margin-bottom: 6px">About this page</strong>
                 <p style="margin: 0 0 8px">You are an HTTP request travelling through an AWS architecture. Each service holds one part of my story.</p>
                 <p style="margin: 0 0 8px"><b>Global edge:</b> who I am. <b>Public subnet:</b> my communities. <b>Private subnet:</b> my tech superpowers and projects (Lambda), certifications, security training and work. <b>Outside the cloud:</b> how to reach me.</p>
@@ -143,7 +143,7 @@ const view = (v) => html`
           <h2 style="margin: 0; font-size: 18px; line-height: 22px; font-weight: 700">Architecture <span style="font-weight: 400; color: #656871">(10)</span></h2>
           <span style="color: #656871; font-size: 14px">GET /ivan · hop ${v.hopNum}/10 · ${v.ms} ms</span>
         </div>
-        <div ref=${v.stageRef} style="flex: 1 1 auto; min-height: 0; position: relative; overflow: hidden">
+        <div class="stage" ref=${v.stageRef} style="flex: 1 1 auto; min-height: 0; position: relative; overflow: hidden">
     <div style="position: absolute; left: 50%; top: 50%; width: 1200px; height: 640px; transform: translate(-50%, -50%) scale(${v.k}); transform-origin: 50% 50%">
 
         
@@ -217,12 +217,12 @@ const view = (v) => html`
               </div>
 
               ${v.s1 ? html`
-                <p style="margin: 0; color: #0f141a; font-size: 14px; line-height: 20px">I was born in Moscow in 2006 and grew up on the move: my family travelled a lot, so new countries became normal early. In 2022 we left for Bulgaria, then Greece, then Castellón, and in 2024 I moved to Madrid for university. Every move meant a new language, new friends and someone kind enough to show me how things worked.</p>
+                <p style="margin: 0; color: #0f141a; font-size: 14px; line-height: 20px">I was born in Moscow in 2006 and grew up on the move: my family travelled a lot, so new countries became normal early. In 2022 we left for Bulgaria, then Greece, then Spain, and in 2024 I moved to Madrid for university. Every move meant a new language, new friends and someone kind enough to show me how things worked.</p>
                 <div style="border: 1px solid #ebebf0; border-radius: 12px; overflow: hidden">
                   <div style="display: grid; grid-template-columns: 110px 70px minmax(0, 1fr); gap: 8px; padding: 8px 14px; font-weight: 700; color: #424650; border-bottom: 1px solid #c6c6cd; font-size: 14px"><span>Record</span><span>Type</span><span>Value</span></div>
                   <div style="display: grid; grid-template-columns: 110px 70px minmax(0, 1fr); gap: 8px; padding: 8px 14px; font-size: 14px; border-bottom: 1px solid #ebebf0"><span>ivan.dmitriev</span><span>A</span><span>Madrid, Spain</span></div>
                   <div style="display: grid; grid-template-columns: 110px 70px minmax(0, 1fr); gap: 8px; padding: 8px 14px; font-size: 14px; border-bottom: 1px solid #ebebf0"><span>born</span><span>TXT</span><span>"Moscow, 2006"</span></div>
-                  <div style="display: grid; grid-template-columns: 110px 70px minmax(0, 1fr); gap: 8px; padding: 8px 14px; font-size: 14px"><span>route</span><span>CNAME</span><span>Bulgaria → Greece → Castellón → Madrid</span></div>
+                  <div style="display: grid; grid-template-columns: 110px 70px minmax(0, 1fr); gap: 8px; padding: 8px 14px; font-size: 14px"><span>route</span><span>CNAME</span><span>Bulgaria → Greece → Spain → Madrid</span></div>
                 </div>
               ` : null}
 
@@ -360,10 +360,10 @@ const view = (v) => html`
 
       
       ${v.termOpen ? html`
-        <section ref=${v.shellRef} aria-label="CloudShell" style="${v.shellStyle} display: flex; flex-direction: column; background: #000000; border: 1px solid #424650; border-radius: 4px; overflow: visible">
+        <section class="shell" ref=${v.shellRef} aria-label="CloudShell" style="${v.shellStyle} display: flex; flex-direction: column; background: #000000; border: 1px solid #424650; border-radius: 4px; overflow: visible">
           ${v.notMax ? html`<div onMouseDown=${v.dragStart} title="Drag to resize" style="position: absolute; left: 0; right: 0; top: -5px; height: 9px; cursor: ns-resize; z-index: 5"></div>` : null}
           <div style="flex: none; height: 40px; display: flex; align-items: stretch; background: #161d26; color: #f9f9fa; border-bottom: 1px solid #424650; border-radius: 4px 4px 0 0; padding: 0 6px 0 14px; gap: 6px">
-            <span style="display: flex; align-items: center; font-weight: 700; font-size: 15px; margin-right: 10px">AWS CloudShell</span>
+            <span class="shell-title" style="display: flex; align-items: center; font-weight: 700; font-size: 15px; margin-right: 10px">AWS CloudShell</span>
             <div style="display: flex; align-items: stretch; min-width: 0; overflow-x: auto">
               ${(v.tabs || []).map((tb) => html`
                 <span onClick=${tb.pick} style="display: flex; align-items: center; gap: 8px; padding: 0 10px 0 12px; font-size: 14px; white-space: nowrap; cursor: pointer; color: ${tb.color}; border-bottom: 2px solid ${tb.line}; font-weight: ${tb.weight}">${tb.label} <button onClick=${tb.close} aria-label="Close tab" style="background: none; border: 0; padding: 0 2px; color: #a4a4ad; cursor: pointer; font-size: 15px; line-height: 1">×</button></span>
@@ -398,7 +398,7 @@ const view = (v) => html`
               ` : null}
             </div>
             <button onClick=${v.toggleMax} aria-label=${v.maxLabel} title=${v.maxLabel} style="display: flex; align-items: center; padding: 0 6px; background: none; border: 0; cursor: pointer"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#dedee3" stroke-width="2"><path d=${v.maxPath}></path></svg></button>
-            <button onClick=${v.openWindow} aria-label="Open in new browser tab" title="Open in new browser tab" style="display: flex; align-items: center; padding: 0 6px; background: none; border: 0; cursor: pointer"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#dedee3" stroke-width="2"><path d="M9 2 H14 V7 M14 2 L7 9 M12 10 V14 H2 V4 H6"></path></svg></button>
+            <button class="hide-m" onClick=${v.openWindow} aria-label="Open in new browser tab" title="Open in new browser tab" style="display: flex; align-items: center; padding: 0 6px; background: none; border: 0; cursor: pointer"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#dedee3" stroke-width="2"><path d="M9 2 H14 V7 M14 2 L7 9 M12 10 V14 H2 V4 H6"></path></svg></button>
             <button onClick=${v.toggleTerm} aria-label="Close CloudShell" style="width: 32px; background: none; border: 0; color: #dedee3; cursor: pointer; font-size: 20px">×</button>
           </div>
           <div onClick=${v.focusTerm} style="flex: 1 1 auto; min-height: 0; overflow-y: auto; display: flex; flex-direction: column-reverse; padding: 6px 12px; font: 13px/18px Monaco, Menlo, Consolas, 'Courier Prime', Courier, 'Courier New', monospace; border-radius: 0 0 4px 4px">
@@ -412,10 +412,165 @@ const view = (v) => html`
           </div>
         </section>
       ` : null}
+      
+      ${v.hasWin ? html`
+          <section class="win win-m" style="position: absolute; ${v.winPos} width: 500px; max-height: 600px; display: flex; flex-direction: column; z-index: 6; background: #FFFFFF; border-radius: 16px; box-shadow: 0px 1px 1px 1px #e9ebed, 0px 6px 36px #0007161a; overflow: hidden">
+            <div style="background: #ffffff; color: #0f141a; height: 44px; display: flex; align-items: center; gap: 10px; padding: 0 10px 0 20px; border-bottom: 1px solid #ebebf0">
+              <img src=${v.win.icon} alt="" style="width: 20px; height: 20px; border-radius: 3px" />
+              <span style="font-weight: 700; font-size: 14px">${v.win.service}</span>
+              <span style="flex: 1"></span>
+              <span style="font-size: 12px; color: #656871">${v.win.region}</span>
+              <button onClick=${v.close} aria-label="Close window" style="width: 32px; height: 32px; background: none; border: 0; color: #424650; cursor: pointer; font-size: 20px">×</button>
+            </div>
+            <div style="flex: 1 1 auto; min-height: 0; overflow-y: auto; padding: 14px 20px 20px; display: flex; flex-direction: column; gap: 12px">
+              <div style="font-size: 12px"><a href="#" onClick=${v.closeA} style="color: #006ce0">${v.win.crumbs}</a> <span style="color: #656871">› ${v.win.leaf}</span></div>
+              <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap">
+                <h2 style="margin: 0; font-size: 20px; line-height: 24px; font-weight: 700">${v.win.title}</h2>
+                <span style="font-size: 12px; font-weight: 700; color: #00802f; display: inline-flex; align-items: center; gap: 4px"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#00802f"></circle><path d="M4.5 8.2 L7 10.5 L11.5 5.8" stroke="#FFFFFF" stroke-width="1.8" fill="none"></path></svg>${v.win.status}</span>
+              </div>
+
+              ${v.s1 ? html`
+                <p style="margin: 0; color: #0f141a; font-size: 14px; line-height: 20px">I was born in Moscow in 2006 and grew up on the move: my family travelled a lot, so new countries became normal early. In 2022 we left for Bulgaria, then Greece, then Spain, and in 2024 I moved to Madrid for university. Every move meant a new language, new friends and someone kind enough to show me how things worked.</p>
+                <div style="border: 1px solid #ebebf0; border-radius: 12px; overflow: hidden">
+                  <div style="display: grid; grid-template-columns: 110px 70px minmax(0, 1fr); gap: 8px; padding: 8px 14px; font-weight: 700; color: #424650; border-bottom: 1px solid #c6c6cd; font-size: 14px"><span>Record</span><span>Type</span><span>Value</span></div>
+                  <div style="display: grid; grid-template-columns: 110px 70px minmax(0, 1fr); gap: 8px; padding: 8px 14px; font-size: 14px; border-bottom: 1px solid #ebebf0"><span>ivan.dmitriev</span><span>A</span><span>Madrid, Spain</span></div>
+                  <div style="display: grid; grid-template-columns: 110px 70px minmax(0, 1fr); gap: 8px; padding: 8px 14px; font-size: 14px; border-bottom: 1px solid #ebebf0"><span>born</span><span>TXT</span><span>"Moscow, 2006"</span></div>
+                  <div style="display: grid; grid-template-columns: 110px 70px minmax(0, 1fr); gap: 8px; padding: 8px 14px; font-size: 14px"><span>route</span><span>CNAME</span><span>Bulgaria → Greece → Spain → Madrid</span></div>
+                </div>
+              ` : null}
+
+              ${v.s2 ? html`
+                <p style="margin: 0; color: #0f141a; font-size: 14px; line-height: 20px">Since 2024 I study the dual degree in Business Administration and Computer Science at Universidad Carlos III de Madrid, on the Colmenarejo campus. Beyond classes I got involved in how the university works: I was elected to the University Senate (Claustro) and sit on the Coexistence Committee.</p>
+                <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 18px">
+                  <div><div style="font-size: 14px; font-weight: 700; color: #0f141a">Origin</div><div>Universidad Carlos III de Madrid</div></div>
+                  <div><div style="font-size: 14px; font-weight: 700; color: #0f141a">Degree</div><div>BBA and Computer Science, 3rd year</div></div>
+                  <div><div style="font-size: 14px; font-weight: 700; color: #0f141a">Edge location</div><div>MAD · Colmenarejo campus</div></div>
+                  <div><div style="font-size: 14px; font-weight: 700; color: #0f141a">Also at UC3M</div><div>University Senate member</div></div>
+                </div>
+              ` : null}
+
+              ${v.s8 ? html`
+                <p style="margin: 0; color: #0f141a; font-size: 14px; line-height: 20px">I learn security by doing. On TryHackMe I completed the Cyber Security 101 path, covering networking, Linux, web basics and the core offensive and defensive tools, and I'm now 56% through Defending AWS, the path on detecting and stopping attacks in AWS environments.</p>
+                <div style="border: 1px solid #ebebf0; border-radius: 12px; overflow: hidden">
+                  <div style="display: grid; grid-template-columns: minmax(0, 1fr) 70px 110px; gap: 8px; padding: 8px 14px; font-weight: 700; color: #424650; border-bottom: 1px solid #c6c6cd; font-size: 14px"><span>Training path</span><span>Type</span><span>Status</span></div>
+                  <div style="display: grid; grid-template-columns: minmax(0, 1fr) 70px 110px; gap: 8px; padding: 8px 14px; font-size: 14px; border-bottom: 1px solid #ebebf0"><span>TryHackMe · Cyber Security 101</span><span>Path</span><span style="color: #00802f; font-weight: 700">Completed</span></div>
+                  <div style="display: grid; grid-template-columns: minmax(0, 1fr) 70px 110px; gap: 8px; padding: 8px 14px; font-size: 14px"><span>TryHackMe · Defending AWS</span><span>Path</span><span style="color: #006ce0; font-weight: 700">In progress · 56%</span></div>
+                </div>
+                <div style="font-size: 14px; color: #424650">I learn security by attacking labs, not by reading about them. <a href="https://tryhackme.com/p/100553235" target="_blank" rel="noopener">My TryHackMe profile ↗</a></div>
+              ` : null}
+
+              ${v.s3 ? html`
+                <p style="margin: 0; color: #0f141a; font-size: 14px; line-height: 20px">In September 2026 I founded the AWS Student Builder Group at UC3M and became its Group Leader. I built a core team of five leads (tech, workshops, marketing, multimedia and outreach) and on 21 October 2026 we ran our first event on campus, with speakers from AWS and industry. In November we run three hands-on workshops on Lambda, S3 and EC2, with Cloud Practitioner Essentials as the starting point for every member.</p>
+                <div style="padding: 12px 14px; border-radius: 12px; background: #f0fbff; border: 1px solid #006ce0; font-weight: 700; color: #0f141a">Student Builder Group Leader and Founder · Amazon Web Services</div>
+                <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 18px">
+                  <div><div style="font-size: 14px; font-weight: 700; color: #0f141a">Group</div><div>AWS SBG UC3M · Colmenarejo</div></div>
+                  <div><div style="font-size: 14px; font-weight: 700; color: #0f141a">Since</div><div>September 2026</div></div>
+                  <div><div style="font-size: 14px; font-weight: 700; color: #0f141a">First event</div><div>21 Oct 2026, speakers from AWS and industry</div></div>
+                  <div><div style="font-size: 14px; font-weight: 700; color: #0f141a">Stages · November</div><div>Lambda · S3 · EC2 workshops</div></div>
+                </div>
+                <div style="display: flex; gap: 10px; flex-wrap: wrap">
+                  <a href="https://www.meetup.com/aws-sbg-at-charles-iii-univ-of-madrid-colmenarejo-campus/" target="_blank" rel="noopener" style="padding: 6px 20px; border-radius: 20px; border: 2px solid #FF9900; background: #FF9900; color: #0f141a; font-weight: 700; text-decoration: none">Join on Meetup</a>
+                </div>
+              ` : null}
+
+              ${v.s6 ? html`
+                <p style="margin: 0; color: #0f141a; font-size: 14px; line-height: 20px">Small things I build to learn and to help the communities I'm part of. With I2C we built the ML feed algorithm for Open, the UC3M student social network. And this site is itself an AWS architecture: every box you open is a real service.</p>
+                <div style="border: 1px solid #ebebf0; border-radius: 12px; overflow: hidden">
+                  <div style="display: grid; grid-template-columns: 130px minmax(0, 1fr); gap: 8px; padding: 8px 14px; font-weight: 700; color: #424650; border-bottom: 1px solid #c6c6cd; font-size: 14px"><span>Function</span><span>Description</span></div>
+                  <div style="display: grid; grid-template-columns: 130px minmax(0, 1fr); gap: 8px; padding: 8px 14px; font-size: 14px; border-bottom: 1px solid #ebebf0"><a href="https://openuc3m.com/" target="_blank" rel="noopener">open-feed</a><span>ML feed for Open, the UC3M student social network</span></div>
+                  <div style="display: grid; grid-template-columns: 130px minmax(0, 1fr); gap: 8px; padding: 8px 14px; font-size: 14px"><a href="#" onClick=${v.restart}>this-site</a><span>You are inside it</span></div>
+                </div>
+                <h3 style="margin: 6px 0 0; font-size: 16px; line-height: 20px; font-weight: 700">Tech superpowers</h3>
+                <div style="font-size: 12px; color: #656871">Layers (5) · attached to every function I run</div>
+                <div style="border: 1px solid #ebebf0; border-radius: 12px; overflow: hidden">
+                  <div style="display: grid; grid-template-columns: 130px minmax(0, 1fr); gap: 8px; padding: 8px 14px; font-size: 14px; font-weight: 700; color: #424650; border-bottom: 1px solid #c6c6cd"><span>Layer</span><span>Contents</span></div>
+                  <div style="display: grid; grid-template-columns: 130px minmax(0, 1fr); gap: 8px; padding: 8px 14px; font-size: 14px; border-bottom: 1px solid #ebebf0"><strong>cloud</strong><span>AWS: Lambda, S3, EC2, API Gateway, DynamoDB, Amplify · Cloud Practitioner Essentials</span></div>
+                  <div style="display: grid; grid-template-columns: 130px minmax(0, 1fr); gap: 8px; padding: 8px 14px; font-size: 14px; border-bottom: 1px solid #ebebf0"><strong>code</strong><span>Python · machine learning (KNN, recommender systems, OpenVINO) · HTML, CSS, JavaScript</span></div>
+                  <div style="display: grid; grid-template-columns: 130px minmax(0, 1fr); gap: 8px; padding: 8px 14px; font-size: 14px; border-bottom: 1px solid #ebebf0"><strong>security</strong><span>TryHackMe: Cyber Security 101, Defending AWS · networking and Linux basics</span></div>
+                  <div style="display: grid; grid-template-columns: 130px minmax(0, 1fr); gap: 8px; padding: 8px 14px; font-size: 14px; border-bottom: 1px solid #ebebf0"><strong>people</strong><span>Building and leading communities · organising events and hands-on workshops</span></div>
+                  <div style="display: grid; grid-template-columns: 130px minmax(0, 1fr); gap: 8px; padding: 8px 14px; font-size: 14px"><strong>languages</strong><span>Russian (native) · English (CPE, IELTS 8) · Spanish (C1) · Italian</span></div>
+                </div>
+              ` : null}
+
+              ${v.s7 ? html`
+                <p style="margin: 0; color: #0f141a; font-size: 14px; line-height: 20px">My latest certifications, read straight from the table. This is just the start: the table keeps growing and new items get written here as I finish them.</p>
+                <div style="font-size: 12px; color: #656871">Latest items (5) · more being written</div>
+                <div style="border: 1px solid #ebebf0; border-radius: 12px; overflow: hidden">
+                  <div style="display: grid; grid-template-columns: minmax(0, 1fr) 150px 80px; gap: 8px; padding: 8px 14px; font-size: 14px; font-weight: 700; color: #424650; border-bottom: 1px solid #c6c6cd"><span>certification</span><span>issuer</span><span>date</span></div>
+                  <div style="display: grid; grid-template-columns: minmax(0, 1fr) 150px 80px; gap: 8px; padding: 8px 14px; font-size: 14px; border-bottom: 1px solid #ebebf0"><span>AWS SBG Leader Badge</span><span>Amazon Web Services</span><span>Oct 2026</span></div>
+                  <div style="display: grid; grid-template-columns: minmax(0, 1fr) 150px 80px; gap: 8px; padding: 8px 14px; font-size: 14px; border-bottom: 1px solid #ebebf0"><span>IELTS · overall 8 (Listening 9, Reading 9)</span><span>British Council</span><span>Oct 2026</span></div>
+                  <div style="display: grid; grid-template-columns: minmax(0, 1fr) 150px 80px; gap: 8px; padding: 8px 14px; font-size: 14px; border-bottom: 1px solid #ebebf0"><span>Cyber Security 101 (SEC1)</span><span>TryHackMe</span><span>Jun 2026</span></div>
+                  <div style="display: grid; grid-template-columns: minmax(0, 1fr) 150px 80px; gap: 8px; padding: 8px 14px; font-size: 14px; border-bottom: 1px solid #ebebf0"><span>McKinsey.org Forward Program</span><span>McKinsey & Company</span><span>Jun 2026</span></div>
+                  <div style="display: grid; grid-template-columns: minmax(0, 1fr) 150px 80px; gap: 8px; padding: 8px 14px; font-size: 14px"><span>Defending AWS (56%, in progress)</span><span>TryHackMe</span><span>—</span></div>
+                  <div class="writing" style="display: grid; grid-template-columns: minmax(0, 1fr) 150px 80px; gap: 8px; padding: 8px 14px; font-size: 14px; color: #656871; font-style: italic; border-top: 1px solid #ebebf0; background: #f9f9fa"><span>Next certification · writing item…</span><span>More to come</span><span>Soon</span></div>
+                </div>
+                <div style="font-size: 14px"><a target="_blank" rel="noopener" href="https://www.linkedin.com/in/ivan-dmitriev-uc3m/details/certifications/">Load more on LinkedIn ↗</a></div>
+              ` : null}
+
+              ${v.s4 ? html`
+                <p style="margin: 0; color: #0f141a; font-size: 14px; line-height: 20px">I2C (Informática To Colme) is the computer science association of the Colmenarejo campus, and I'm its Vice President. This year we restructured it: new areas for talent and marketing, a welcome guide for new members, a new visual identity and a WhatsApp community with a group for every area. Our name comes from the I²C bus, two wires that let many devices talk; that's what we try to do with people.</p>
+                <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 18px">
+                  <div><div style="font-size: 14px; font-weight: 700; color: #0f141a">Role</div><div>Vice President</div></div>
+                  <div><div style="font-size: 14px; font-weight: 700; color: #0f141a">Association</div><div>Informática To Colme, UC3M</div></div>
+                  <div style="grid-column: span 2"><div style="font-size: 14px; font-weight: 700; color: #0f141a">Named after</div><div>The I²C bus (Philips, 1982): two wires, many devices talking. We do the same with people.</div></div>
+                </div>
+                <div style="font-size: 14px; font-weight: 700; color: #0f141a">Rules → targets</div>
+                <div style="display: flex; flex-wrap: wrap; gap: 6px">
+                  <span style="padding: 2px 10px; border-radius: 4px; background: #FFFFFF; color: #424650; border: 1px solid #c6c6cd; font-size: 12px; font-weight: 600">AI</span>
+                  <span style="padding: 2px 10px; border-radius: 4px; background: #FFFFFF; color: #424650; border: 1px solid #c6c6cd; font-size: 12px; font-weight: 600">Cybersecurity</span>
+                  <span style="padding: 2px 10px; border-radius: 4px; background: #FFFFFF; color: #424650; border: 1px solid #c6c6cd; font-size: 12px; font-weight: 600">Robotics</span>
+                  <span style="padding: 2px 10px; border-radius: 4px; background: #FFFFFF; color: #424650; border: 1px solid #c6c6cd; font-size: 12px; font-weight: 600">IBM Z</span>
+                  <span style="padding: 2px 10px; border-radius: 4px; background: #FFF4E5; color: #0f141a; border: 1px solid #FF9900; font-size: 12px; font-weight: 600">AWS SBG</span>
+                  <span style="padding: 2px 10px; border-radius: 4px; background: #FFFFFF; color: #424650; border: 1px solid #c6c6cd; font-size: 12px; font-weight: 600">I2C x Open</span>
+                </div>
+                <div style="font-size: 14px; color: #424650">With Open, the UC3M student social network, we built its ML feed algorithm.</div>
+              ` : null}
+
+              ${v.s5 ? html`
+                <p style="margin: 0; color: #0f141a; font-size: 14px; line-height: 20px">I like being where student voices get heard. At RITSI, the national association of computer science students, I represent UC3M and, since July 2026, I run the Social Collaboration area, which promotes social, educational and outreach initiatives. At UC3M I'm part of the Student Delegation, in the University Senate and the Coexistence Committee.</p>
+                <div style="font-size: 12px; color: #656871">Messages available (4) · student representation</div>
+                <div style="border: 1px solid #ebebf0; border-radius: 12px; overflow: hidden">
+                  <div style="display: grid; grid-template-columns: 120px minmax(0, 1fr) 110px; gap: 8px; padding: 8px 14px; font-weight: 700; color: #424650; border-bottom: 1px solid #c6c6cd; font-size: 14px"><span>Org</span><span>Role</span><span>Since</span></div>
+                  <div style="display: grid; grid-template-columns: 120px minmax(0, 1fr) 110px; gap: 8px; padding: 8px 14px; font-size: 14px; border-bottom: 1px solid #ebebf0"><span>RITSI</span><span>UC3M representative</span><span>Nov 2025</span></div>
+                  <div style="display: grid; grid-template-columns: 120px minmax(0, 1fr) 110px; gap: 8px; padding: 8px 14px; font-size: 14px; border-bottom: 1px solid #ebebf0"><span>RITSI</span><span>Social Collaboration officer</span><span>Jul 2026</span></div>
+                  <div style="display: grid; grid-template-columns: 120px minmax(0, 1fr) 110px; gap: 8px; padding: 8px 14px; font-size: 14px; border-bottom: 1px solid #ebebf0"><span>UC3M Delegation</span><span>University Senate (Claustro)</span><span>Jun 2026</span></div>
+                  <div style="display: grid; grid-template-columns: 120px minmax(0, 1fr) 110px; gap: 8px; padding: 8px 14px; font-size: 14px"><span>UC3M Delegation</span><span>Coexistence Committee</span><span>Mar 2025</span></div>
+                </div>
+              ` : null}
+
+              ${v.s9 ? html`
+                <p style="margin: 0; color: #0f141a; font-size: 14px; line-height: 20px">Since September 2026 I'm an operations intern at MAPFRE, in the Corporate Operations Area of Mawdy's central services. I work on supplier operations, learning from the inside how a large company keeps its operations running.</p>
+                <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 18px">
+                  <div><div style="font-size: 14px; font-weight: 700; color: #0f141a">Role</div><div>Operations intern</div></div>
+                  <div><div style="font-size: 14px; font-weight: 700; color: #0f141a">Company</div><div>MAPFRE · Mawdy central services</div></div>
+                  <div><div style="font-size: 14px; font-weight: 700; color: #0f141a">Area</div><div>Corporate Operations · suppliers</div></div>
+                  <div><div style="font-size: 14px; font-weight: 700; color: #0f141a">Since</div><div>September 2026 · Madrid, on-site</div></div>
+                </div>
+              ` : null}
+
+              ${v.s10 ? html`
+                <p style="margin: 0; color: #0f141a; font-size: 14px; line-height: 20px">Whether it's a workshop, a collaboration, a project or just a question about AWS, I'll answer. Pick a channel and the message is delivered straight to me.</p>
+                
+                <div style="display: flex; gap: 10px; flex-wrap: wrap">
+                  <a href="mailto:100553235@alumnos.uc3m.es" style="padding: 6px 20px; border-radius: 20px; border: 2px solid #FF9900; background: #FF9900; color: #0f141a; font-weight: 700; text-decoration: none">Send email</a>
+                  <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/ivan-dmitriev-uc3m/" style="padding: 6px 16px; border-radius: 20px; border: 2px solid #FF9900; color: #0f141a; font-weight: 700; text-decoration: none">LinkedIn</a>
+                  <a target="_blank" rel="noopener" href="https://github.com/hardvanika" style="padding: 6px 16px; border-radius: 20px; border: 2px solid #FF9900; color: #0f141a; font-weight: 700; text-decoration: none">GitHub</a>
+                  <a href=${v.bcUrl} target="_blank" rel="noopener" style="padding: 6px 16px; border-radius: 20px; border: 2px solid #FF9900; color: #0f141a; font-weight: 700; text-decoration: none">Builder Center</a>
+                </div>
+              ` : null}
+
+              ${v.s11 ? html`
+                <div style="font: 700 42px Monaco, Menlo, Consolas, 'Courier New', monospace; color: #00802f; letter-spacing: -0.02em">200 OK</div>
+                <div style="font-size: 14px; color: #424650">Request completed in 84 ms. Thanks for travelling through my network.</div>
+                <div><button onClick=${v.restart} style="padding: 8px 18px; border-radius: 20px; border: 2px solid #FF9900; background: #ffffff; color: #0f141a; font: 700 14px 'Open Sans', sans-serif; cursor: pointer; min-height: 40px">Replay request</button></div>
+              ` : null}
+            </div>
+          </section>
+        ` : null}
     </main>
   </div>
 
-  <footer style="flex: none; height: 30px; background: #161d26; color: #c6c6cd; display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: 20px; padding: 0 16px; font-size: 12px">
+  <footer class="app-foot" style="flex: none; height: 30px; background: #161d26; color: #c6c6cd; display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: 20px; padding: 0 16px; font-size: 12px">
     <span style="display: flex; gap: 20px"><button onClick=${v.toggleTerm} style="background: none; border: 0; padding: 0; color: #c6c6cd; font: 700 12px 'Open Sans', sans-serif; cursor: pointer; display: flex; align-items: center; gap: 6px"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#c6c6cd" stroke-width="2" aria-hidden="true"><rect x="1" y="2" width="14" height="12" rx="2"></rect><path d="M4 6 L6.5 8 L4 10"></path></svg>CloudShell</button><a href="mailto:100553235@alumnos.uc3m.es?subject=Feedback%20on%20your%20site" style="color: #c6c6cd; text-decoration: none">Feedback</a></span><span style="text-align: center">© 2026 Ivan Dmitriev · personal site, not affiliated with Amazon Web Services</span><span></span>
   </footer>
 </div>
@@ -455,7 +610,7 @@ class Site extends Component {
       { id: 'cloudwatch', alias: ['cloudwatch','cw','mapfre','work'], name: 'CloudWatch', act: 'dashboard operations · MAPFRE', ms: 72 },
       { id: 'ses', alias: ['ses','email','contact','mail'], name: 'SES', act: 'send-email → ivan', ms: 81 }
     ];
-    this.CAT = {"1": ["I was born in Moscow in 2006 and grew up on the move: my family travelled a lot, so new countries became normal early. In 2022 we left for Bulgaria, then Greece, then Castellón, and in 2024 I moved to Madrid for university. Every move meant a new language, new friends and someone kind enough to show me how things worked.", "Record · Type · Value", "ivan.dmitriev · A · Madrid, Spain", "born · TXT · \"Moscow, 2006\"", "route · CNAME · Bulgaria → Greece → Castellón → Madrid"], "2": ["Since 2024 I study the dual degree in Business Administration and Computer Science at Universidad Carlos III de Madrid, on the Colmenarejo campus. Beyond classes I got involved in how the university works: I was elected to the University Senate (Claustro) and sit on the Coexistence Committee.", "Origin", "Universidad Carlos III de Madrid", "Degree", "BBA and Computer Science, 3rd year", "Edge location", "MAD · Colmenarejo campus", "Also at UC3M", "University Senate member"], "3": ["In September 2026 I founded the AWS Student Builder Group at UC3M and became its Group Leader. I built a core team of five leads (tech, workshops, marketing, multimedia and outreach) and on 21 October 2026 we ran our first event on campus, with speakers from AWS and industry. In November we run three hands-on workshops on Lambda, S3 and EC2, with Cloud Practitioner Essentials as the starting point for every member.", "Student Builder Group Leader and Founder · Amazon Web Services", "Group", "AWS SBG UC3M · Colmenarejo", "Since", "September 2026", "First event", "21 Oct 2026, speakers from AWS and industry", "Stages · November", "Lambda · S3 · EC2 workshops", "Join on Meetup"], "4": ["I2C (Informática To Colme) is the computer science association of the Colmenarejo campus, and I'm its Vice President. This year we restructured it: new areas for talent and marketing, a welcome guide for new members, a new visual identity and a WhatsApp community with a group for every area. Our name comes from the I²C bus, two wires that let many devices talk; that's what we try to do with people.", "Role", "Vice President", "Association", "Informática To Colme, UC3M", "Named after", "The I²C bus (Philips, 1982): two wires, many devices talking. We do the same with people.", "Rules → targets", "AI · Cybersecurity · Robotics · IBM Z · AWS SBG · I2C x Open", "With Open, the UC3M student social network, we built its ML feed algorithm."], "5": ["I like being where student voices get heard. At RITSI, the national association of computer science students, I represent UC3M and, since July 2026, I run the Social Collaboration area, which promotes social, educational and outreach initiatives. At UC3M I'm part of the Student Delegation, in the University Senate and the Coexistence Committee.", "Messages available (4) · student representation", "Org · Role · Since", "RITSI · UC3M representative · Nov 2025", "RITSI · Social Collaboration officer · Jul 2026", "UC3M Delegation · University Senate (Claustro) · Jun 2026", "UC3M Delegation · Coexistence Committee · Mar 2025"], "6": ["Small things I build to learn and to help the communities I'm part of. With I2C we built the ML feed algorithm for Open, the UC3M student social network. And this site is itself an AWS architecture: every box you open is a real service.", "Function · Description", "open-feed · ML feed for Open, the UC3M student social network", "this-site · You are inside it", "Tech superpowers", "Layers (5) · attached to every function I run", "Layer · Contents", "cloud · AWS: Lambda, S3, EC2, API Gateway, DynamoDB, Amplify · Cloud Practitioner Essentials", "code · Python · machine learning (KNN, recommender systems, OpenVINO) · HTML, CSS, JavaScript", "security · TryHackMe: Cyber Security 101, Defending AWS · networking and Linux basics", "people · Building and leading communities · organising events and hands-on workshops", "languages · Russian (native) · English (CPE, IELTS 8) · Spanish (C1) · Italian"], "7": ["My latest certifications, read straight from the table. This is just the start: the table keeps growing and new items get written here as I finish them.", "Latest items (5) · more being written", "certification · issuer · date", "AWS SBG Leader Badge · Amazon Web Services · Oct 2026", "IELTS · overall 8 (Listening 9, Reading 9) · British Council · Oct 2026", "Cyber Security 101 (SEC1) · TryHackMe · Jun 2026", "McKinsey.org Forward Program · McKinsey & Company · Jun 2026", "Defending AWS (56%, in progress) · TryHackMe · —", "Next certification · writing item… · More to come · Soon", "Load more on LinkedIn ↗"], "8": ["I learn security by doing. On TryHackMe I completed the Cyber Security 101 path, covering networking, Linux, web basics and the core offensive and defensive tools, and I'm now 56% through Defending AWS, the path on detecting and stopping attacks in AWS environments.", "Training path · Type · Status", "TryHackMe · Cyber Security 101 · Path · Completed", "TryHackMe · Defending AWS · Path · In progress · 56%", "I learn security by attacking labs, not by reading about them. My TryHackMe profile ↗"], "9": ["Since September 2026 I'm an operations intern at MAPFRE, in the Corporate Operations Area of Mawdy's central services. I work on supplier operations, learning from the inside how a large company keeps its operations running.", "Role", "Operations intern", "Company", "MAPFRE · Mawdy central services", "Area", "Corporate Operations · suppliers", "Since", "September 2026 · Madrid, on-site"], "10": ["Whether it's a workshop, a collaboration, a project or just a question about AWS, I'll answer. Pick a channel and the message is delivered straight to me.", "Send email", "LinkedIn", "GitHub", "Builder Center"]};
+    this.CAT = {"1": ["I was born in Moscow in 2006 and grew up on the move: my family travelled a lot, so new countries became normal early. In 2022 we left for Bulgaria, then Greece, then Spain, and in 2024 I moved to Madrid for university. Every move meant a new language, new friends and someone kind enough to show me how things worked.", "Record · Type · Value", "ivan.dmitriev · A · Madrid, Spain", "born · TXT · \"Moscow, 2006\"", "route · CNAME · Bulgaria → Greece → Spain → Madrid"], "2": ["Since 2024 I study the dual degree in Business Administration and Computer Science at Universidad Carlos III de Madrid, on the Colmenarejo campus. Beyond classes I got involved in how the university works: I was elected to the University Senate (Claustro) and sit on the Coexistence Committee.", "Origin", "Universidad Carlos III de Madrid", "Degree", "BBA and Computer Science, 3rd year", "Edge location", "MAD · Colmenarejo campus", "Also at UC3M", "University Senate member"], "3": ["In September 2026 I founded the AWS Student Builder Group at UC3M and became its Group Leader. I built a core team of five leads (tech, workshops, marketing, multimedia and outreach) and on 21 October 2026 we ran our first event on campus, with speakers from AWS and industry. In November we run three hands-on workshops on Lambda, S3 and EC2, with Cloud Practitioner Essentials as the starting point for every member.", "Student Builder Group Leader and Founder · Amazon Web Services", "Group", "AWS SBG UC3M · Colmenarejo", "Since", "September 2026", "First event", "21 Oct 2026, speakers from AWS and industry", "Stages · November", "Lambda · S3 · EC2 workshops", "Join on Meetup"], "4": ["I2C (Informática To Colme) is the computer science association of the Colmenarejo campus, and I'm its Vice President. This year we restructured it: new areas for talent and marketing, a welcome guide for new members, a new visual identity and a WhatsApp community with a group for every area. Our name comes from the I²C bus, two wires that let many devices talk; that's what we try to do with people.", "Role", "Vice President", "Association", "Informática To Colme, UC3M", "Named after", "The I²C bus (Philips, 1982): two wires, many devices talking. We do the same with people.", "Rules → targets", "AI · Cybersecurity · Robotics · IBM Z · AWS SBG · I2C x Open", "With Open, the UC3M student social network, we built its ML feed algorithm."], "5": ["I like being where student voices get heard. At RITSI, the national association of computer science students, I represent UC3M and, since July 2026, I run the Social Collaboration area, which promotes social, educational and outreach initiatives. At UC3M I'm part of the Student Delegation, in the University Senate and the Coexistence Committee.", "Messages available (4) · student representation", "Org · Role · Since", "RITSI · UC3M representative · Nov 2025", "RITSI · Social Collaboration officer · Jul 2026", "UC3M Delegation · University Senate (Claustro) · Jun 2026", "UC3M Delegation · Coexistence Committee · Mar 2025"], "6": ["Small things I build to learn and to help the communities I'm part of. With I2C we built the ML feed algorithm for Open, the UC3M student social network. And this site is itself an AWS architecture: every box you open is a real service.", "Function · Description", "open-feed · ML feed for Open, the UC3M student social network", "this-site · You are inside it", "Tech superpowers", "Layers (5) · attached to every function I run", "Layer · Contents", "cloud · AWS: Lambda, S3, EC2, API Gateway, DynamoDB, Amplify · Cloud Practitioner Essentials", "code · Python · machine learning (KNN, recommender systems, OpenVINO) · HTML, CSS, JavaScript", "security · TryHackMe: Cyber Security 101, Defending AWS · networking and Linux basics", "people · Building and leading communities · organising events and hands-on workshops", "languages · Russian (native) · English (CPE, IELTS 8) · Spanish (C1) · Italian"], "7": ["My latest certifications, read straight from the table. This is just the start: the table keeps growing and new items get written here as I finish them.", "Latest items (5) · more being written", "certification · issuer · date", "AWS SBG Leader Badge · Amazon Web Services · Oct 2026", "IELTS · overall 8 (Listening 9, Reading 9) · British Council · Oct 2026", "Cyber Security 101 (SEC1) · TryHackMe · Jun 2026", "McKinsey.org Forward Program · McKinsey & Company · Jun 2026", "Defending AWS (56%, in progress) · TryHackMe · —", "Next certification · writing item… · More to come · Soon", "Load more on LinkedIn ↗"], "8": ["I learn security by doing. On TryHackMe I completed the Cyber Security 101 path, covering networking, Linux, web basics and the core offensive and defensive tools, and I'm now 56% through Defending AWS, the path on detecting and stopping attacks in AWS environments.", "Training path · Type · Status", "TryHackMe · Cyber Security 101 · Path · Completed", "TryHackMe · Defending AWS · Path · In progress · 56%", "I learn security by attacking labs, not by reading about them. My TryHackMe profile ↗"], "9": ["Since September 2026 I'm an operations intern at MAPFRE, in the Corporate Operations Area of Mawdy's central services. I work on supplier operations, learning from the inside how a large company keeps its operations running.", "Role", "Operations intern", "Company", "MAPFRE · Mawdy central services", "Area", "Corporate Operations · suppliers", "Since", "September 2026 · Madrid, on-site"], "10": ["Whether it's a workshop, a collaboration, a project or just a question about AWS, I'll answer. Pick a channel and the message is delivered straight to me.", "Send email", "LinkedIn", "GitHub", "Builder Center"]};
     this.state.k = 1;
     this.onResize = () => this.fit();
   }
@@ -515,7 +670,7 @@ class Site extends Component {
   }
   print(arr) { this.setState((prev) => ({ tabs: prev.tabs.map((t, i) => i === prev.active ? Object.assign({}, t, { lines: t.lines.concat(arr).slice(-160) }) : t) })); }
   fileText() {
-    return ['Ivan Dmitriev', 'AWS Student Builder Group Leader · UC3M (Colmenarejo)', 'VP of I2C · BBA + Computer Science at UC3M', '', 'Route: Moscow → Bulgaria → Greece → Castellón → Madrid', 'Borders changed, the builder didn\'t.', '', 'linkedin.com/in/ivan-dmitriev-uc3m', 'github.com/hardvanika'].join('\n');
+    return ['Ivan Dmitriev', 'AWS Student Builder Group Leader · UC3M (Colmenarejo)', 'VP of I2C · BBA + Computer Science at UC3M', '', 'Route: Moscow → Bulgaria → Greece → Spain → Madrid', 'Borders changed, the builder didn\'t.', '', 'linkedin.com/in/ivan-dmitriev-uc3m', 'github.com/hardvanika'].join('\n');
   }
   promptOf(t) { return '[cloudshell-user@ip-' + t.ip + ' ~]$'; }
   addTab(region) {
@@ -607,7 +762,7 @@ class Site extends Component {
       { t: 'reset · clear                back to the start · clear the screen', c: D }])); return; }
     if (c === 'curl' || (c === 'get') || c === 'send' || c === 'ping') { this.print(out); this.runTrip(); return; }
     if (c === 'ls') { this.print(out.concat(this.SV.map((v, i) => ({ t: String(i + 1).padStart(2, ' ') + '  ' + v.id.padEnd(12, ' ') + v.act, c: D })), [{ t: 'Read any of them with: cat <name>   e.g. cat route53 · cat 7', c: '#ff9900' }])); return; }
-    if (c === 'whoami') { this.print(out.concat([{ t: 'Ivan Dmitriev · Moscow → Bulgaria → Greece → Castellón → Madrid', c: W }, { t: 'AWS Student Builder Group Leader (UC3M) · VP of I2C · BBA + CS at UC3M', c: D }, { t: 'Borders changed, the builder didn\'t.', c: '#FF9900' }])); this.go(1); return; }
+    if (c === 'whoami') { this.print(out.concat([{ t: 'Ivan Dmitriev · Moscow → Bulgaria → Greece → Spain → Madrid', c: W }, { t: 'AWS Student Builder Group Leader (UC3M) · VP of I2C · BBA + CS at UC3M', c: D }, { t: 'Borders changed, the builder didn\'t.', c: '#FF9900' }])); this.go(1); return; }
     if (c === 'contact') { this.print(out.concat([{ t: 'linkedin.com/in/ivan-dmitriev-uc3m · github.com/hardvanika · 100553235@alumnos.uc3m.es', c: D }])); this.go(10); return; }
     if (c === 'reset') { this.print(out); this.go(0); return; }
     if (c === 'aws') {
