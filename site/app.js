@@ -160,8 +160,7 @@ const view = (v) => html`
             </div>
             <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px">
               <button class="btnN" onClick=${v.restart} aria-label="Restart request" title="Restart request" style="width: 32px; height: 32px; border-radius: 50%; border: 2px solid #006ce0; background: #ffffff; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#006ce0" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M15 8c0 3.87-3.13 7-7 7s-7-3.13-7-7 3.13-7 7-7c2.79 0 5.2 1.63 6.33 4"></path><path d="M15 1v4h-4"></path></svg></button>
-              <button class="btnN" onClick=${v.prev} style="min-height: 30px; padding: 4px 20px; border-radius: 20px; border: 2px solid #006ce0; background: #ffffff; color: #006ce0; font: 700 14px 'Hind', 'Open Sans', sans-serif; cursor: pointer">Previous</button>
-          <button class="btnN" onClick=${v.togglePlay} style="min-height: 30px; padding: 4px 20px; border-radius: 20px; border: 2px solid #006ce0; background: #ffffff; color: #006ce0; font: 700 14px 'Hind', 'Open Sans', sans-serif; cursor: pointer">${v.playLabel}</button>
+          <button class="btnN" onClick=${v.togglePlay} style="min-height: 30px; padding: 4px 20px; border-radius: 20px; border: 2px solid #006ce0; background: #ffffff; color: #006ce0; font: 700 14px 'Hind', 'Open Sans', sans-serif; cursor: pointer; display: flex; align-items: center; gap: 8px"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d=${v.playIcon} fill="#006ce0" stroke="#006ce0" stroke-width="2" stroke-linejoin="round"></path></svg>${v.playLabel}</button>
           <button class="btnP" onClick=${v.primary} style="min-height: 30px; padding: 4px 20px; border-radius: 20px; border: 2px solid #FF9900; background: #FF9900; color: #0f141a; font: 700 14px 'Hind', 'Open Sans', sans-serif; cursor: pointer">${v.primaryLabel}</button>
             </div>
           </div>
@@ -187,9 +186,9 @@ const view = (v) => html`
             </div>
             <span style="flex: 1"></span>
             <div class="hide-m" style="display: flex; align-items: center; gap: 4px; color: #424650">
-              <button onClick=${v.pagePrev} aria-label="Previous hop" style="background: none; border: 0; cursor: pointer; padding: 4px; display: flex"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#8c8c94" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M11 2 5 8l6 6"></path></svg></button>
-              <span style="min-width: 22px; text-align: center; font-weight: 700; color: #0f141a">${v.pageNum}</span>
-              <button onClick=${v.pageNext} aria-label="Next hop" style="background: none; border: 0; cursor: pointer; padding: 4px; display: flex"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#8c8c94" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="m5 2 6 6-6 6"></path></svg></button>
+              <button onClick=${v.pagePrev} aria-label="Previous hop" style="background: none; border: 0; cursor: pointer; padding: 4px; display: flex"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#424650" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M11 2 5 8l6 6"></path></svg></button>
+              ${(v.pages || []).map((pg) => html`<button onClick=${pg.pick} aria-label=${pg.aria} style="min-width: 26px; height: 26px; padding: 0 4px; border: 0; background: none; cursor: pointer; font: ${pg.w} 14px 'Hind', 'Open Sans', sans-serif; color: ${pg.c}; border-radius: 6px">${pg.num}</button>`)}
+              <button onClick=${v.pageNext} aria-label="Next hop" style="background: none; border: 0; cursor: pointer; padding: 4px; display: flex"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#424650" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="m5 2 6 6-6 6"></path></svg></button>
             </div>
           </div>
         </div>
@@ -390,9 +389,9 @@ const view = (v) => html`
                 
                 <div style="display: flex; gap: 10px; flex-wrap: wrap">
                   <a href="mailto:100553235@alumnos.uc3m.es" style="padding: 6px 20px; border-radius: 20px; border: 2px solid #FF9900; background: #FF9900; color: #0f141a; font-weight: 700; text-decoration: none">Send email</a>
-                  <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/ivan-dmitriev-uc3m/" style="padding: 6px 16px; border-radius: 20px; border: 2px solid #FF9900; color: #0f141a; font-weight: 700; text-decoration: none">LinkedIn</a>
-                  <a target="_blank" rel="noopener" href="https://github.com/hardvanika" style="padding: 6px 16px; border-radius: 20px; border: 2px solid #FF9900; color: #0f141a; font-weight: 700; text-decoration: none">GitHub</a>
-                  <a href=${v.bcUrl} target="_blank" rel="noopener" style="padding: 6px 16px; border-radius: 20px; border: 2px solid #FF9900; color: #0f141a; font-weight: 700; text-decoration: none">Builder Center</a>
+                  <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/ivan-dmitriev-uc3m/" style="padding: 6px 16px; border-radius: 20px; border: 2px solid #006ce0; color: #006ce0; font-weight: 700; text-decoration: none">LinkedIn</a>
+                  <a target="_blank" rel="noopener" href="https://github.com/hardvanika" style="padding: 6px 16px; border-radius: 20px; border: 2px solid #006ce0; color: #006ce0; font-weight: 700; text-decoration: none">GitHub</a>
+                  <a href=${v.bcUrl} target="_blank" rel="noopener" style="padding: 6px 16px; border-radius: 20px; border: 2px solid #006ce0; color: #006ce0; font-weight: 700; text-decoration: none">Builder Center</a>
                 </div>
               ` : null}
 
@@ -550,9 +549,9 @@ const view = (v) => html`
                 
                 <div style="display: flex; gap: 10px; flex-wrap: wrap">
                   <a href="mailto:100553235@alumnos.uc3m.es" style="padding: 6px 20px; border-radius: 20px; border: 2px solid #FF9900; background: #FF9900; color: #0f141a; font-weight: 700; text-decoration: none">Send email</a>
-                  <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/ivan-dmitriev-uc3m/" style="padding: 6px 16px; border-radius: 20px; border: 2px solid #FF9900; color: #0f141a; font-weight: 700; text-decoration: none">LinkedIn</a>
-                  <a target="_blank" rel="noopener" href="https://github.com/hardvanika" style="padding: 6px 16px; border-radius: 20px; border: 2px solid #FF9900; color: #0f141a; font-weight: 700; text-decoration: none">GitHub</a>
-                  <a href=${v.bcUrl} target="_blank" rel="noopener" style="padding: 6px 16px; border-radius: 20px; border: 2px solid #FF9900; color: #0f141a; font-weight: 700; text-decoration: none">Builder Center</a>
+                  <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/ivan-dmitriev-uc3m/" style="padding: 6px 16px; border-radius: 20px; border: 2px solid #006ce0; color: #006ce0; font-weight: 700; text-decoration: none">LinkedIn</a>
+                  <a target="_blank" rel="noopener" href="https://github.com/hardvanika" style="padding: 6px 16px; border-radius: 20px; border: 2px solid #006ce0; color: #006ce0; font-weight: 700; text-decoration: none">GitHub</a>
+                  <a href=${v.bcUrl} target="_blank" rel="noopener" style="padding: 6px 16px; border-radius: 20px; border: 2px solid #006ce0; color: #006ce0; font-weight: 700; text-decoration: none">Builder Center</a>
                 </div>
               ` : null}
 
@@ -722,6 +721,16 @@ class Site extends Component {
   print(arr) { this.setState((prev) => ({ tabs: prev.tabs.map((t, i) => i === prev.active ? Object.assign({}, t, { lines: t.lines.concat(arr).slice(-160) }) : t) })); }
   fileText() {
     return ['Ivan Dmitriev', 'AWS Student Builder Group Leader · UC3M (Colmenarejo)', 'VP of I2C · BBA + Computer Science at UC3M', '', 'Route: Moscow → Bulgaria → Greece → Spain → Madrid', 'Borders changed, the builder didn\'t.', '', 'linkedin.com/in/ivan-dmitriev-uc3m', 'github.com/hardvanika'].join('\n');
+  }
+  togglePlayFn() {
+    if (this.timer) { clearInterval(this.timer); this.timer = 0; this.setState({ playing: false }); return; }
+    this.setState({ playing: true });
+    if (this.state.step >= 11) this.go(0); else this.go(this.state.step + 1);
+    this.timer = setInterval(() => {
+      if (this.state.moving) return;
+      if (this.state.step >= 11) { clearInterval(this.timer); this.timer = 0; this.setState({ playing: false }); return; }
+      this.go(this.state.step + 1);
+    }, 4200);
   }
   promptOf(t) { return '~ $'; }
   addTab(region) {
@@ -908,6 +917,8 @@ class Site extends Component {
       onSearch: (e) => this.setState({ q: e.target.value, qw: 'top' }),
       onSearch2: (e) => this.setState({ q: e.target.value, qw: 'arch' }),
       pageNext: () => this.go(Math.min(11, this.state.step + 1)), pagePrev: () => this.go(Math.max(0, this.state.step - 1)), pageNum: st.step > 10 ? 10 : st.step,
+      pages: [1,2,3,4,5,6,7,8,9,10].map((k) => ({ num: k, aria: 'Hop ' + k, w: st.step === k ? 700 : 400, c: st.step === k ? '#0f141a' : '#656871', pick: () => this.go(k) })),
+      playIcon: st.playing ? 'M4 2v12M12 2v12' : 'M4 2v12l9-6z',
       onSearchKey: (e) => { if (e.key === 'Enter' && results.length) results[0].pick(); if (e.key === 'Escape') this.setState({ q: '' }); },
       k: this.state.k.toFixed(4),
       stageRef: (el) => { this.stageEl = el; if (el) { setTimeout(this.onResize, 0); if (window.ResizeObserver && !this.ro) { this.ro = new ResizeObserver(() => this.onResize()); this.ro.observe(el); } } },
