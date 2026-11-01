@@ -1,14 +1,14 @@
 import { html, render, Component } from './vendor/htm-preact-standalone.module.js';
 
 const view = (v) => html`
-<div class="app-root" style="height: 100vh; min-height: 560px; overflow: hidden; display: flex; flex-direction: column; background: #ffffff; color: #0f141a; font-family: 'Open Sans', 'Helvetica Neue', Roboto, Arial, sans-serif; font-size: 14px; line-height: 20px">
+<div class="app-root" style="height: 100vh; min-height: 560px; overflow: hidden; display: flex; flex-direction: column; background: #ffffff; color: #0f141a; font-family: 'Hind', 'Open Sans', 'Helvetica Neue', Roboto, Arial, sans-serif; font-size: 14px; line-height: 20px">
 
   
   <header style="flex: none; position: relative; z-index: 60; height: 40px; background: #161d26; display: flex; align-items: center; gap: 16px; padding: 0 16px; border-bottom: 1px solid #424650">
-    <a href="#" onClick=${v.restart} aria-label="Home" style="display: flex; align-items: center; gap: 8px; color: #ffffff; text-decoration: none; font: 700 15px 'Open Sans', sans-serif; white-space: nowrap"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="6" fill="#FF9900" stroke="#ffffff" stroke-width="2"></circle></svg>ivan.dmitriev</a>
+    <a href="#" onClick=${v.restart} aria-label="Home" style="display: flex; align-items: center; gap: 8px; color: #ffffff; text-decoration: none; font: 700 15px 'Hind', 'Open Sans', sans-serif; white-space: nowrap"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="6" fill="#FF9900" stroke="#ffffff" stroke-width="2"></circle></svg>ivan.dmitriev</a>
     ${v.anyMenu ? html`<div onClick=${v.closeMenus} style="position: fixed; inset: 0; z-index: 45"></div>` : null}
     <div style="position: relative; z-index: 56">
-    <button class="tnav" onClick=${v.menuServices} aria-expanded=${v.mServices} style="background: none; border: 0; cursor: pointer; display: flex; align-items: center; gap: 4px; padding: 4px 6px; border-radius: 4px; color: #dedee3; font: 700 14px 'Open Sans', sans-serif">
+    <button class="tnav" onClick=${v.menuServices} aria-expanded=${v.mServices} style="background: none; border: 0; cursor: pointer; display: flex; align-items: center; gap: 4px; padding: 4px 6px; border-radius: 4px; color: #dedee3; font: 700 14px 'Hind', 'Open Sans', sans-serif">
       <svg width="16" height="16" viewBox="0 0 16 16" fill="#dedee3" aria-hidden="true"><rect x="1" y="1" width="4" height="4" rx="1"></rect><rect x="6" y="1" width="4" height="4" rx="1"></rect><rect x="11" y="1" width="4" height="4" rx="1"></rect><rect x="1" y="6" width="4" height="4" rx="1"></rect><rect x="6" y="6" width="4" height="4" rx="1"></rect><rect x="11" y="6" width="4" height="4" rx="1"></rect><rect x="1" y="11" width="4" height="4" rx="1"></rect><rect x="6" y="11" width="4" height="4" rx="1"></rect><rect x="11" y="11" width="4" height="4" rx="1"></rect></svg>
       Services <span style="font-size: 10px">▾</span>
     </button>
@@ -18,7 +18,7 @@ const view = (v) => html`
           <div style="padding: 4px 8px 8px">
             <div style="padding: 4px 8px; font-weight: 700; font-size: 12px; color: #656871; text-transform: none">${g.cat}</div>
             ${(g.items || []).map((it) => html`
-              <button role="menuitem" onClick=${it.pick} style="display: flex; align-items: center; gap: 10px; width: 100%; text-align: left; padding: 6px 16px; background: none; border: 0; cursor: pointer; font: 400 14px 'Open Sans', sans-serif; color: #0f141a; text-decoration: none; box-sizing: border-box; padding: 5px 8px; border-radius: 6px">
+              <button role="menuitem" onClick=${it.pick} style="display: flex; align-items: center; gap: 10px; width: 100%; text-align: left; padding: 6px 16px; background: none; border: 0; cursor: pointer; font: 400 14px 'Hind', 'Open Sans', sans-serif; color: #0f141a; text-decoration: none; box-sizing: border-box; padding: 5px 8px; border-radius: 6px">
                 <img src=${it.icon} alt="" style="width: 24px; height: 24px; border-radius: 4px" />
                 <span style="display: flex; flex-direction: column"><strong style="font-weight: 700">${it.label}</strong><span style="font-size: 12px; color: #656871">${it.title}</span></span>
               </button>
@@ -30,13 +30,13 @@ const view = (v) => html`
     </div>
     <div style="position: relative; flex: 0 1 560px; min-width: 0"><label class="search" style="display: flex; align-items: center; gap: 8px; height: 30px; padding: 0 10px; border: 1px solid #656871; border-radius: 8px; background: #161d26; color: #a4a4ad; box-sizing: border-box">
       <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="#a4a4ad" stroke-width="2" aria-hidden="true"><circle cx="7" cy="7" r="5"></circle><path d="M11 11 L15 15"></path></svg>
-      <input type="search" placeholder="Search services, skills, places" aria-label="Search" value=${v.q} onInput=${v.onSearch} onKeyDown=${v.onSearchKey} style="flex: 1; min-width: 0; background: transparent; border: 0; outline: none; color: #f9f9fa; font: 400 14px 'Open Sans', sans-serif" />
+      <input type="search" placeholder="Search services, skills, places" aria-label="Search" value=${v.q} onInput=${v.onSearch} onKeyDown=${v.onSearchKey} style="flex: 1; min-width: 0; background: transparent; border: 0; outline: none; color: #f9f9fa; font: 400 14px 'Hind', 'Open Sans', sans-serif" />
       <span style="font-size: 12px; color: #a4a4ad">[Alt+S]</span>
     </label>
     ${v.hasResults ? html`
       <div role="listbox" style="position: absolute; left: 0; right: 0; top: 34px; z-index: 50; background: #ffffff; border-radius: 8px; box-shadow: 0px 1px 1px 1px #e9ebed, 0px 6px 36px #0007161a; padding: 6px 0; overflow: hidden">
         ${(v.results || []).map((res) => html`
-          <button onClick=${res.pick} style="display: flex; width: 100%; align-items: center; gap: 10px; padding: 6px 14px; background: none; border: 0; cursor: pointer; text-align: left; font: 400 14px 'Open Sans', sans-serif; color: #0f141a">
+          <button onClick=${res.pick} style="display: flex; width: 100%; align-items: center; gap: 10px; padding: 6px 14px; background: none; border: 0; cursor: pointer; text-align: left; font: 400 14px 'Hind', 'Open Sans', sans-serif; color: #0f141a">
             <img src=${res.icon} alt="" style="width: 24px; height: 24px; border-radius: 4px" />
             <span style="display: flex; flex-direction: column"><strong style="font-weight: 700">${res.label}</strong><span style="font-size: 12px; color: #656871">${res.title}</span></span>
           </button>
@@ -48,9 +48,9 @@ const view = (v) => html`
     ` : null}
     </div>
     <span style="flex: 1"></span>
-    <button class="tnav" onClick=${v.toggleTerm} aria-label="CloudShell" title="CloudShell" style="background: none; border: 0; cursor: pointer; display: flex; align-items: center; gap: 4px; padding: 4px 6px; border-radius: 4px; color: #dedee3; font: 700 14px 'Open Sans', sans-serif"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#dedee3" stroke-width="2" aria-hidden="true"><rect x="1" y="2" width="14" height="12" rx="2"></rect><path d="M4 6 L6.5 8 L4 10 M8 10 H12"></path></svg></button>
+    <button class="tnav" onClick=${v.toggleTerm} aria-label="CloudShell" title="CloudShell" style="background: none; border: 0; cursor: pointer; display: flex; align-items: center; gap: 4px; padding: 4px 6px; border-radius: 4px; color: #dedee3; font: 700 14px 'Hind', 'Open Sans', sans-serif"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#dedee3" stroke-width="2" aria-hidden="true"><rect x="1" y="2" width="14" height="12" rx="2"></rect><path d="M4 6 L6.5 8 L4 10 M8 10 H12"></path></svg></button>
     <div style="position: relative; z-index: 56">
-      <button class="tnav" onClick=${v.menuBell} aria-label="Notifications" title="Notifications" style="background: none; border: 0; cursor: pointer; display: flex; align-items: center; gap: 4px; padding: 4px 6px; border-radius: 4px; color: #dedee3; font: 700 14px 'Open Sans', sans-serif; position: relative"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#dedee3" stroke-width="2" aria-hidden="true"><path d="M4 11 V7 a4 4 0 0 1 8 0 V11 L13 12 H3 Z M6.5 14 H9.5"></path></svg>${v.bellDot ? html`<span style="position: absolute; top: 3px; right: 4px; width: 7px; height: 7px; border-radius: 50%; background: #FF9900"></span>` : null}</button>
+      <button class="tnav" onClick=${v.menuBell} aria-label="Notifications" title="Notifications" style="background: none; border: 0; cursor: pointer; display: flex; align-items: center; gap: 4px; padding: 4px 6px; border-radius: 4px; color: #dedee3; font: 700 14px 'Hind', 'Open Sans', sans-serif; position: relative"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#dedee3" stroke-width="2" aria-hidden="true"><path d="M4 11 V7 a4 4 0 0 1 8 0 V11 L13 12 H3 Z M6.5 14 H9.5"></path></svg>${v.bellDot ? html`<span style="position: absolute; top: 3px; right: 4px; width: 7px; height: 7px; border-radius: 50%; background: #FF9900"></span>` : null}</button>
       ${v.mBell ? html`
         <div role="menu" style="position: absolute; top: 36px; z-index: 55; background: #ffffff; border-radius: 8px; box-shadow: 0px 1px 1px 1px #e9ebed, 0px 6px 36px #0007161a; padding: 6px 0; right: 0; width: 340px">
           <div style="padding: 6px 16px 8px; font-weight: 700; border-bottom: 1px solid #ebebf0">Notifications</div>
@@ -61,48 +61,54 @@ const view = (v) => html`
       ` : null}
     </div>
     <div style="position: relative; z-index: 56">
-      <button class="tnav hide-m" onClick=${v.menuHelp} aria-label="Help" title="Help" style="background: none; border: 0; cursor: pointer; display: flex; align-items: center; gap: 4px; padding: 4px 6px; border-radius: 4px; color: #dedee3; font: 700 14px 'Open Sans', sans-serif"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#dedee3" stroke-width="2" aria-hidden="true"><circle cx="8" cy="8" r="7"></circle><path d="M6.2 6.2 C6.2 5 7 4.4 8 4.4 C9 4.4 9.8 5.1 9.8 6 C9.8 7.3 8 7.4 8 9"></path><circle cx="8" cy="11.6" r="0.6" fill="#dedee3" stroke="none"></circle></svg></button>
+      <button class="tnav hide-m" onClick=${v.menuHelp} aria-label="Help" title="Help" style="background: none; border: 0; cursor: pointer; display: flex; align-items: center; gap: 4px; padding: 4px 6px; border-radius: 4px; color: #dedee3; font: 700 14px 'Hind', 'Open Sans', sans-serif"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#dedee3" stroke-width="2" aria-hidden="true"><circle cx="8" cy="8" r="7"></circle><path d="M6.2 6.2 C6.2 5 7 4.4 8 4.4 C9 4.4 9.8 5.1 9.8 6 C9.8 7.3 8 7.4 8 9"></path><circle cx="8" cy="11.6" r="0.6" fill="#dedee3" stroke="none"></circle></svg></button>
       ${v.mHelp ? html`
         <div role="menu" style="position: absolute; top: 36px; z-index: 55; background: #ffffff; border-radius: 8px; box-shadow: 0px 1px 1px 1px #e9ebed, 0px 6px 36px #0007161a; padding: 6px 0; right: 0; width: 260px">
-          <button role="menuitem" onClick=${v.helpCommands} style="display: flex; align-items: center; gap: 10px; width: 100%; text-align: left; padding: 6px 16px; background: none; border: 0; cursor: pointer; font: 400 14px 'Open Sans', sans-serif; color: #0f141a; text-decoration: none; box-sizing: border-box">CloudShell commands</button>
-          <button role="menuitem" onClick=${v.helpTour} style="display: flex; align-items: center; gap: 10px; width: 100%; text-align: left; padding: 6px 16px; background: none; border: 0; cursor: pointer; font: 400 14px 'Open Sans', sans-serif; color: #0f141a; text-decoration: none; box-sizing: border-box">Take the tour (autoplay)</button>
-          <button role="menuitem" onClick=${v.helpCurl} style="display: flex; align-items: center; gap: 10px; width: 100%; text-align: left; padding: 6px 16px; background: none; border: 0; cursor: pointer; font: 400 14px 'Open Sans', sans-serif; color: #0f141a; text-decoration: none; box-sizing: border-box">Send a request</button>
+          <button role="menuitem" onClick=${v.helpCommands} style="display: flex; align-items: center; gap: 10px; width: 100%; text-align: left; padding: 6px 16px; background: none; border: 0; cursor: pointer; font: 400 14px 'Hind', 'Open Sans', sans-serif; color: #0f141a; text-decoration: none; box-sizing: border-box">CloudShell commands</button>
+          <button role="menuitem" onClick=${v.helpTour} style="display: flex; align-items: center; gap: 10px; width: 100%; text-align: left; padding: 6px 16px; background: none; border: 0; cursor: pointer; font: 400 14px 'Hind', 'Open Sans', sans-serif; color: #0f141a; text-decoration: none; box-sizing: border-box">Take the tour (autoplay)</button>
+          <button role="menuitem" onClick=${v.helpCurl} style="display: flex; align-items: center; gap: 10px; width: 100%; text-align: left; padding: 6px 16px; background: none; border: 0; cursor: pointer; font: 400 14px 'Hind', 'Open Sans', sans-serif; color: #0f141a; text-decoration: none; box-sizing: border-box">Send a request</button>
           <div style="height: 1px; background: #ebebf0; margin: 4px 0"></div>
-          <button role="menuitem" onClick=${v.helpContact} style="display: flex; align-items: center; gap: 10px; width: 100%; text-align: left; padding: 6px 16px; background: none; border: 0; cursor: pointer; font: 400 14px 'Open Sans', sans-serif; color: #0f141a; text-decoration: none; box-sizing: border-box">Contact Ivan</button>
+          <button role="menuitem" onClick=${v.helpContact} style="display: flex; align-items: center; gap: 10px; width: 100%; text-align: left; padding: 6px 16px; background: none; border: 0; cursor: pointer; font: 400 14px 'Hind', 'Open Sans', sans-serif; color: #0f141a; text-decoration: none; box-sizing: border-box">Contact Ivan</button>
         </div>
       ` : null}
     </div>
     <div style="position: relative; z-index: 56">
-      <button class="tnav hide-m" onClick=${v.menuRegion} style="background: none; border: 0; cursor: pointer; display: flex; align-items: center; gap: 4px; padding: 4px 6px; border-radius: 4px; color: #dedee3; font: 700 14px 'Open Sans', sans-serif">${v.regionName} <span style="font-size: 10px">▾</span></button>
+      <button class="tnav hide-m" onClick=${v.menuRegion} style="background: none; border: 0; cursor: pointer; display: flex; align-items: center; gap: 4px; padding: 4px 6px; border-radius: 4px; color: #dedee3; font: 700 14px 'Hind', 'Open Sans', sans-serif">${v.regionName} <span style="font-size: 10px">▾</span></button>
       ${v.mRegion ? html`
         <div role="menu" style="position: absolute; top: 36px; z-index: 55; background: #ffffff; border-radius: 8px; box-shadow: 0px 1px 1px 1px #e9ebed, 0px 6px 36px #0007161a; padding: 6px 0; right: 0; width: 280px">
           ${(v.regions || []).map((rg) => html`
-            <button role="menuitem" onClick=${rg.pick} style="display: flex; align-items: center; gap: 10px; width: 100%; text-align: left; padding: 6px 16px; background: none; border: 0; cursor: pointer; font: 400 14px 'Open Sans', sans-serif; color: #0f141a; text-decoration: none; box-sizing: border-box; justify-content: space-between; font-weight: ${rg.w}"><span>${rg.name}</span><span style="font-size: 12px; color: #656871">${rg.code} ${rg.check}</span></button>
+            <button role="menuitem" onClick=${rg.pick} style="display: flex; align-items: center; gap: 10px; width: 100%; text-align: left; padding: 6px 16px; background: none; border: 0; cursor: pointer; font: 400 14px 'Hind', 'Open Sans', sans-serif; color: #0f141a; text-decoration: none; box-sizing: border-box; justify-content: space-between; font-weight: ${rg.w}"><span>${rg.name}</span><span style="font-size: 12px; color: #656871">${rg.code} ${rg.check}</span></button>
           `)}
         </div>
       ` : null}
     </div>
     <div style="position: relative; z-index: 56">
-      <button class="tnav hide-m" onClick=${v.menuAccount} style="background: none; border: 0; cursor: pointer; display: flex; align-items: center; gap: 4px; padding: 4px 6px; border-radius: 4px; color: #dedee3; font: 700 14px 'Open Sans', sans-serif">Ivan Dmitriev <span style="font-size: 10px">▾</span></button>
+      <button class="tnav hide-m" onClick=${v.menuAccount} style="background: none; border: 0; cursor: pointer; display: flex; align-items: center; gap: 4px; padding: 4px 6px; border-radius: 4px; color: #dedee3; font: 700 14px 'Hind', 'Open Sans', sans-serif">Ivan Dmitriev <span style="font-size: 10px">▾</span></button>
       ${v.mAccount ? html`
         <div role="menu" style="position: absolute; top: 36px; z-index: 55; background: #ffffff; border-radius: 8px; box-shadow: 0px 1px 1px 1px #e9ebed, 0px 6px 36px #0007161a; padding: 6px 0; right: 0; width: 280px">
           <div style="padding: 8px 16px 10px; border-bottom: 1px solid #ebebf0"><strong style="display: block">Ivan Dmitriev</strong><span style="font-size: 12px; color: #656871">AWS Student Builder Group Leader · UC3M</span></div>
-          <a role="menuitem" href="https://www.linkedin.com/in/ivan-dmitriev-uc3m/" target="_blank" rel="noopener" style="display: flex; align-items: center; gap: 10px; width: 100%; text-align: left; padding: 6px 16px; background: none; border: 0; cursor: pointer; font: 400 14px 'Open Sans', sans-serif; color: #0f141a; text-decoration: none; box-sizing: border-box">LinkedIn ↗</a>
-          <a role="menuitem" href="https://github.com/hardvanika" target="_blank" rel="noopener" style="display: flex; align-items: center; gap: 10px; width: 100%; text-align: left; padding: 6px 16px; background: none; border: 0; cursor: pointer; font: 400 14px 'Open Sans', sans-serif; color: #0f141a; text-decoration: none; box-sizing: border-box">GitHub ↗</a>
-          <a role="menuitem" href=${v.bcUrl} target="_blank" rel="noopener" style="display: flex; align-items: center; gap: 10px; width: 100%; text-align: left; padding: 6px 16px; background: none; border: 0; cursor: pointer; font: 400 14px 'Open Sans', sans-serif; color: #0f141a; text-decoration: none; box-sizing: border-box">AWS Builder Center ↗</a>
-          <button role="menuitem" onClick=${v.helpContact} style="display: flex; align-items: center; gap: 10px; width: 100%; text-align: left; padding: 6px 16px; background: none; border: 0; cursor: pointer; font: 400 14px 'Open Sans', sans-serif; color: #0f141a; text-decoration: none; box-sizing: border-box">Contact</button>
+          <a role="menuitem" href="https://www.linkedin.com/in/ivan-dmitriev-uc3m/" target="_blank" rel="noopener" style="display: flex; align-items: center; gap: 10px; width: 100%; text-align: left; padding: 6px 16px; background: none; border: 0; cursor: pointer; font: 400 14px 'Hind', 'Open Sans', sans-serif; color: #0f141a; text-decoration: none; box-sizing: border-box">LinkedIn ↗</a>
+          <a role="menuitem" href="https://github.com/hardvanika" target="_blank" rel="noopener" style="display: flex; align-items: center; gap: 10px; width: 100%; text-align: left; padding: 6px 16px; background: none; border: 0; cursor: pointer; font: 400 14px 'Hind', 'Open Sans', sans-serif; color: #0f141a; text-decoration: none; box-sizing: border-box">GitHub ↗</a>
+          <a role="menuitem" href=${v.bcUrl} target="_blank" rel="noopener" style="display: flex; align-items: center; gap: 10px; width: 100%; text-align: left; padding: 6px 16px; background: none; border: 0; cursor: pointer; font: 400 14px 'Hind', 'Open Sans', sans-serif; color: #0f141a; text-decoration: none; box-sizing: border-box">AWS Builder Center ↗</a>
+          <button role="menuitem" onClick=${v.helpContact} style="display: flex; align-items: center; gap: 10px; width: 100%; text-align: left; padding: 6px 16px; background: none; border: 0; cursor: pointer; font: 400 14px 'Hind', 'Open Sans', sans-serif; color: #0f141a; text-decoration: none; box-sizing: border-box">Contact</button>
           <div style="height: 1px; background: #ebebf0; margin: 4px 0"></div>
-          <button role="menuitem" onClick=${v.signOut} style="display: flex; align-items: center; gap: 10px; width: 100%; text-align: left; padding: 6px 16px; background: none; border: 0; cursor: pointer; font: 400 14px 'Open Sans', sans-serif; color: #0f141a; text-decoration: none; box-sizing: border-box">Sign out</button>
+          <button role="menuitem" onClick=${v.signOut} style="display: flex; align-items: center; gap: 10px; width: 100%; text-align: left; padding: 6px 16px; background: none; border: 0; cursor: pointer; font: 400 14px 'Hind', 'Open Sans', sans-serif; color: #0f141a; text-decoration: none; box-sizing: border-box">Sign out</button>
         </div>
       ` : null}
     </div>
   </header>
 
+  <div class="crumbbar" style="flex: none; height: 40px; display: flex; align-items: center; gap: 12px; padding: 0 12px; background: #ffffff; border-bottom: 1px solid #c6c6cd; font-size: 14px">
+    <button class="hamb" onClick=${v.toggleNav} aria-label="Toggle navigation" style="width: 30px; height: 30px; border-radius: 50%; border: 0; background: #006ce0; cursor: pointer; display: flex; align-items: center; justify-content: center; flex: none"><svg width="14" height="12" viewBox="0 0 14 12" aria-hidden="true"><path d="M1 1.5 H13 M1 6 H13 M1 10.5 H13" stroke="#ffffff" stroke-width="2" stroke-linecap="round"></path></svg></button>
+    <a href="#" onClick=${v.restart} style="text-decoration: underline; text-underline-offset: 3px">ivan-dmitriev</a>
+    <svg width="10" height="12" viewBox="0 0 10 12" aria-hidden="true"><path d="M3 2 L7 6 L3 10" fill="none" stroke="#656871" stroke-width="2"></path></svg>
+    <span style="font-weight: 700; color: #424650">Architecture</span>
+  </div>
   <div class="app-body" style="flex: 1 1 auto; min-height: 0; display: flex">
     
-    <nav class="sidenav" aria-label="Services" style="flex: none; width: 240px; border-right: 1px solid #c6c6cd; padding: 20px 0; overflow-y: auto; box-sizing: border-box; display: flex; flex-direction: column">
+    <nav class="sidenav" aria-label="Services" style="display: ${v.navDisp}; flex: none; width: 240px; border-right: 1px solid #c6c6cd; padding: 20px 0; overflow-y: auto; box-sizing: border-box; flex-direction: column">
       <div style="padding: 0 24px 16px; font-size: 18px; line-height: 22px; font-weight: 700"><a href="#" onClick=${v.restart} style="color: #0f141a">Ivan Dmitriev</a></div>
-      <div style="height: 1px; background: #c6c6cd; margin: 0 24px 16px"></div>
+      <div class="qline" style="margin: 0 0 16px"></div>
       <div style="padding: 0 24px 8px; font-weight: 700; color: #424650">Request path</div>
       ${(v.nodes || []).map((n) => html`
         <a class="navlink" href="#" onClick=${n.pick} style="display: block; padding: 4px 24px 4px 36px; color: ${n.navC}; font-weight: ${n.navW}; text-decoration: none">${n.num}. ${n.label}</a>
@@ -116,10 +122,21 @@ const view = (v) => html`
 
     
     <main class="app-main" style="flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; padding: 14px 32px 16px; gap: 12px; box-sizing: border-box">
-      <div style="font-size: 14px; color: #656871"><a href="#" onClick=${v.restart}>ivan-dmitriev</a> <span style="color: #8c8c94; margin: 0 6px">›</span> Architecture</div>
+      
+      ${v.bannerOpen ? html`
+        <div class="banner" style="flex: none; position: relative; border: 1px solid #c8c3d8; border-radius: 16px; padding: 10px 48px 12px 20px">
+          <div style="font-size: 16px; line-height: 22px; font-weight: 700; color: #0f141a">You are the request</div>
+          <div style="margin-top: 2px; color: #0f141a">Send yourself through my network. Each AWS service on the diagram holds one part of my story.</div>
+          <div style="margin-top: 8px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px">
+            <button class="btnB" onClick=${v.primary} style="min-height: 30px; padding: 2px 20px; border-radius: 20px; border: 2px solid #006ce0; background: #ffffff; color: #006ce0; font: 700 14px 'Hind', 'Open Sans', sans-serif; cursor: pointer">Send request</button>
+            <span style="font-size: 12px; color: #424650">Or click any service, search above, or type <code style="font-size: 12px">curl https://ivan.dmitriev</code> in CloudShell.</span>
+          </div>
+          <button onClick=${v.closeBanner} aria-label="Dismiss" style="position: absolute; right: 14px; top: 12px; background: none; border: 0; cursor: pointer; padding: 4px; display: flex"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#424650" stroke-width="2" aria-hidden="true"><path d="M3 3 L13 13 M13 3 L3 13"></path></svg></button>
+        </div>
+      ` : null}
       <div style="display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 10px 24px">
         <div style="flex: 1 1 520px; max-width: 900px">
-          <h1 style="margin: 0; font-size: 24px; line-height: 30px; font-weight: 700; position: relative">Ivan Dmitriev <a href="#" onClick=${v.menuInfo} style="font-size: 14px; font-weight: 700; margin-left: 6px">Info</a>
+          <h1 style="margin: 0; font-size: 28px; line-height: 34px; font-weight: 700; position: relative">Ivan Dmitriev <span style="font-weight: 700">|</span> <i style="font-weight: 400">Student Builder</i> <a href="#" onClick=${v.menuInfo} style="font-size: 12px; font-weight: 700; margin-left: 6px; vertical-align: middle">Info</a>
             ${v.mInfo ? html`
               <div class="info-pop" role="dialog" style="position: absolute; top: 34px; z-index: 100; background: #ffffff; border-radius: 8px; box-shadow: 0px 1px 1px 1px #e9ebed, 0px 6px 36px #0007161a; padding: 14px 16px; left: 0; width: 420px; font-size: 14px; line-height: 20px; font-weight: 400; color: #0f141a">
                 <strong style="display: block; font-size: 16px; margin-bottom: 6px">About this page</strong>
@@ -131,16 +148,16 @@ const view = (v) => html`
           <p style="margin: 4px 0 0; color: #424650">Born in Moscow, raised between Bulgaria, Greece and Spain, now in Madrid. Communities opened doors for me, so now I open them for others: AWS Student Builder Group Leader at UC3M and VP of I2C. Borders changed, the builder didn't.</p>
         </div>
         <div style="display: flex; flex-wrap: wrap; gap: 8px">
-          <button class="btnN" onClick=${v.prev} style="min-height: 32px; padding: 4px 20px; border-radius: 20px; border: 2px solid #FF9900; background: #ffffff; color: #0f141a; font: 700 14px 'Open Sans', sans-serif; cursor: pointer">Previous</button>
-          <button class="btnN" onClick=${v.togglePlay} style="min-height: 32px; padding: 4px 20px; border-radius: 20px; border: 2px solid #FF9900; background: #ffffff; color: #0f141a; font: 700 14px 'Open Sans', sans-serif; cursor: pointer">${v.playLabel}</button>
-          <button class="btnP" onClick=${v.primary} style="min-height: 32px; padding: 4px 20px; border-radius: 20px; border: 2px solid #FF9900; background: #FF9900; color: #0f141a; font: 700 14px 'Open Sans', sans-serif; cursor: pointer">${v.primaryLabel}</button>
+          <button class="btnN" onClick=${v.prev} style="min-height: 32px; padding: 4px 20px; border-radius: 20px; border: 2px solid #006ce0; background: #ffffff; color: #006ce0; font: 700 14px 'Hind', 'Open Sans', sans-serif; cursor: pointer">Previous</button>
+          <button class="btnN" onClick=${v.togglePlay} style="min-height: 32px; padding: 4px 20px; border-radius: 20px; border: 2px solid #006ce0; background: #ffffff; color: #006ce0; font: 700 14px 'Hind', 'Open Sans', sans-serif; cursor: pointer">${v.playLabel}</button>
+          <button class="btnP" onClick=${v.primary} style="min-height: 32px; padding: 4px 20px; border-radius: 20px; border: 2px solid #FF9900; background: #FF9900; color: #0f141a; font: 700 14px 'Hind', 'Open Sans', sans-serif; cursor: pointer">${v.primaryLabel}</button>
         </div>
       </div>
 
       
-      <section style="flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; background: #ffffff; border-radius: 16px; box-shadow: 0px 1px 1px 1px #e9ebed, 0px 6px 36px #0007161a">
+      <section style="flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; background: #ffffff; border-radius: 16px; border: 1px solid #c6c6cd">
         <div style="flex: none; padding: 12px 20px 4px; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px">
-          <h2 style="margin: 0; font-size: 18px; line-height: 22px; font-weight: 700">Architecture <span style="font-weight: 400; color: #656871">(10)</span></h2>
+          <h2 style="margin: 0; font-size: 20px; line-height: 24px; font-weight: 700; display: flex; align-items: center; gap: 8px"><svg width="10" height="16" viewBox="0 0 10 16" aria-hidden="true" fill="#656871"><circle cx="2" cy="3" r="1.4"></circle><circle cx="8" cy="3" r="1.4"></circle><circle cx="2" cy="8" r="1.4"></circle><circle cx="8" cy="8" r="1.4"></circle><circle cx="2" cy="13" r="1.4"></circle><circle cx="8" cy="13" r="1.4"></circle></svg>Architecture <span style="font-weight: 400; color: #656871">(10)</span></h2>
           <span style="color: #656871; font-size: 14px">GET /ivan · hop ${v.hopNum}/10 · ${v.ms} ms</span>
         </div>
         <div class="stage" ref=${v.stageRef} style="flex: 1 1 auto; min-height: 0; position: relative; overflow: hidden">
@@ -152,7 +169,7 @@ const view = (v) => html`
 
         
         <div style="position: absolute; left: 170px; top: 104px; width: 290px; height: 198px; border: 2px dashed #8C8C94; border-radius: 4px; box-sizing: border-box"></div>
-        <button onClick=${v.goEdge} style="position: absolute; left: 182px; top: 110px; background: none; border: 0; padding: 0; cursor: pointer; font: 700 12px 'Open Sans', sans-serif; color: #5F6B7A">Edge locations · global</button>
+        <button onClick=${v.goEdge} style="position: absolute; left: 182px; top: 110px; background: none; border: 0; padding: 0; cursor: pointer; font: 700 12px 'Hind', 'Open Sans', sans-serif; color: #5F6B7A">Edge locations · global</button>
 
         
         <div style="position: absolute; left: 480px; top: 64px; width: 694px; height: 548px; border: 2px solid #00A4A6; border-radius: 4px; box-sizing: border-box"></div>
@@ -160,11 +177,11 @@ const view = (v) => html`
 
         
         <div style="position: absolute; left: 500px; top: 104px; width: 654px; height: 198px; border: 2px dashed #7AA116; border-radius: 4px; box-sizing: border-box"></div>
-        <button onClick=${v.goPub} style="position: absolute; left: 512px; top: 110px; background: none; border: 0; padding: 0; cursor: pointer; font: 700 12px 'Open Sans', sans-serif; color: #5A7A0F">Public subnet</button>
+        <button onClick=${v.goPub} style="position: absolute; left: 512px; top: 110px; background: none; border: 0; padding: 0; cursor: pointer; font: 700 12px 'Hind', 'Open Sans', sans-serif; color: #5A7A0F">Public subnet</button>
 
         
         <div style="position: absolute; left: 500px; top: 330px; width: 654px; height: 262px; border: 2px dashed #00A4A6; border-radius: 4px; box-sizing: border-box"></div>
-        <button onClick=${v.goPriv} style="position: absolute; left: 512px; top: 336px; background: none; border: 0; padding: 0; cursor: pointer; font: 700 12px 'Open Sans', sans-serif; color: #007A7C">Private subnet</button>
+        <button onClick=${v.goPriv} style="position: absolute; left: 512px; top: 336px; background: none; border: 0; padding: 0; cursor: pointer; font: 700 12px 'Hind', 'Open Sans', sans-serif; color: #007A7C">Private subnet</button>
 
         
         ${(v.segs || []).map((s) => html`
@@ -185,9 +202,9 @@ const view = (v) => html`
           <button class="node" onClick=${n.pick} style="position: absolute; left: ${n.left}px; top: ${n.top}px; width: 150px; background: none; border: 0; padding: 0; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 8px; opacity: ${n.op}; transition: opacity .4s">
             <span style="position: relative; width: 64px; height: 64px; display: block; border-radius: 6px; box-shadow: ${n.ring}">
               <img src=${n.icon} alt="" style="width: 64px; height: 64px; display: block; border-radius: 6px" />
-              <span style="position: absolute; left: -16px; bottom: -12px; width: 30px; height: 30px; border-radius: 50%; background: #232F3E; color: #FFFFFF; font: 700 14px 'Open Sans', sans-serif; display: flex; align-items: center; justify-content: center; border: 2px solid #FFFFFF; z-index: 3">${n.num}</span>
+              <span style="position: absolute; left: -16px; bottom: -12px; width: 30px; height: 30px; border-radius: 50%; background: #232F3E; color: #FFFFFF; font: 700 14px 'Hind', 'Open Sans', sans-serif; display: flex; align-items: center; justify-content: center; border: 2px solid #FFFFFF; z-index: 3">${n.num}</span>
             </span>
-            <span class="lbl" style="max-width: 118px; padding: 1px 4px; border-radius: 4px; background: #FFFFFF; font: 700 13px/1.25 'Open Sans', sans-serif; color: #232F3E; text-align: center; text-wrap: balance">${n.label}</span>
+            <span class="lbl" style="max-width: 118px; padding: 1px 4px; border-radius: 4px; background: #FFFFFF; font: 700 13px/1.25 'Hind', 'Open Sans', sans-serif; color: #232F3E; text-align: center; text-wrap: balance">${n.label}</span>
           </button>
         `)}
 
@@ -349,7 +366,7 @@ const view = (v) => html`
               ${v.s11 ? html`
                 <div style="font: 700 42px Monaco, Menlo, Consolas, 'Courier New', monospace; color: #00802f; letter-spacing: -0.02em">200 OK</div>
                 <div style="font-size: 14px; color: #424650">Request completed in 84 ms. Thanks for travelling through my network.</div>
-                <div><button onClick=${v.restart} style="padding: 8px 18px; border-radius: 20px; border: 2px solid #FF9900; background: #ffffff; color: #0f141a; font: 700 14px 'Open Sans', sans-serif; cursor: pointer; min-height: 40px">Replay request</button></div>
+                <div><button onClick=${v.restart} style="padding: 8px 18px; border-radius: 20px; border: 2px solid #006ce0; background: #ffffff; color: #006ce0; font: 700 14px 'Hind', 'Open Sans', sans-serif; cursor: pointer; min-height: 40px">Replay request</button></div>
               ` : null}
             </div>
           </section>
@@ -358,60 +375,6 @@ const view = (v) => html`
         </div>
       </section>
 
-      
-      ${v.termOpen ? html`
-        <section class="shell" ref=${v.shellRef} aria-label="CloudShell" style="${v.shellStyle} display: flex; flex-direction: column; background: #000000; border: 1px solid #424650; border-radius: 4px; overflow: visible">
-          ${v.notMax ? html`<div onMouseDown=${v.dragStart} title="Drag to resize" style="position: absolute; left: 0; right: 0; top: -5px; height: 9px; cursor: ns-resize; z-index: 5"></div>` : null}
-          <div style="flex: none; height: 40px; display: flex; align-items: stretch; background: #161d26; color: #f9f9fa; border-bottom: 1px solid #424650; border-radius: 4px 4px 0 0; padding: 0 6px 0 14px; gap: 6px">
-            <span class="shell-title" style="display: flex; align-items: center; font-weight: 700; font-size: 15px; margin-right: 10px">AWS CloudShell</span>
-            <div style="display: flex; align-items: stretch; min-width: 0; overflow-x: auto">
-              ${(v.tabs || []).map((tb) => html`
-                <span onClick=${tb.pick} style="display: flex; align-items: center; gap: 8px; padding: 0 10px 0 12px; font-size: 14px; white-space: nowrap; cursor: pointer; color: ${tb.color}; border-bottom: 2px solid ${tb.line}; font-weight: ${tb.weight}">${tb.label} <button onClick=${tb.close} aria-label="Close tab" style="background: none; border: 0; padding: 0 2px; color: #a4a4ad; cursor: pointer; font-size: 15px; line-height: 1">×</button></span>
-              `)}
-            </div>
-            <div style="position: relative; display: flex; align-items: center">
-              <button onClick=${v.togglePlus} aria-label="New tab" style="height: 30px; display: flex; align-items: center; padding: 0 8px; background: none; border: 0; color: #dedee3; font-size: 18px; cursor: pointer">+ <span style="font-size: 10px; margin-left: 2px">▾</span></button>
-              ${v.plusOpen ? html`
-                <div role="menu" style="position: absolute; left: 0; ${v.menuSide} width: 240px; z-index: 120; background: #ffffff; border-radius: 4px; box-shadow: 0px 1px 1px 1px #e9ebed, 0px 6px 36px #0007161a; padding: 6px 0">
-                  <button role="menuitem" onClick=${v.newTab} style="display: block; width: 100%; text-align: left; padding: 6px 16px; background: none; border: 0; cursor: pointer; font: 400 14px 'Open Sans', sans-serif; color: #0f141a">New tab (eu-south-2)</button>
-                  <div style="padding: 6px 16px 2px; font: 700 12px 'Open Sans', sans-serif; color: #656871">Open in another Region</div>
-                  <button role="menuitem" onClick=${v.newTabIE} style="display: block; width: 100%; text-align: left; padding: 6px 16px; background: none; border: 0; cursor: pointer; font: 400 14px 'Open Sans', sans-serif; color: #0f141a">eu-west-1 · Ireland</button>
-                  <button role="menuitem" onClick=${v.newTabUS} style="display: block; width: 100%; text-align: left; padding: 6px 16px; background: none; border: 0; cursor: pointer; font: 400 14px 'Open Sans', sans-serif; color: #0f141a">us-east-1 · N. Virginia</button>
-                  <button role="menuitem" onClick=${v.newTabDE} style="display: block; width: 100%; text-align: left; padding: 6px 16px; background: none; border: 0; cursor: pointer; font: 400 14px 'Open Sans', sans-serif; color: #0f141a">eu-central-1 · Frankfurt</button>
-                </div>
-              ` : null}
-            </div>
-            <span style="flex: 1"></span>
-            <div style="position: relative; display: flex; align-items: center">
-              <button onClick=${v.toggleActions} style="height: 28px; padding: 0 12px; border-radius: 4px; border: 1px solid #dedee3; background: transparent; color: #f9f9fa; font: 700 13px 'Open Sans', sans-serif; cursor: pointer">Actions ▾</button>
-              ${v.actionsOpen ? html`
-                <div role="menu" style="position: absolute; right: 0; ${v.menuSide} width: 220px; z-index: 120; background: #ffffff; border-radius: 4px; box-shadow: 0px 1px 1px 1px #e9ebed, 0px 6px 36px #0007161a; padding: 6px 0">
-                  <button role="menuitem" onClick=${v.runCurl} style="display: block; width: 100%; text-align: left; padding: 6px 16px; background: none; border: 0; cursor: pointer; font: 400 14px 'Open Sans', sans-serif; color: #0f141a">Send request (curl)</button>
-                  <button role="menuitem" onClick=${v.runLs} style="display: block; width: 100%; text-align: left; padding: 6px 16px; background: none; border: 0; cursor: pointer; font: 400 14px 'Open Sans', sans-serif; color: #0f141a">List services</button>
-                  <button role="menuitem" onClick=${v.runHelp} style="display: block; width: 100%; text-align: left; padding: 6px 16px; background: none; border: 0; cursor: pointer; font: 400 14px 'Open Sans', sans-serif; color: #0f141a">Show commands</button>
-                  <div style="height: 1px; background: #ebebf0; margin: 4px 0"></div>
-                  <button role="menuitem" onClick=${v.runDownload} style="display: block; width: 100%; text-align: left; padding: 6px 16px; background: none; border: 0; cursor: pointer; font: 400 14px 'Open Sans', sans-serif; color: #0f141a">Download file</button>
-                  <div style="height: 1px; background: #ebebf0; margin: 4px 0"></div>
-                  <button role="menuitem" onClick=${v.runReset} style="display: block; width: 100%; text-align: left; padding: 6px 16px; background: none; border: 0; cursor: pointer; font: 400 14px 'Open Sans', sans-serif; color: #0f141a">Restart environment</button>
-                  <button role="menuitem" onClick=${v.runClear} style="display: block; width: 100%; text-align: left; padding: 6px 16px; background: none; border: 0; cursor: pointer; font: 400 14px 'Open Sans', sans-serif; color: #0f141a">Clear screen</button>
-                </div>
-              ` : null}
-            </div>
-            <button onClick=${v.toggleMax} aria-label=${v.maxLabel} title=${v.maxLabel} style="display: flex; align-items: center; padding: 0 6px; background: none; border: 0; cursor: pointer"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#dedee3" stroke-width="2"><path d=${v.maxPath}></path></svg></button>
-            <button class="hide-m" onClick=${v.openWindow} aria-label="Open in new browser tab" title="Open in new browser tab" style="display: flex; align-items: center; padding: 0 6px; background: none; border: 0; cursor: pointer"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#dedee3" stroke-width="2"><path d="M9 2 H14 V7 M14 2 L7 9 M12 10 V14 H2 V4 H6"></path></svg></button>
-            <button onClick=${v.toggleTerm} aria-label="Close CloudShell" style="width: 32px; background: none; border: 0; color: #dedee3; cursor: pointer; font-size: 20px">×</button>
-          </div>
-          <div onClick=${v.focusTerm} style="flex: 1 1 auto; min-height: 0; overflow-y: auto; display: flex; flex-direction: column-reverse; padding: 6px 12px; font: 13px/18px Monaco, Menlo, Consolas, 'Courier Prime', Courier, 'Courier New', monospace; border-radius: 0 0 4px 4px">
-            <div style="display: flex; align-items: center; gap: 6px">
-              <span style="color: #ffffff; white-space: nowrap">${v.prompt}</span>
-              <input ref=${v.termRef} type="text" aria-label="CloudShell command" value=${v.cmd} onInput=${v.onCmd} onKeyDown=${v.onCmdKey} spellcheck="false" autocomplete="off" style="flex: 1; min-width: 0; background: transparent; border: 0; outline: none; color: #ffffff; font: 13px/18px Monaco, Menlo, Consolas, 'Courier Prime', Courier, 'Courier New', monospace; caret-color: #ffffff" />
-            </div>
-            ${(v.lines || []).map((ln) => html`
-              <div style="white-space: pre-wrap; color: ${ln.c}">${ln.t}</div>
-            `)}
-          </div>
-        </section>
-      ` : null}
       
       ${v.hasWin ? html`
           <section class="win win-m" style="position: absolute; ${v.winPos} width: 500px; max-height: 600px; display: flex; flex-direction: column; z-index: 6; background: #FFFFFF; border-radius: 16px; box-shadow: 0px 1px 1px 1px #e9ebed, 0px 6px 36px #0007161a; overflow: hidden">
@@ -562,7 +525,7 @@ const view = (v) => html`
               ${v.s11 ? html`
                 <div style="font: 700 42px Monaco, Menlo, Consolas, 'Courier New', monospace; color: #00802f; letter-spacing: -0.02em">200 OK</div>
                 <div style="font-size: 14px; color: #424650">Request completed in 84 ms. Thanks for travelling through my network.</div>
-                <div><button onClick=${v.restart} style="padding: 8px 18px; border-radius: 20px; border: 2px solid #FF9900; background: #ffffff; color: #0f141a; font: 700 14px 'Open Sans', sans-serif; cursor: pointer; min-height: 40px">Replay request</button></div>
+                <div><button onClick=${v.restart} style="padding: 8px 18px; border-radius: 20px; border: 2px solid #006ce0; background: #ffffff; color: #006ce0; font: 700 14px 'Hind', 'Open Sans', sans-serif; cursor: pointer; min-height: 40px">Replay request</button></div>
               ` : null}
             </div>
           </section>
@@ -570,8 +533,63 @@ const view = (v) => html`
     </main>
   </div>
 
+      
+  ${v.termOpen ? html`
+    <section class="shell" ref=${v.shellRef} aria-label="CloudShell" style="${v.shellStyle} display: flex; flex-direction: column; background: #0f1b2a; border-top: 1px solid #414d5c; overflow: visible">
+      ${v.notMax ? html`<div onMouseDown=${v.dragStart} title="Drag to resize" style="position: absolute; left: 0; right: 0; top: -5px; height: 18px; cursor: ns-resize; z-index: 5; display: flex; justify-content: center; align-items: center"><svg width="16" height="8" viewBox="0 0 16 8" aria-hidden="true"><path d="M1 2 H15 M1 6 H15" stroke="#c6c6cd" stroke-width="2"></path></svg></div>` : null}
+      <div style="flex: none; display: flex; flex-wrap: wrap; align-items: stretch; color: #f9f9fa; padding: 14px 16px 0 24px; gap: 6px; border-bottom: 1px solid #414d5c">
+        <span class="shell-title" style="order: 1; display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 18px; height: 34px; margin-right: 10px"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#f9f9fa" stroke-width="1.6" aria-hidden="true"><rect x="1" y="2" width="14" height="12" rx="2"></rect><path d="M4 6 L6.5 8 L4 10 M8 10 H12"></path></svg>CloudShell</span>
+        <div aria-hidden="true" style="order: 2; flex-basis: 100%; height: 0"></div>
+            <div style="order: 3; display: flex; align-items: stretch; min-width: 0; overflow-x: auto; height: 40px; margin-top: 4px">
+          ${(v.tabs || []).map((tb) => html`
+            <span onClick=${tb.pick} style="display: flex; align-items: center; gap: 8px; padding: 0 12px 0 20px; font-size: 14px; white-space: nowrap; cursor: pointer; color: ${tb.color}; border-bottom: 3px solid ${tb.line}; border-right: 1px solid #414d5c; font-weight: ${tb.weight}">${tb.label} <button onClick=${tb.close} aria-label="Close tab" style="background: none; border: 0; padding: 0 2px; color: #a4a4ad; cursor: pointer; font-size: 15px; line-height: 1">×</button></span>
+          `)}
+        </div>
+        <div style="order: 4; position: relative; display: flex; align-items: center; height: 40px; margin-top: 4px; flex: 1 1 auto">
+          <button onClick=${v.togglePlus} aria-label="New tab" style="height: 30px; display: flex; align-items: center; padding: 0 12px; background: none; border: 0; color: #42b4ff; font-size: 22px; cursor: pointer">+</button>
+          ${v.plusOpen ? html`
+            <div role="menu" style="position: absolute; left: 0; ${v.menuSide} width: 240px; z-index: 120; background: #ffffff; border-radius: 4px; box-shadow: 0px 1px 1px 1px #e9ebed, 0px 6px 36px #0007161a; padding: 6px 0">
+              <button role="menuitem" onClick=${v.newTab} style="display: block; width: 100%; text-align: left; padding: 6px 16px; background: none; border: 0; cursor: pointer; font: 400 14px 'Hind', 'Open Sans', sans-serif; color: #0f141a">New tab (eu-south-2)</button>
+              <div style="padding: 6px 16px 2px; font: 700 12px 'Hind', 'Open Sans', sans-serif; color: #656871">Open in another Region</div>
+              <button role="menuitem" onClick=${v.newTabIE} style="display: block; width: 100%; text-align: left; padding: 6px 16px; background: none; border: 0; cursor: pointer; font: 400 14px 'Hind', 'Open Sans', sans-serif; color: #0f141a">eu-west-1 · Ireland</button>
+              <button role="menuitem" onClick=${v.newTabUS} style="display: block; width: 100%; text-align: left; padding: 6px 16px; background: none; border: 0; cursor: pointer; font: 400 14px 'Hind', 'Open Sans', sans-serif; color: #0f141a">us-east-1 · N. Virginia</button>
+              <button role="menuitem" onClick=${v.newTabDE} style="display: block; width: 100%; text-align: left; padding: 6px 16px; background: none; border: 0; cursor: pointer; font: 400 14px 'Hind', 'Open Sans', sans-serif; color: #0f141a">eu-central-1 · Frankfurt</button>
+            </div>
+          ` : null}
+        </div>
+        <span style="order: 1; flex: 1"></span>
+        <div style="order: 1; position: relative; display: flex; align-items: center">
+          <button class="shbtn" onClick=${v.toggleActions} style="height: 32px; padding: 0 20px; border-radius: 20px; border: 2px solid #42b4ff; background: transparent; color: #42b4ff; font: 700 14px 'Hind', 'Open Sans', sans-serif; cursor: pointer">Actions <span style="font-size: 11px; margin-left: 4px">▼</span></button>
+          ${v.actionsOpen ? html`
+            <div role="menu" style="position: absolute; right: 0; ${v.menuSide} width: 220px; z-index: 120; background: #ffffff; border-radius: 4px; box-shadow: 0px 1px 1px 1px #e9ebed, 0px 6px 36px #0007161a; padding: 6px 0">
+              <button role="menuitem" onClick=${v.runCurl} style="display: block; width: 100%; text-align: left; padding: 6px 16px; background: none; border: 0; cursor: pointer; font: 400 14px 'Hind', 'Open Sans', sans-serif; color: #0f141a">Send request (curl)</button>
+              <button role="menuitem" onClick=${v.runLs} style="display: block; width: 100%; text-align: left; padding: 6px 16px; background: none; border: 0; cursor: pointer; font: 400 14px 'Hind', 'Open Sans', sans-serif; color: #0f141a">List services</button>
+              <button role="menuitem" onClick=${v.runHelp} style="display: block; width: 100%; text-align: left; padding: 6px 16px; background: none; border: 0; cursor: pointer; font: 400 14px 'Hind', 'Open Sans', sans-serif; color: #0f141a">Show commands</button>
+              <div style="height: 1px; background: #ebebf0; margin: 4px 0"></div>
+              <button role="menuitem" onClick=${v.runDownload} style="display: block; width: 100%; text-align: left; padding: 6px 16px; background: none; border: 0; cursor: pointer; font: 400 14px 'Hind', 'Open Sans', sans-serif; color: #0f141a">Download file</button>
+              <div style="height: 1px; background: #ebebf0; margin: 4px 0"></div>
+              <button role="menuitem" onClick=${v.runReset} style="display: block; width: 100%; text-align: left; padding: 6px 16px; background: none; border: 0; cursor: pointer; font: 400 14px 'Hind', 'Open Sans', sans-serif; color: #0f141a">Restart environment</button>
+              <button role="menuitem" onClick=${v.runClear} style="display: block; width: 100%; text-align: left; padding: 6px 16px; background: none; border: 0; cursor: pointer; font: 400 14px 'Hind', 'Open Sans', sans-serif; color: #0f141a">Clear screen</button>
+            </div>
+          ` : null}
+        </div>
+        <button onClick=${v.toggleMax} aria-label=${v.maxLabel} title=${v.maxLabel} style="order: 1; display: flex; align-items: center; padding: 0 6px; background: none; border: 0; cursor: pointer"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#f9f9fa" stroke-width="2"><path d=${v.maxPath}></path></svg></button>
+        <button class="hide-m" onClick=${v.openWindow} aria-label="Open in new browser tab" title="Open in new browser tab" style="order: 1; display: flex; align-items: center; padding: 0 6px; background: none; border: 0; cursor: pointer"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#dedee3" stroke-width="2"><path d="M9 2 H14 V7 M14 2 L7 9 M12 10 V14 H2 V4 H6"></path></svg></button>
+        <button onClick=${v.toggleTerm} aria-label="Close CloudShell" style="order: 1; width: 32px; background: none; border: 0; color: #dedee3; cursor: pointer; font-size: 20px">×</button>
+      </div>
+      <div onClick=${v.focusTerm} style="flex: 1 1 auto; min-height: 0; overflow-y: auto; display: flex; flex-direction: column-reverse; padding: 8px 24px; font: 13px/18px Monaco, Menlo, Consolas, 'Courier Prime', Courier, 'Courier New', monospace">
+        <div style="display: flex; align-items: center; gap: 6px">
+          <span style="color: #ffffff; white-space: nowrap">${v.prompt}</span>
+          <input ref=${v.termRef} type="text" aria-label="CloudShell command" value=${v.cmd} onInput=${v.onCmd} onKeyDown=${v.onCmdKey} spellcheck="false" autocomplete="off" style="flex: 1; min-width: 0; background: transparent; border: 0; outline: none; color: #ffffff; font: 13px/18px Monaco, Menlo, Consolas, 'Courier Prime', Courier, 'Courier New', monospace; caret-color: #ffffff" />
+        </div>
+        ${(v.lines || []).map((ln) => html`
+          <div style="white-space: pre-wrap; color: ${ln.c}">${ln.t}</div>
+        `)}
+      </div>
+    </section>
+  ` : null}
   <footer class="app-foot" style="flex: none; height: 30px; background: #161d26; color: #c6c6cd; display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: 20px; padding: 0 16px; font-size: 12px">
-    <span style="display: flex; gap: 20px"><button onClick=${v.toggleTerm} style="background: none; border: 0; padding: 0; color: #c6c6cd; font: 700 12px 'Open Sans', sans-serif; cursor: pointer; display: flex; align-items: center; gap: 6px"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#c6c6cd" stroke-width="2" aria-hidden="true"><rect x="1" y="2" width="14" height="12" rx="2"></rect><path d="M4 6 L6.5 8 L4 10"></path></svg>CloudShell</button><a href="mailto:100553235@alumnos.uc3m.es?subject=Feedback%20on%20your%20site" style="color: #c6c6cd; text-decoration: none">Feedback</a></span><span style="text-align: center">© 2026 Ivan Dmitriev · personal site, not affiliated with Amazon Web Services</span><span></span>
+    <span style="display: flex; gap: 20px"><button onClick=${v.toggleTerm} style="background: none; border: 0; padding: 0; color: #c6c6cd; font: 700 12px 'Hind', 'Open Sans', sans-serif; cursor: pointer; display: flex; align-items: center; gap: 6px"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#c6c6cd" stroke-width="2" aria-hidden="true"><rect x="1" y="2" width="14" height="12" rx="2"></rect><path d="M4 6 L6.5 8 L4 10"></path></svg>CloudShell</button><a href="mailto:100553235@alumnos.uc3m.es?subject=Feedback%20on%20your%20site" style="color: #c6c6cd; text-decoration: none">Feedback</a></span><span style="text-align: center">© 2026 Ivan Dmitriev · personal site, not affiliated with Amazon Web Services</span><span></span>
   </footer>
 </div>
 `;
@@ -582,7 +600,7 @@ class Site extends Component {
     this.P = [[60, 310], [240, 182], [390, 182], [580, 182], [825, 182], [1075, 182], [1075, 452], [910, 452], [745, 452], [580, 452], [300, 452], [60, 310]];
     this.state = { step: 0, open: false, x: 60, y: 310, playing: false, moving: false, q: '' };
     this.raf = 0; this.timer = 0; this.stageEl = null; this.trip = 0; this.hist = []; this.hi = 0;
-    this.state.termOpen = true; this.state.cmd = '';
+    this.state.termOpen = true; this.state.cmd = ''; this.state.bannerOpen = true;
     this.state.actionsOpen = false;
     this.WELCOME = [
       { t: 'Preparing your terminal...', c: '#a4a4ad' },
@@ -672,7 +690,7 @@ class Site extends Component {
   fileText() {
     return ['Ivan Dmitriev', 'AWS Student Builder Group Leader · UC3M (Colmenarejo)', 'VP of I2C · BBA + Computer Science at UC3M', '', 'Route: Moscow → Bulgaria → Greece → Spain → Madrid', 'Borders changed, the builder didn\'t.', '', 'linkedin.com/in/ivan-dmitriev-uc3m', 'github.com/hardvanika'].join('\n');
   }
-  promptOf(t) { return '[cloudshell-user@ip-' + t.ip + ' ~]$'; }
+  promptOf(t) { return '~ $'; }
   addTab(region) {
     this.tabSeq++;
     var ip = '10-0-' + (10 + Math.floor(Math.random() * 200)) + '-' + (10 + Math.floor(Math.random() * 240));
@@ -871,6 +889,10 @@ class Site extends Component {
       restart: (e) => { if (e && e.preventDefault) e.preventDefault(); this.go(0); },
       close: () => this.setState({ open: false }),
       termOpen: st.termOpen, cmd: st.cmd,
+      bannerOpen: st.bannerOpen,
+      navDisp: st.navHidden ? 'none' : 'flex',
+      toggleNav: () => { if (window.innerWidth <= 900) { this.setState({ menu: this.state.menu === 'services' ? '' : 'services' }); return; } this.setState({ navHidden: !this.state.navHidden }); setTimeout(this.onResize, 30); },
+      closeBanner: () => { this.setState({ bannerOpen: false }); setTimeout(this.onResize, 30); },
       bcUrl: this.BC,
       mInfo: st.menu === 'info',
       menuInfo: (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ menu: this.state.menu === 'info' ? '' : 'info' }); },
@@ -902,7 +924,7 @@ class Site extends Component {
         pick: () => { this.setState({ menu: '', region: r[1] }); if (r[1] !== this.state.region) this.print([{ t: 'Console Region switched to ' + r[0] + ' (' + r[1] + ').' + (r[1] === 'eu-south-2' ? '' : ' Note: this network is deployed in eu-south-2, requests still route through Spain.'), c: '#a4a4ad' }]); } })),
       lines: ((st.tabs[st.active] || st.tabs[0]).lines).slice().reverse(),
       prompt: this.promptOf(st.tabs[st.active] || st.tabs[0]),
-      tabs: st.tabs.map((t, i) => ({ label: t.region + (st.tabs.filter((u) => u.region === t.region).length > 1 ? ' (' + (st.tabs.filter((u, j) => u.region === t.region && j <= i).length) + ')' : ''), color: i === st.active ? '#FF9900' : '#dedee3', line: i === st.active ? '#FF9900' : 'transparent', weight: i === st.active ? 700 : 400,
+      tabs: st.tabs.map((t, i) => ({ label: t.region + (st.tabs.filter((u) => u.region === t.region).length > 1 ? ' (' + (st.tabs.filter((u, j) => u.region === t.region && j <= i).length) + ')' : ''), color: i === st.active ? '#42b4ff' : '#c6c6cd', line: i === st.active ? '#42b4ff' : 'transparent', weight: i === st.active ? 700 : 400,
         pick: () => { this.setState({ active: i, cmd: '' }); setTimeout(() => { if (this.termEl) this.termEl.focus(); }, 20); },
         close: (e) => { if (e && e.stopPropagation) e.stopPropagation(); this.closeTab(i); } })),
       plusOpen: st.plusOpen,
