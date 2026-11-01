@@ -3,6 +3,8 @@
 Personal site of **Ivan Dmitriev**, AWS Student Builder Group Leader at UC3M (Colmenarejo) and VP of I2C.
 Built for the **AWS Student Builder Challenge: Build Your Tech Superpower**.
 
+**Live:** https://main.d16y1b3t2v0np9.amplifyapp.com (hosted on AWS Amplify Hosting)
+
 ![The site](docs/screenshot.png)
 
 ## The idea
@@ -30,7 +32,7 @@ Personal things live at the global edge, communities in the public subnet, techn
 The bottom panel is a terminal. Try:
 
 ```
-curl https://ivan.dmitriev   # send the request through every service (real API call)
+curl https://ivan.dmitriev   # send the request through every service
 ls                           # list the services
 cat route53                  # read a service as text
 open i2c                     # fly to a service
@@ -39,47 +41,25 @@ whoami · contact · help · clear
 
 It has tabs (the `+` menu opens new ones, also in other Regions), full screen, a resizable height and command history (↑ ↓).
 
-## Architecture (this is real)
+## How it's built
 
 ```
-Browser ──► AWS Amplify Hosting (static site: site/)
-   │
-   └─ curl ──► Amazon API Gateway (HTTP API, POST /request)
-                   └─► AWS Lambda (Python 3.12, arm64)
-                           └─► Amazon DynamoDB (visit counter)
+GitHub (main) ──push──► AWS Amplify Hosting ──► static site (site/)
 ```
 
-When you run `curl` in the CloudShell, the site really calls API Gateway → Lambda → DynamoDB in
-**eu-south-2 (Spain)** and prints the real round-trip time, the Lambda request id and your visitor number.
-If the API isn't configured, the site still works in demo mode.
+The whole site runs on **AWS Amplify Hosting**, the only AWS service it uses: every push to `main`
+triggers a new Amplify build and deploy. The architecture diagram is the story, not infrastructure:
+each AWS service is a metaphor for one part of my path.
 
 | Path | What it is |
 |------|------------|
 | `site/` | The static site (HTML + vanilla JS with Preact/htm vendored, no build step) |
 | `amplify.yml` | Amplify Hosting build settings (serves `site/`) |
-| `template.yaml` | AWS SAM template: HTTP API, Lambda, DynamoDB table |
-| `backend/request/app.py` | The Lambda handler |
-| `scripts/deploy-api.sh` | Deploys the API and writes its URL into `site/config.js` |
 
 ## Deploy it yourself
 
-**1. API (SAM)**
-
-```bash
-AWS_PROFILE=<your-profile> ./scripts/deploy-api.sh
-git add site/config.js && git commit -m "Point site at live API" && git push
-```
-
-**2. Site (Amplify Hosting)**
-
 In the Amplify console: *Create new app → GitHub →* this repo, branch `main`. Amplify picks up `amplify.yml`
 and serves `site/`. Every push redeploys.
-
-**3. Lock the API to the site's origin**
-
-```bash
-ALLOWED_ORIGIN=https://main.<app-id>.amplifyapp.com ./scripts/deploy-api.sh
-```
 
 ## Run locally
 
