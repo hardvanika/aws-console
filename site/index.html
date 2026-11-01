@@ -12,7 +12,7 @@
 body{margin:0;background:#FFFFFF}
 a{color:#006ce0;text-decoration:none}
 a{font-weight:500}
-a[target=_blank]::after{content:'';display:inline-block;width:.85em;height:.85em;margin-left:5px;vertical-align:-1px;background-color:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M9 1h6v6h-2V4.4L7.7 9.7 6.3 8.3 11.6 3H9z M2 3h5v2H4v7h7V9h2v5H2z'/%3E%3C/svg%3E") no-repeat center/contain;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M9 1h6v6h-2V4.4L7.7 9.7 6.3 8.3 11.6 3H9z M2 3h5v2H4v7h7V9h2v5H2z'/%3E%3C/svg%3E") no-repeat center/contain}
+a[target=_blank]::after{content:'';display:inline-block;width:.85em;height:.85em;margin-left:5px;vertical-align:-1px;background-color:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M13 9.012v-6H7M13.02 3 7 9.01M3 5.012v8h8.01' fill='none' stroke='black' stroke-width='2' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center/contain;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M13 9.012v-6H7M13.02 3 7 9.01M3 5.012v8h8.01' fill='none' stroke='black' stroke-width='2' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center/contain}
 a:hover{text-decoration:underline;text-underline-offset:3px;color:#002b66}
 .extlist a{display:block;padding:8px 0;border-bottom:1px solid #c6c6cd;color:#006ce0 !important}
 .extlist a:last-child{border-bottom:0}
@@ -57,7 +57,11 @@ header [role=menu]{position:fixed !important;left:8px !important;right:8px !impo
 .app-foot{height:auto !important;grid-template-columns:1fr !important;padding:8px 16px !important;text-align:center;gap:4px !important}
 .app-foot > span{justify-content:center}
 }
-@media (min-width: 761px){.win-m{display:none !important}}
+@media (min-width: 761px){
+.stage .win{display:none !important}
+.win-m{position:relative !important;left:auto !important;top:auto !important;right:auto !important;bottom:auto !important;flex:none;width:440px !important;max-height:none !important;height:auto;border-radius:0 !important;box-shadow:none !important;border-left:1px solid #c6c6cd;overflow-y:auto !important;animation:panelIn .25s ease-out both !important}
+@keyframes panelIn{from{opacity:0;transform:translateX(24px)}to{opacity:1;transform:none}}
+}
 @media (prefers-reduced-motion: reduce){.segH,.segV,.win,.pulse,.writing{animation:none}}
 </style>
 <script>window.SITE_CONFIG = { apiUrl: '' };</script>

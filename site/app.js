@@ -29,7 +29,7 @@ const view = (v) => html`
     ` : null}
     </div>
     <div style="position: relative; flex: 0 1 560px; min-width: 0"><label class="search" style="display: flex; align-items: center; gap: 8px; height: 30px; padding: 0 10px; border: 1px solid #656871; border-radius: 8px; background: #0f141a; color: #a4a4ad; box-sizing: border-box">
-      <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="#a4a4ad" stroke-width="2" aria-hidden="true"><circle cx="7" cy="7" r="5"></circle><path d="M11 11 L15 15"></path></svg>
+      <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="#a4a4ad" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="m11 11 4 4M7 12A5 5 0 1 0 7 2a5 5 0 0 0 0 10Z"></path></svg>
       <input type="search" placeholder="Search" aria-label="Search" value=${v.q} onInput=${v.onSearch} onKeyDown=${v.onSearchKey} style="flex: 1; min-width: 0; background: transparent; border: 0; outline: none; color: #f9f9fa; font: 400 14px 'Hind', 'Open Sans', sans-serif" />
       <span style="font-size: 12px; color: #a4a4ad; white-space: nowrap">[Alt+S]</span><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6" fill="none" stroke="#c6c6cd" stroke-width="1.6"></circle><circle cx="8" cy="8" r="2.2" fill="#c6c6cd"></circle></svg>
     </label>
@@ -48,9 +48,10 @@ const view = (v) => html`
     ` : null}
     </div>
     <span style="flex: 1"></span>
-    <button class="tnav" onClick=${v.toggleTerm} aria-label="CloudShell" title="CloudShell" style="background: none; border: 0; cursor: pointer; display: flex; align-items: center; gap: 4px; padding: 4px 6px; border-radius: 4px; color: #dedee3; font: 700 14px 'Hind', 'Open Sans', sans-serif"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#dedee3" stroke-width="2" aria-hidden="true"><rect x="1" y="2" width="14" height="12" rx="2"></rect><path d="M4 6 L6.5 8 L4 10 M8 10 H12"></path></svg></button>
+    <button class="tnav" onClick=${v.toggleTerm} aria-label="CloudShell" title="CloudShell" style="background: none; border: 0; cursor: pointer; display: flex; align-items: center; gap: 4px; padding: 4px 6px; border-radius: 4px; color: #dedee3; font: 700 14px 'Hind', 'Open Sans', sans-serif"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#dedee3" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M15 1H1v14h14V1Z"></path><path d="M12 11H9"></path><path d="M4.71 11.3 8 8 4.71 4.71"></path></svg></button>
+    <span aria-hidden="true" style="width: 1px; height: 24px; background: #424650; flex: none"></span>
     <div style="position: relative; z-index: 56">
-      <button class="tnav" onClick=${v.menuBell} aria-label="Notifications" title="Notifications" style="background: none; border: 0; cursor: pointer; display: flex; align-items: center; gap: 4px; padding: 4px 6px; border-radius: 4px; color: #dedee3; font: 700 14px 'Hind', 'Open Sans', sans-serif; position: relative"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#dedee3" stroke-width="2" aria-hidden="true"><path d="M4 11 V7 a4 4 0 0 1 8 0 V11 L13 12 H3 Z M6.5 14 H9.5"></path></svg>${v.bellDot ? html`<span style="position: absolute; top: 3px; right: 4px; width: 7px; height: 7px; border-radius: 50%; background: #FF9900"></span>` : null}</button>
+      <button class="tnav" onClick=${v.menuBell} aria-label="Notifications" title="Notifications" style="background: none; border: 0; cursor: pointer; display: flex; align-items: center; gap: 4px; padding: 4px 6px; border-radius: 4px; color: #dedee3; font: 700 14px 'Hind', 'Open Sans', sans-serif; position: relative"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#dedee3" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M14 12H2c-.39 0-.63-.44-.41-.76L4 8V5c0-2.21 1.79-4 4-4s4 1.79 4 4v3l2.41 3.24c.22.33-.02.76-.41.76Z"></path><path d="M6 13c0 1.1.9 2 2 2s2-.9 2-2"></path></svg>${v.bellDot ? html`<span style="position: absolute; top: 3px; right: 4px; width: 7px; height: 7px; border-radius: 50%; background: #FF9900"></span>` : null}</button>
       ${v.mBell ? html`
         <div role="menu" style="position: absolute; top: 36px; z-index: 55; background: #ffffff; border-radius: 8px; box-shadow: 0px 1px 1px 1px #e9ebed, 0px 6px 36px #0007161a; padding: 6px 0; right: 0; width: 340px">
           <div style="padding: 6px 16px 8px; font-weight: 700; border-bottom: 1px solid #ebebf0">Notifications</div>
@@ -60,8 +61,9 @@ const view = (v) => html`
         </div>
       ` : null}
     </div>
+    <span aria-hidden="true" class="hide-m" style="width: 1px; height: 24px; background: #424650; flex: none"></span>
     <div style="position: relative; z-index: 56">
-      <button class="tnav hide-m" onClick=${v.menuHelp} aria-label="Help" title="Help" style="background: none; border: 0; cursor: pointer; display: flex; align-items: center; gap: 4px; padding: 4px 6px; border-radius: 4px; color: #dedee3; font: 700 14px 'Hind', 'Open Sans', sans-serif"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#dedee3" stroke-width="2" aria-hidden="true"><circle cx="8" cy="8" r="7"></circle><path d="M6.2 6.2 C6.2 5 7 4.4 8 4.4 C9 4.4 9.8 5.1 9.8 6 C9.8 7.3 8 7.4 8 9"></path><circle cx="8" cy="11.6" r="0.6" fill="#dedee3" stroke="none"></circle></svg></button>
+      <button class="tnav hide-m" onClick=${v.menuHelp} aria-label="Help" title="Help" style="background: none; border: 0; cursor: pointer; display: flex; align-items: center; gap: 4px; padding: 4px 6px; border-radius: 4px; color: #dedee3; font: 700 14px 'Hind', 'Open Sans', sans-serif"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#dedee3" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="8" r="7"></circle><path d="M5.75 6.338c.13-1.178.811-2.339 2.37-2.339 1.472 0 2.435 1.312 2.042 2.468-.215.633-.916 1.132-1.385 1.578C8.162 8.631 8 9.2 8 10"></path><path d="M8 12.01h.01V12H8v.01Z"></path></svg></button>
       ${v.mHelp ? html`
         <div role="menu" style="position: absolute; top: 36px; z-index: 55; background: #ffffff; border-radius: 8px; box-shadow: 0px 1px 1px 1px #e9ebed, 0px 6px 36px #0007161a; padding: 6px 0; right: 0; width: 260px">
           <button role="menuitem" onClick=${v.helpCommands} style="display: flex; align-items: center; gap: 10px; width: 100%; text-align: left; padding: 6px 16px; background: none; border: 0; cursor: pointer; font: 400 14px 'Hind', 'Open Sans', sans-serif; color: #0f141a; text-decoration: none; box-sizing: border-box">CloudShell commands</button>
@@ -81,6 +83,7 @@ const view = (v) => html`
         </div>
       ` : null}
     </div>
+    <span aria-hidden="true" class="hide-m" style="width: 1px; height: 24px; background: #424650; flex: none"></span>
     <div style="position: relative; z-index: 56">
       <button class="tnav hide-m" onClick=${v.menuAccount} style="background: none; border: 0; cursor: pointer; display: flex; flex-direction: column; align-items: flex-end; padding: 2px 6px; border-radius: 4px; color: #ffffff; font: 700 12px/15px 'Hind', 'Open Sans', sans-serif"><span>Student Builder <span style="font-size: 9px">▼</span></span><span style="font-weight: 500; color: #dedee3; letter-spacing: .02em">IVAN DMITRIEV</span></button>
       ${v.mAccount ? html`
@@ -98,7 +101,7 @@ const view = (v) => html`
   </header>
 
   <div class="crumbbar" style="flex: none; height: 40px; display: flex; align-items: center; gap: 12px; padding: 0 12px; background: #ffffff; border-bottom: 1px solid #c6c6cd; font-size: 14px">
-    <button class="hamb" onClick=${v.toggleNav} aria-label="Toggle navigation" style="width: 30px; height: 30px; border-radius: 50%; border: 0; background: #006ce0; cursor: pointer; display: flex; align-items: center; justify-content: center; flex: none"><svg width="14" height="12" viewBox="0 0 14 12" aria-hidden="true"><path d="M1 1.5 H13 M1 6 H13 M1 10.5 H13" stroke="#ffffff" stroke-width="2" stroke-linecap="round"></path></svg></button>
+    <button class="hamb" onClick=${v.toggleNav} aria-label="Toggle navigation" style="width: 30px; height: 30px; border-radius: 50%; border: 0; background: #006ce0; cursor: pointer; display: flex; align-items: center; justify-content: center; flex: none"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="#ffffff" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M15 3H1M15 8H1M15 13H1"></path></svg></button>
     <a href="#" onClick=${v.restart} style="text-decoration: underline; text-underline-offset: 3px">ivan-dmitriev</a>
     <svg width="10" height="12" viewBox="0 0 10 12" aria-hidden="true"><path d="M3 2 L7 6 L3 10" fill="none" stroke="#656871" stroke-width="2"></path></svg>
     <span style="font-weight: 700; color: #424650">Architecture</span>
@@ -108,7 +111,7 @@ const view = (v) => html`
     <nav class="sidenav" aria-label="Services" style="display: ${v.navDisp}; flex: none; width: 260px; border-right: 1px solid #c6c6cd; padding: 22px 0 20px; overflow-y: auto; box-sizing: border-box; flex-direction: column">
       <div style="display: flex; align-items: center; justify-content: space-between; padding: 0 16px 14px 28px">
         <a href="#" onClick=${v.restart} style="color: #0f141a; font-size: 18px; line-height: 22px; font-weight: 700; text-decoration: none">Ivan Dmitriev</a>
-        <button onClick=${v.toggleNav} aria-label="Close navigation" title="Close navigation" style="background: none; border: 0; cursor: pointer; padding: 4px; display: flex"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M9 2 L4 7 L9 12" fill="none" stroke="#424650" stroke-width="2"></path></svg></button>
+        <button onClick=${v.toggleNav} aria-label="Close navigation" title="Close navigation" style="background: none; border: 0; cursor: pointer; padding: 4px; display: flex"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#424650" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M11 2 5 8l6 6"></path></svg></button>
       </div>
       <a class="navlink" href="#" onClick=${v.restart} style="display: block; padding: 4px 24px 4px 28px; color: #424650; text-decoration: none">Overview</a>
       <a class="navlink" href="#" onClick=${v.menuInfo} style="display: block; padding: 4px 24px 4px 28px; color: #424650; text-decoration: none">About this page</a>
@@ -147,7 +150,7 @@ const view = (v) => html`
           <button class="btnN" onClick=${v.togglePlay} style="min-height: 30px; padding: 4px 20px; border-radius: 20px; border: 2px solid #006ce0; background: #ffffff; color: #006ce0; font: 700 14px 'Hind', 'Open Sans', sans-serif; cursor: pointer">${v.playLabel}</button>
           <button class="btnP" onClick=${v.primary} style="min-height: 30px; padding: 4px 20px; border-radius: 20px; border: 2px solid #FF9900; background: #FF9900; color: #0f141a; font: 700 14px 'Hind', 'Open Sans', sans-serif; cursor: pointer">${v.primaryLabel}</button>
         </div></div>
-          <button onClick=${v.closeBanner} aria-label="Dismiss" style="position: absolute; right: 14px; top: 12px; background: none; border: 0; cursor: pointer; padding: 4px; display: flex"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#424650" stroke-width="2" aria-hidden="true"><path d="M3 3 L13 13 M13 3 L3 13"></path></svg></button>
+          <button onClick=${v.closeBanner} aria-label="Dismiss" style="position: absolute; right: 14px; top: 12px; background: none; border: 0; cursor: pointer; padding: 4px; display: flex"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#424650" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="m2 1.71 12 12M2 13.71l12-12"></path></svg></button>
         </div>
       ` : null}
       
@@ -209,7 +212,7 @@ const view = (v) => html`
 
         
         ${v.showHint ? html`
-          <div style="position: absolute; left: 10px; top: 390px; width: 200px; padding: 14px 16px; border-radius: 16px; border: 1px solid #c8c3d8; box-sizing: border-box; font-size: 13px; color: #0f141a" class="banner"><strong>You are the request.</strong> Press Send request or click any service to travel through the network.</div>
+          <div style="position: absolute; left: 4px; top: 474px; width: 140px; padding: 12px 14px; border-radius: 16px; border: 1px solid #c8c3d8; box-sizing: border-box; font-size: 13px; color: #0f141a" class="banner"><strong>You are the request.</strong> Press Send request or click any service to travel through the network.</div>
         ` : null}
 
         
@@ -371,6 +374,7 @@ const view = (v) => html`
         </div>
       </section>
 
+    </main>
       
       ${v.hasWin ? html`
           <section class="win win-m" style="position: absolute; ${v.winPos} width: 500px; max-height: 600px; display: flex; flex-direction: column; z-index: 6; background: #FFFFFF; border-radius: 16px; box-shadow: 0px 1px 1px 1px #e9ebed, 0px 6px 36px #0007161a; overflow: hidden">
@@ -526,7 +530,6 @@ const view = (v) => html`
             </div>
           </section>
         ` : null}
-    </main>
   </div>
 
       
@@ -534,7 +537,7 @@ const view = (v) => html`
     <section class="shell" ref=${v.shellRef} aria-label="CloudShell" style="${v.shellStyle} display: flex; flex-direction: column; background: #0f1b2a; border-top: 1px solid #414d5c; overflow: visible">
       ${v.notMax ? html`<div onMouseDown=${v.dragStart} title="Drag to resize" style="position: absolute; left: 0; right: 0; top: -5px; height: 18px; cursor: ns-resize; z-index: 5; display: flex; justify-content: center; align-items: center"><svg width="16" height="8" viewBox="0 0 16 8" aria-hidden="true"><path d="M1 2 H15 M1 6 H15" stroke="#c6c6cd" stroke-width="2"></path></svg></div>` : null}
       <div style="flex: none; display: flex; flex-wrap: wrap; align-items: stretch; color: #f9f9fa; padding: 14px 16px 0 24px; gap: 6px; border-bottom: 1px solid #414d5c">
-        <span class="shell-title" style="order: 1; display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 18px; height: 34px; margin-right: 10px"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#f9f9fa" stroke-width="1.6" aria-hidden="true"><rect x="1" y="2" width="14" height="12" rx="2"></rect><path d="M4 6 L6.5 8 L4 10 M8 10 H12"></path></svg>CloudShell</span>
+        <span class="shell-title" style="order: 1; display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 18px; height: 34px; margin-right: 10px"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#f9f9fa" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M15 1H1v14h14V1Z"></path><path d="M12 11H9"></path><path d="M4.71 11.3 8 8 4.71 4.71"></path></svg>CloudShell</span>
         <div aria-hidden="true" style="order: 2; flex-basis: 100%; height: 0"></div>
             <div style="order: 3; display: flex; align-items: stretch; min-width: 0; overflow-x: auto; height: 40px; margin-top: 4px">
           ${(v.tabs || []).map((tb) => html`
@@ -585,7 +588,7 @@ const view = (v) => html`
     </section>
   ` : null}
   <footer class="app-foot" style="flex: none; height: 30px; background: #161d26; color: #c6c6cd; display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: 20px; padding: 0 16px; font-size: 12px">
-    <span style="display: flex; gap: 20px"><button onClick=${v.toggleTerm} style="background: none; border: 0; padding: 0; color: ${v.footC}; font: 500 12px 'Hind', 'Open Sans', sans-serif; cursor: pointer; display: flex; align-items: center; gap: 6px"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="1" y="2" width="14" height="12" rx="2"></rect><path d="M4 6 L6.5 8 L4 10"></path></svg>CloudShell</button><a href="mailto:100553235@alumnos.uc3m.es?subject=Feedback%20on%20your%20site" style="color: #ebebf0; text-decoration: none">Feedback</a></span><span style="text-align: center">© 2026 Ivan Dmitriev · personal site, not affiliated with Amazon Web Services</span><span></span>
+    <span style="display: flex; gap: 20px"><button onClick=${v.toggleTerm} style="background: none; border: 0; padding: 0; color: ${v.footC}; font: 500 12px 'Hind', 'Open Sans', sans-serif; cursor: pointer; display: flex; align-items: center; gap: 6px"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M15 1H1v14h14V1Z"></path><path d="M12 11H9"></path><path d="M4.71 11.3 8 8 4.71 4.71"></path></svg>CloudShell</button><a href="mailto:100553235@alumnos.uc3m.es?subject=Feedback%20on%20your%20site" style="color: #ebebf0; text-decoration: none">Feedback</a></span><span style="text-align: center">© 2026 Ivan Dmitriev · personal site, not affiliated with Amazon Web Services</span><span></span>
   </footer>
 </div>
 `;
@@ -871,11 +874,11 @@ class Site extends Component {
       onSearch: (e) => this.setState({ q: e.target.value }),
       onSearchKey: (e) => { if (e.key === 'Enter' && results.length) results[0].pick(); if (e.key === 'Escape') this.setState({ q: '' }); },
       k: this.state.k.toFixed(4),
-      stageRef: (el) => { this.stageEl = el; if (el) setTimeout(this.onResize, 0); },
+      stageRef: (el) => { this.stageEl = el; if (el) { setTimeout(this.onResize, 0); if (window.ResizeObserver && !this.ro) { this.ro = new ResizeObserver(() => this.onResize()); this.ro.observe(el); } } },
       dotX: st.x.toFixed(1), dotY: st.y.toFixed(1),
       dotO: st.moving ? 1 : 0,
       bits: bitsArr[Math.floor((st.x + st.y) / 40) % 4],
-      showHint: step === 0 && !st.moving,
+      showHint: true,
       hasWin: st.open && step >= 1,
       win: win, winPos: winPos,
       hopNum: Math.min(step, 10), ms: step >= 1 ? N[step - 1].ms : 0,
@@ -937,7 +940,7 @@ class Site extends Component {
       menuSide: st.max ? 'top: 34px;' : 'bottom: 34px;',
       shellStyle: st.max ? 'position: fixed; inset: 0; z-index: 100; height: auto;' : 'position: relative; flex: none; height: ' + st.shH + 'px;',
       maxLabel: st.max ? 'Exit full screen' : 'Full screen',
-      maxPath: st.max ? 'M6 2 V6 H2 M14 6 H10 V2 M10 14 V10 H14 M2 10 H6 V14' : 'M2 6 V2 H6 M10 2 H14 V6 M14 10 V14 H10 M6 14 H2 V10',
+      maxPath: st.max ? 'M10 1v5h5M10.71 5.29 15 1M1 10h5v5M5.3 10.7 1 15' : 'M14 7V2H9M10 6l4-4M6.99 14H2V9M6 10l-4 4M9 14h5V9M10 10l4 4M2 6.99V2h5M6 6 2 2',
       toggleMax: () => this.setMax(!this.state.max),
       openWindow: () => { var w = null; try { w = window.open(window.location.href, '_blank', 'noopener'); } catch (err) { w = null; } if (!w) this.setMax(true); },
       shellRef: (el) => { this.shellEl = el; },
