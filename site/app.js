@@ -87,9 +87,9 @@ const view = (v) => html`
       ${v.mAccount ? html`
         <div role="menu" style="position: absolute; top: 36px; z-index: 55; background: #ffffff; border-radius: 8px; box-shadow: 0px 1px 1px 1px #e9ebed, 0px 6px 36px #0007161a; padding: 6px 0; right: 0; width: 280px">
           <div style="padding: 8px 16px 10px; border-bottom: 1px solid #ebebf0"><strong style="display: block">Ivan Dmitriev</strong><span style="font-size: 12px; color: #656871">AWS Student Builder Group Leader · UC3M</span></div>
-          <a role="menuitem" href="https://www.linkedin.com/in/ivan-dmitriev-uc3m/" target="_blank" rel="noopener" style="display: flex; align-items: center; gap: 10px; width: 100%; text-align: left; padding: 6px 16px; background: none; border: 0; cursor: pointer; font: 400 14px 'Hind', 'Open Sans', sans-serif; color: #0f141a; text-decoration: none; box-sizing: border-box">LinkedIn ↗</a>
-          <a role="menuitem" href="https://github.com/hardvanika" target="_blank" rel="noopener" style="display: flex; align-items: center; gap: 10px; width: 100%; text-align: left; padding: 6px 16px; background: none; border: 0; cursor: pointer; font: 400 14px 'Hind', 'Open Sans', sans-serif; color: #0f141a; text-decoration: none; box-sizing: border-box">GitHub ↗</a>
-          <a role="menuitem" href=${v.bcUrl} target="_blank" rel="noopener" style="display: flex; align-items: center; gap: 10px; width: 100%; text-align: left; padding: 6px 16px; background: none; border: 0; cursor: pointer; font: 400 14px 'Hind', 'Open Sans', sans-serif; color: #0f141a; text-decoration: none; box-sizing: border-box">AWS Builder Center ↗</a>
+          <a role="menuitem" href="https://www.linkedin.com/in/ivan-dmitriev-uc3m/" target="_blank" rel="noopener" style="display: flex; align-items: center; gap: 10px; width: 100%; text-align: left; padding: 6px 16px; background: none; border: 0; cursor: pointer; font: 400 14px 'Hind', 'Open Sans', sans-serif; color: #0f141a; text-decoration: none; box-sizing: border-box">LinkedIn</a>
+          <a role="menuitem" href="https://github.com/hardvanika" target="_blank" rel="noopener" style="display: flex; align-items: center; gap: 10px; width: 100%; text-align: left; padding: 6px 16px; background: none; border: 0; cursor: pointer; font: 400 14px 'Hind', 'Open Sans', sans-serif; color: #0f141a; text-decoration: none; box-sizing: border-box">GitHub</a>
+          <a role="menuitem" href=${v.bcUrl} target="_blank" rel="noopener" style="display: flex; align-items: center; gap: 10px; width: 100%; text-align: left; padding: 6px 16px; background: none; border: 0; cursor: pointer; font: 400 14px 'Hind', 'Open Sans', sans-serif; color: #0f141a; text-decoration: none; box-sizing: border-box">AWS Builder Center</a>
           <button role="menuitem" onClick=${v.helpContact} style="display: flex; align-items: center; gap: 10px; width: 100%; text-align: left; padding: 6px 16px; background: none; border: 0; cursor: pointer; font: 400 14px 'Hind', 'Open Sans', sans-serif; color: #0f141a; text-decoration: none; box-sizing: border-box">Contact</button>
           <div style="height: 1px; background: #ebebf0; margin: 4px 0"></div>
           <button role="menuitem" onClick=${v.signOut} style="display: flex; align-items: center; gap: 10px; width: 100%; text-align: left; padding: 6px 16px; background: none; border: 0; cursor: pointer; font: 400 14px 'Hind', 'Open Sans', sans-serif; color: #0f141a; text-decoration: none; box-sizing: border-box">Sign out</button>
@@ -107,7 +107,7 @@ const view = (v) => html`
   <div class="app-body" style="flex: 1 1 auto; min-height: 0; display: flex">
     
     <nav class="sidenav" aria-label="Services" style="display: ${v.navDisp}; flex: none; width: 240px; border-right: 1px solid #c6c6cd; padding: 20px 0; overflow-y: auto; box-sizing: border-box; flex-direction: column">
-      <div style="padding: 0 24px 16px; font-size: 18px; line-height: 22px; font-weight: 700"><a href="#" onClick=${v.restart} style="color: #0f141a">Ivan Dmitriev</a></div>
+      <div style="padding: 0 24px 16px; font-size: 18px; line-height: 22px; font-weight: 700"><a href="#" onClick=${v.restart} style="color: #0f141a; font-weight: 700">Ivan Dmitriev</a></div>
       <div class="qline" style="margin: 0 0 16px"></div>
       <div style="padding: 0 24px 8px; font-weight: 700; color: #424650">Request path</div>
       ${(v.nodes || []).map((n) => html`
@@ -115,9 +115,11 @@ const view = (v) => html`
       `)}
       <div style="height: 1px; background: #c6c6cd; margin: 16px 24px"></div>
       <div style="padding: 0 24px 8px; font-weight: 700; color: #424650">Socials</div>
-      <a target="_blank" rel="noopener" class="navlink" href="https://www.linkedin.com/in/ivan-dmitriev-uc3m/" style="display: block; padding: 4px 24px 4px 36px; color: #424650">LinkedIn ↗</a>
-      <a target="_blank" rel="noopener" class="navlink" href="https://github.com/hardvanika" style="display: block; padding: 4px 24px 4px 36px; color: #424650">GitHub ↗</a>
-      <a class="navlink" href=${v.bcUrl} target="_blank" rel="noopener" style="display: block; padding: 4px 24px 4px 36px; color: #424650">AWS Builder Center ↗</a>
+      <div class="extlist" style="padding: 0 24px">
+        <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/ivan-dmitriev-uc3m/">LinkedIn</a>
+        <a target="_blank" rel="noopener" href="https://github.com/hardvanika">GitHub</a>
+        <a href=${v.bcUrl} target="_blank" rel="noopener">AWS Builder Center</a>
+      </div>
     </nav>
 
     
@@ -260,7 +262,7 @@ const view = (v) => html`
                   <div style="display: grid; grid-template-columns: minmax(0, 1fr) 70px 110px; gap: 8px; padding: 8px 14px; font-size: 14px; border-bottom: 1px solid #ebebf0"><span>TryHackMe · Cyber Security 101</span><span>Path</span><span style="color: #00802f; font-weight: 700">Completed</span></div>
                   <div style="display: grid; grid-template-columns: minmax(0, 1fr) 70px 110px; gap: 8px; padding: 8px 14px; font-size: 14px"><span>TryHackMe · Defending AWS</span><span>Path</span><span style="color: #006ce0; font-weight: 700">In progress · 56%</span></div>
                 </div>
-                <div style="font-size: 14px; color: #424650">I learn security by attacking labs, not by reading about them. <a href="https://tryhackme.com/p/100553235" target="_blank" rel="noopener">My TryHackMe profile ↗</a></div>
+                <div style="font-size: 14px; color: #424650">I learn security by attacking labs, not by reading about them. <a href="https://tryhackme.com/p/100553235" target="_blank" rel="noopener">My TryHackMe profile</a></div>
               ` : null}
 
               ${v.s3 ? html`
@@ -308,7 +310,7 @@ const view = (v) => html`
                   <div style="display: grid; grid-template-columns: minmax(0, 1fr) 150px 80px; gap: 8px; padding: 8px 14px; font-size: 14px"><span>Defending AWS (56%, in progress)</span><span>TryHackMe</span><span>—</span></div>
                   <div class="writing" style="display: grid; grid-template-columns: minmax(0, 1fr) 150px 80px; gap: 8px; padding: 8px 14px; font-size: 14px; color: #656871; font-style: italic; border-top: 1px solid #ebebf0; background: #f9f9fa"><span>Next certification · writing item…</span><span>More to come</span><span>Soon</span></div>
                 </div>
-                <div style="font-size: 14px"><a target="_blank" rel="noopener" href="https://www.linkedin.com/in/ivan-dmitriev-uc3m/details/certifications/">Load more on LinkedIn ↗</a></div>
+                <div style="font-size: 14px"><a target="_blank" rel="noopener" href="https://www.linkedin.com/in/ivan-dmitriev-uc3m/details/certifications/">Load more on LinkedIn</a></div>
               ` : null}
 
               ${v.s4 ? html`
@@ -419,7 +421,7 @@ const view = (v) => html`
                   <div style="display: grid; grid-template-columns: minmax(0, 1fr) 70px 110px; gap: 8px; padding: 8px 14px; font-size: 14px; border-bottom: 1px solid #ebebf0"><span>TryHackMe · Cyber Security 101</span><span>Path</span><span style="color: #00802f; font-weight: 700">Completed</span></div>
                   <div style="display: grid; grid-template-columns: minmax(0, 1fr) 70px 110px; gap: 8px; padding: 8px 14px; font-size: 14px"><span>TryHackMe · Defending AWS</span><span>Path</span><span style="color: #006ce0; font-weight: 700">In progress · 56%</span></div>
                 </div>
-                <div style="font-size: 14px; color: #424650">I learn security by attacking labs, not by reading about them. <a href="https://tryhackme.com/p/100553235" target="_blank" rel="noopener">My TryHackMe profile ↗</a></div>
+                <div style="font-size: 14px; color: #424650">I learn security by attacking labs, not by reading about them. <a href="https://tryhackme.com/p/100553235" target="_blank" rel="noopener">My TryHackMe profile</a></div>
               ` : null}
 
               ${v.s3 ? html`
@@ -467,7 +469,7 @@ const view = (v) => html`
                   <div style="display: grid; grid-template-columns: minmax(0, 1fr) 150px 80px; gap: 8px; padding: 8px 14px; font-size: 14px"><span>Defending AWS (56%, in progress)</span><span>TryHackMe</span><span>—</span></div>
                   <div class="writing" style="display: grid; grid-template-columns: minmax(0, 1fr) 150px 80px; gap: 8px; padding: 8px 14px; font-size: 14px; color: #656871; font-style: italic; border-top: 1px solid #ebebf0; background: #f9f9fa"><span>Next certification · writing item…</span><span>More to come</span><span>Soon</span></div>
                 </div>
-                <div style="font-size: 14px"><a target="_blank" rel="noopener" href="https://www.linkedin.com/in/ivan-dmitriev-uc3m/details/certifications/">Load more on LinkedIn ↗</a></div>
+                <div style="font-size: 14px"><a target="_blank" rel="noopener" href="https://www.linkedin.com/in/ivan-dmitriev-uc3m/details/certifications/">Load more on LinkedIn</a></div>
               ` : null}
 
               ${v.s4 ? html`
@@ -577,19 +579,19 @@ const view = (v) => html`
         <button class="hide-m" onClick=${v.openWindow} aria-label="Open in new browser tab" title="Open in new browser tab" style="order: 1; display: flex; align-items: center; padding: 0 6px; background: none; border: 0; cursor: pointer"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#dedee3" stroke-width="2"><path d="M9 2 H14 V7 M14 2 L7 9 M12 10 V14 H2 V4 H6"></path></svg></button>
         <button onClick=${v.toggleTerm} aria-label="Close CloudShell" style="order: 1; width: 32px; background: none; border: 0; color: #dedee3; cursor: pointer; font-size: 20px">×</button>
       </div>
-      <div onClick=${v.focusTerm} style="flex: 1 1 auto; min-height: 0; overflow-y: auto; display: flex; flex-direction: column-reverse; padding: 8px 24px; font: 13px/18px Monaco, Menlo, Consolas, 'Courier Prime', Courier, 'Courier New', monospace">
+      <div onClick=${v.focusTerm} style="flex: 1 1 auto; min-height: 0; overflow-y: auto; display: flex; flex-direction: column-reverse; padding: 8px 24px; font: 12px/16px Monaco, Menlo, Consolas, 'Courier Prime', Courier, 'Courier New', monospace">
         <div style="display: flex; align-items: center; gap: 6px">
-          <span style="color: #ffffff; white-space: nowrap">${v.prompt}</span>
-          <input ref=${v.termRef} type="text" aria-label="CloudShell command" value=${v.cmd} onInput=${v.onCmd} onKeyDown=${v.onCmdKey} spellcheck="false" autocomplete="off" style="flex: 1; min-width: 0; background: transparent; border: 0; outline: none; color: #ffffff; font: 13px/18px Monaco, Menlo, Consolas, 'Courier Prime', Courier, 'Courier New', monospace; caret-color: #ffffff" />
+          <span style="color: #f0f0f0; white-space: nowrap">${v.prompt}</span>
+          <input ref=${v.termRef} type="text" aria-label="CloudShell command" value=${v.cmd} onInput=${v.onCmd} onKeyDown=${v.onCmdKey} spellcheck="false" autocomplete="off" style="flex: 1; min-width: 0; background: transparent; border: 0; outline: none; color: #f0f0f0; font: 12px/16px Monaco, Menlo, Consolas, 'Courier Prime', Courier, 'Courier New', monospace; caret-color: #f0f0f0" />
         </div>
         ${(v.lines || []).map((ln) => html`
-          <div style="white-space: pre-wrap; color: ${ln.c}">${ln.t}</div>
+          <div style="white-space: pre-wrap; color: #f0f0f0">${ln.t}</div>
         `)}
       </div>
     </section>
   ` : null}
   <footer class="app-foot" style="flex: none; height: 30px; background: #161d26; color: #c6c6cd; display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: 20px; padding: 0 16px; font-size: 12px">
-    <span style="display: flex; gap: 20px"><button onClick=${v.toggleTerm} style="background: none; border: 0; padding: 0; color: #c6c6cd; font: 700 12px 'Hind', 'Open Sans', sans-serif; cursor: pointer; display: flex; align-items: center; gap: 6px"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#c6c6cd" stroke-width="2" aria-hidden="true"><rect x="1" y="2" width="14" height="12" rx="2"></rect><path d="M4 6 L6.5 8 L4 10"></path></svg>CloudShell</button><a href="mailto:100553235@alumnos.uc3m.es?subject=Feedback%20on%20your%20site" style="color: #c6c6cd; text-decoration: none">Feedback</a></span><span style="text-align: center">© 2026 Ivan Dmitriev · personal site, not affiliated with Amazon Web Services</span><span></span>
+    <span style="display: flex; gap: 20px"><button onClick=${v.toggleTerm} style="background: none; border: 0; padding: 0; color: ${v.footC}; font: 500 12px 'Hind', 'Open Sans', sans-serif; cursor: pointer; display: flex; align-items: center; gap: 6px"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="1" y="2" width="14" height="12" rx="2"></rect><path d="M4 6 L6.5 8 L4 10"></path></svg>CloudShell</button><a href="mailto:100553235@alumnos.uc3m.es?subject=Feedback%20on%20your%20site" style="color: #ebebf0; text-decoration: none">Feedback</a></span><span style="text-align: center">© 2026 Ivan Dmitriev · personal site, not affiliated with Amazon Web Services</span><span></span>
   </footer>
 </div>
 `;
@@ -890,6 +892,7 @@ class Site extends Component {
       close: () => this.setState({ open: false }),
       termOpen: st.termOpen, cmd: st.cmd,
       bannerOpen: st.bannerOpen,
+      footC: st.termOpen ? '#42b4ff' : '#ebebf0',
       navDisp: st.navHidden ? 'none' : 'flex',
       toggleNav: () => { if (window.innerWidth <= 900) { this.setState({ menu: this.state.menu === 'services' ? '' : 'services' }); return; } this.setState({ navHidden: !this.state.navHidden }); setTimeout(this.onResize, 30); },
       closeBanner: () => { this.setState({ bannerOpen: false }); setTimeout(this.onResize, 30); },
