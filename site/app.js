@@ -190,8 +190,6 @@ const view = (v) => html`
               <button onClick=${v.pagePrev} aria-label="Previous hop" style="background: none; border: 0; cursor: pointer; padding: 4px; display: flex"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#8c8c94" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M11 2 5 8l6 6"></path></svg></button>
               <span style="min-width: 22px; text-align: center; font-weight: 700; color: #0f141a">${v.pageNum}</span>
               <button onClick=${v.pageNext} aria-label="Next hop" style="background: none; border: 0; cursor: pointer; padding: 4px; display: flex"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#8c8c94" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="m5 2 6 6-6 6"></path></svg></button>
-              <span aria-hidden="true" style="width: 1px; height: 24px; background: #c6c6cd; margin: 0 8px"></span>
-              <button onClick=${v.menuInfo} aria-label="Preferences" title="About this page" style="background: none; border: 0; cursor: pointer; padding: 4px; display: flex"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#0f141a" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M13.3 5.2l1.1-2.1-1.4-1.4-2.1 1.1c-.3-.2-.7-.3-1.1-.4L9 0H7l-.8 2.3c-.4.1-.7.2-1 .4L3.1 1.6 1.6 3.1l1.1 2.1c-.2.3-.3.7-.4 1.1L0 7v2l2.3.8c.1.4.3.7.4 1.1l-1.1 2.1 1.4 1.4 2.1-1.1c.3.2.7.3 1.1.4L7 16h2l.8-2.3c.4-.1.7-.3 1.1-.4l2.1 1.1 1.4-1.4-1.1-2.1c.2-.3.3-.7.4-1.1L16 9V7l-2.3-.8c-.1-.4-.3-.7-.4-1z"></path><circle cx="8" cy="8" r="2.5"></circle></svg></button>
             </div>
           </div>
         </div>
