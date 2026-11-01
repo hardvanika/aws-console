@@ -17,7 +17,7 @@ Every service on the diagram holds one part of my story, and opening it shows a 
 | 3 | Amazon API Gateway | AWS Student Builder Group UC3M, which I founded |
 | 4 | Amazon EventBridge | I2C, the CS association I'm VP of |
 | 5 | Amazon SQS | Student representation (RITSI, UC3M Delegation) |
-| 6 | AWS Lambda | Things I built |
+| 6 | AWS Lambda | **Tech superpowers** (skills as Lambda layers) and things I built |
 | 7 | Amazon DynamoDB | Latest certifications |
 | 8 | Amazon GuardDuty | Security training on TryHackMe |
 | 9 | Amazon CloudWatch | Operations internship at MAPFRE |
