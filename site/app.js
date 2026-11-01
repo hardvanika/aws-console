@@ -137,7 +137,7 @@ const view = (v) => html`
       
       ${v.bannerOpen ? html`
         <div class="banner" style="flex: none; position: relative; border: 1px solid #c8c3d8; border-radius: 16px; padding: 14px 52px 16px 20px">
-          <h1 style="margin: 0; font-size: 24px; line-height: 30px; font-weight: 700; position: relative">Ivan Dmitriev <span style="font-weight: 700">|</span> <i style="font-weight: 400">Student Builder</i> <a href="#" onClick=${v.menuInfo} style="font-size: 12px; font-weight: 700; margin-left: 6px; vertical-align: middle">Info</a>
+          <h1 style="margin: 0; font-size: 24px; line-height: 30px; font-weight: 700; position: relative">You are the request. <i style="font-weight: 400">I'm the builder.</i> <a href="#" onClick=${v.menuInfo} style="font-size: 12px; font-weight: 700; margin-left: 6px; vertical-align: middle">Info</a>
             ${v.mInfo ? html`
               <div class="info-pop" role="dialog" style="position: absolute; top: 34px; z-index: 100; background: #ffffff; border-radius: 8px; box-shadow: 0px 1px 1px 1px #e9ebed, 0px 6px 36px #0007161a; padding: 14px 16px; left: 0; width: 420px; font-size: 14px; line-height: 20px; font-weight: 400; color: #0f141a">
                 <strong style="display: block; font-size: 16px; margin-bottom: 6px">About this page</strong>
@@ -621,7 +621,7 @@ const view = (v) => html`
     </section>
   ` : null}
   <footer class="app-foot" style="flex: none; height: 30px; background: #161d26; color: #c6c6cd; display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: 20px; padding: 0 16px; font-size: 12px">
-    <span style="display: flex; gap: 20px"><button onClick=${v.toggleTerm} style="background: none; border: 0; padding: 0; color: ${v.footC}; font: 500 12px 'Hind', 'Open Sans', sans-serif; cursor: pointer; display: flex; align-items: center; gap: 6px"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M15 1H1v14h14V1Z"></path><path d="M12 11H9"></path><path d="M4.71 11.3 8 8 4.71 4.71"></path></svg>CloudShell</button><a href="mailto:100553235@alumnos.uc3m.es?subject=Feedback%20on%20your%20site" style="color: #ebebf0; text-decoration: none">Feedback</a></span><span style="text-align: center">© 2026 Ivan Dmitriev · personal site, not affiliated with Amazon Web Services</span><span></span>
+    <span style="display: flex; gap: 20px"><button onClick=${v.toggleTerm} style="background: none; border: 0; padding: 0; color: ${v.footC}; font: 500 12px 'Hind', 'Open Sans', sans-serif; cursor: pointer; display: flex; align-items: center; gap: 6px"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M15 1H1v14h14V1Z"></path><path d="M12 11H9"></path><path d="M4.71 11.3 8 8 4.71 4.71"></path></svg>CloudShell</button><a href="mailto:100553235@alumnos.uc3m.es?subject=Feedback%20on%20your%20site" style="color: #ebebf0; text-decoration: none">Feedback</a></span><span style="text-align: center">© 2026 Ivan Dmitriev · personal site, not affiliated with Amazon Web Services</span><span style="text-align: right; display: flex; justify-content: flex-end">${v.hasBuild ? html`<a href=${v.buildUrl} target="_blank" rel="noopener" title=${v.buildTitle} style="color: #29ad32; font: 600 12px 'Hind', 'Open Sans', sans-serif; text-decoration: none; display: inline-flex; align-items: center; gap: 6px"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m2 8.5 4 4L14 4"></path></svg>${v.buildTxt}</a>` : null}</span>
   </footer>
 </div>
 `;
@@ -940,6 +940,10 @@ class Site extends Component {
       reqOpen: !st.reqClosed, reqRot: st.reqClosed ? -90 : 0, toggleReq: () => this.setState({ reqClosed: !this.state.reqClosed }),
       socOpen: !st.socClosed, socRot: st.socClosed ? -90 : 0, toggleSoc: () => this.setState({ socClosed: !this.state.socClosed }),
       footC: st.termOpen ? '#42b4ff' : '#ebebf0',
+      hasBuild: !!(window.BUILD && window.BUILD.job),
+      buildTxt: (() => { var B = window.BUILD || {}; var c = /^[0-9a-f]{7,}$/i.test(B.commit || '') ? ' · commit ' + B.commit.slice(0, 7) : ''; return 'Live on AWS Amplify · build #' + parseInt(B.job || '0', 10) + c; })(),
+      buildUrl: (() => { var B = window.BUILD || {}; return /^[0-9a-f]{7,}$/i.test(B.commit || '') ? 'https://github.com/hardvanika/aws-console/commit/' + B.commit : 'https://github.com/hardvanika/aws-console'; })(),
+      buildTitle: (() => { var B = window.BUILD || {}; return 'Deployed by AWS Amplify Hosting' + (B.branch ? ' from ' + B.branch : '') + (B.at ? ' at ' + B.at : ''); })(),
       navDisp: st.navHidden ? 'none' : 'flex',
       toggleNav: () => { if (window.innerWidth <= 900) { this.setState({ menu: this.state.menu === 'services' ? '' : 'services' }); return; } this.setState({ navHidden: !this.state.navHidden }); setTimeout(this.onResize, 30); },
       closeBanner: () => { this.setState({ bannerOpen: false }); setTimeout(this.onResize, 30); },

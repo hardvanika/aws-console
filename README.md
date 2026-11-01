@@ -54,7 +54,7 @@ each AWS service is a metaphor for one part of my path.
 | Path | What it is |
 |------|------------|
 | `site/` | The static site (HTML + vanilla JS with Preact/htm vendored, no build step) |
-| `amplify.yml` | Amplify Hosting build settings (serves `site/`) |
+| `amplify.yml` | Amplify Hosting build settings: stamps the build number and commit into `site/build.js`, then serves `site/` |
 
 ## Deploy it yourself
 

@@ -3,7 +3,12 @@ frontend:
   phases:
     build:
       commands:
-        - echo "Static site, nothing to build"
+        # Static site: the only build step stamps the live Amplify build number and commit into site/build.js
+        - |
+          cat > site/build.js <<EOF
+          window.BUILD = { job: "${AWS_JOB_ID}", commit: "${AWS_COMMIT_ID}", branch: "${AWS_BRANCH}", at: "$(date -u +%Y-%m-%dT%H:%MZ)" };
+          EOF
+        - cat site/build.js
   artifacts:
     baseDirectory: site
     files:
