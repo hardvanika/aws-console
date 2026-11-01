@@ -83,7 +83,7 @@ const view = (v) => html`
     </div>
     <span aria-hidden="true" class="hide-m" style="width: 1px; height: 24px; background: #424650; flex: none"></span>
     <div style="position: relative; z-index: 56">
-      <button class="tnav hide-m" onClick=${v.menuAccount} style="background: none; border: 0; cursor: pointer; display: flex; flex-direction: column; align-items: flex-end; padding: 2px 6px; border-radius: 4px; color: #ffffff; font: 700 12px/15px 'Hind', 'Open Sans', sans-serif"><span>Student Builder <span style="font-size: 9px">▼</span></span><span style="font-weight: 500; color: #dedee3; letter-spacing: .02em">IVAN DMITRIEV</span></button>
+      <button class="tnav hide-m" onClick=${v.menuAccount} style="background: none; border: 0; cursor: pointer; display: flex; flex-direction: column; align-items: flex-end; padding: 2px 6px; border-radius: 4px; color: #ffffff; font: 700 12px/15px 'Hind', 'Open Sans', sans-serif"><span style="display: flex; align-items: center; gap: 4px">Student Builder <svg width="10" height="10" viewBox="0 0 16 16" aria-hidden="true"><path d="m8 11 4-6H4l4 6Z" fill="#ffffff" stroke="#ffffff" stroke-width="2" stroke-linejoin="round"></path></svg></span><span style="font-weight: 400; color: #dedee3">IVAN DMITRIEV</span></button>
       ${v.mAccount ? html`
         <div role="menu" style="position: absolute; top: 36px; z-index: 55; background: #ffffff; border-radius: 8px; box-shadow: 0px 1px 1px 1px #e9ebed, 0px 6px 36px #0007161a; padding: 6px 0; right: 0; width: 280px">
           <div style="padding: 8px 16px 10px; border-bottom: 1px solid #ebebf0"><strong style="display: block">Ivan Dmitriev</strong><span style="font-size: 12px; color: #656871">AWS Student Builder Group Leader · UC3M</span></div>
@@ -103,6 +103,10 @@ const view = (v) => html`
     <a href="#" onClick=${v.restart} style="text-decoration: underline; text-underline-offset: 3px">ivan-dmitriev</a>
     <svg width="10" height="12" viewBox="0 0 10 12" aria-hidden="true"><path d="M3 2 L7 6 L3 10" fill="none" stroke="#656871" stroke-width="2"></path></svg>
     <span style="font-weight: 700; color: #424650">Architecture</span>
+    <span style="flex: 1"></span>
+    <button onClick=${v.menuInfo} aria-label="About this page" title="About this page" style="background: none; border: 0; cursor: pointer; padding: 6px; display: flex"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#0f141a" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="8" r="7"></circle><path d="M8 12V7M8 6V4"></path></svg></button>
+    <span aria-hidden="true" style="width: 1px; height: 24px; background: #c6c6cd"></span>
+    <button onClick=${v.toggleTerm} aria-label="CloudShell" title="CloudShell" style="background: none; border: 0; cursor: pointer; padding: 6px; display: flex"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#0f141a" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M1 1h14v10H9l-3 3v-3H1V1Z"></path><path d="M4 4.5l2 1.5-2 1.5M8 7.5h3"></path></svg></button>
   </div>
   <div class="app-body" style="flex: 1 1 auto; min-height: 0; display: flex">
     
@@ -143,19 +147,53 @@ const view = (v) => html`
               </div>
             ` : null}</h1>
           <div style="margin-top: 4px; color: #0f141a; max-width: 980px">Born in Moscow, moved between Bulgaria, Greece and Spain, now in Madrid. Communities opened doors for me, so now I open them for others: AWS Student Builder Group Leader at UC3M and VP of I2C. Borders changed, the builder didn't.</div>
-          <div style="margin-top: 12px"><div style="display: flex; flex-wrap: wrap; gap: 8px">
-          <button class="btnN" onClick=${v.prev} style="min-height: 30px; padding: 4px 20px; border-radius: 20px; border: 2px solid #006ce0; background: #ffffff; color: #006ce0; font: 700 14px 'Hind', 'Open Sans', sans-serif; cursor: pointer">Previous</button>
-          <button class="btnN" onClick=${v.togglePlay} style="min-height: 30px; padding: 4px 20px; border-radius: 20px; border: 2px solid #006ce0; background: #ffffff; color: #006ce0; font: 700 14px 'Hind', 'Open Sans', sans-serif; cursor: pointer">${v.playLabel}</button>
-          <button class="btnP" onClick=${v.primary} style="min-height: 30px; padding: 4px 20px; border-radius: 20px; border: 2px solid #FF9900; background: #FF9900; color: #0f141a; font: 700 14px 'Hind', 'Open Sans', sans-serif; cursor: pointer">${v.primaryLabel}</button>
-        </div></div>
           <button onClick=${v.closeBanner} aria-label="Dismiss" style="position: absolute; right: 14px; top: 12px; background: none; border: 0; cursor: pointer; padding: 4px; display: flex"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#424650" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="m2 1.71 12 12M2 13.71l12-12"></path></svg></button>
         </div>
       ` : null}
       
       <section style="flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; background: #ffffff; border-radius: 16px; border: 1px solid #c6c6cd">
-        <div style="flex: none; padding: 12px 20px 4px; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px">
-          <h2 style="margin: 0; font-size: 20px; line-height: 24px; font-weight: 700; display: flex; align-items: center; gap: 8px"><svg width="10" height="16" viewBox="0 0 10 16" aria-hidden="true" fill="#656871"><circle cx="2" cy="3" r="1.4"></circle><circle cx="8" cy="3" r="1.4"></circle><circle cx="2" cy="8" r="1.4"></circle><circle cx="8" cy="8" r="1.4"></circle><circle cx="2" cy="13" r="1.4"></circle><circle cx="8" cy="13" r="1.4"></circle></svg>Architecture <span style="font-weight: 400; color: #656871">(10)</span></h2>
-          <span style="color: #656871; font-size: 14px">GET /ivan · hop ${v.hopNum}/10 · ${v.ms} ms</span>
+        <div style="flex: none; padding: 14px 20px 6px; display: flex; flex-direction: column; gap: 10px">
+          <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px">
+            <div style="min-width: 0">
+              <h2 style="margin: 0; font-size: 20px; line-height: 24px; font-weight: 700; display: flex; align-items: center; gap: 8px"><svg width="10" height="16" viewBox="0 0 10 16" aria-hidden="true" fill="#656871"><circle cx="2" cy="3" r="1.4"></circle><circle cx="8" cy="3" r="1.4"></circle><circle cx="2" cy="8" r="1.4"></circle><circle cx="8" cy="8" r="1.4"></circle><circle cx="2" cy="13" r="1.4"></circle><circle cx="8" cy="13" r="1.4"></circle></svg>Architecture <span style="font-weight: 400; color: #656871">(10)</span> <a href="#" onClick=${v.menuInfo} style="font-size: 12px; font-weight: 700">Info</a></h2>
+              <div style="margin-top: 2px; color: #424650; font-size: 14px">Each service holds one part of my story. Request: GET /ivan · hop ${v.hopNum}/10 · ${v.ms} ms</div>
+            </div>
+            <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px">
+              <button class="btnN" onClick=${v.restart} aria-label="Restart request" title="Restart request" style="width: 32px; height: 32px; border-radius: 50%; border: 2px solid #006ce0; background: #ffffff; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#006ce0" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M15 8c0 3.87-3.13 7-7 7s-7-3.13-7-7 3.13-7 7-7c2.79 0 5.2 1.63 6.33 4"></path><path d="M15 1v4h-4"></path></svg></button>
+              <button class="btnN" onClick=${v.prev} style="min-height: 30px; padding: 4px 20px; border-radius: 20px; border: 2px solid #006ce0; background: #ffffff; color: #006ce0; font: 700 14px 'Hind', 'Open Sans', sans-serif; cursor: pointer">Previous</button>
+          <button class="btnN" onClick=${v.togglePlay} style="min-height: 30px; padding: 4px 20px; border-radius: 20px; border: 2px solid #006ce0; background: #ffffff; color: #006ce0; font: 700 14px 'Hind', 'Open Sans', sans-serif; cursor: pointer">${v.playLabel}</button>
+          <button class="btnP" onClick=${v.primary} style="min-height: 30px; padding: 4px 20px; border-radius: 20px; border: 2px solid #FF9900; background: #FF9900; color: #0f141a; font: 700 14px 'Hind', 'Open Sans', sans-serif; cursor: pointer">${v.primaryLabel}</button>
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 16px">
+            <div style="position: relative; flex: 0 1 640px; min-width: 0">
+              <label style="display: flex; align-items: center; gap: 8px; height: 32px; padding: 0 12px; border: 1px solid #8c8c94; border-radius: 8px; background: #ffffff; box-sizing: border-box">
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="#424650" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="m11 11 4 4M7 12A5 5 0 1 0 7 2a5 5 0 0 0 0 10Z"></path></svg>
+                <input type="search" placeholder="Find services by name or keyword" aria-label="Find services" value=${v.qArch} onInput=${v.onSearch2} onKeyDown=${v.onSearchKey} style="flex: 1; min-width: 0; background: transparent; border: 0; outline: none; color: #0f141a; font: 400 14px 'Hind', 'Open Sans', sans-serif" />
+              </label>
+    ${v.hasResults2 ? html`
+      <div role="listbox" style="position: absolute; left: 0; right: 0; top: 36px; z-index: 50; background: #ffffff; border-radius: 8px; box-shadow: 0px 1px 1px 1px #e9ebed, 0px 6px 36px #0007161a; padding: 6px 0; overflow: hidden">
+        ${(v.results || []).map((res) => html`
+          <button onClick=${res.pick} style="display: flex; width: 100%; align-items: center; gap: 10px; padding: 6px 14px; background: none; border: 0; cursor: pointer; text-align: left; font: 400 14px 'Hind', 'Open Sans', sans-serif; color: #0f141a">
+            <img src=${res.icon} alt="" style="width: 24px; height: 24px; border-radius: 4px" />
+            <span style="display: flex; flex-direction: column"><strong style="font-weight: 700">${res.label}</strong><span style="font-size: 12px; color: #656871">${res.title}</span></span>
+          </button>
+        `)}
+        ${v.noResults ? html`
+          <div style="padding: 6px 14px; color: #656871">No matching services</div>
+        ` : null}
+      </div>
+    ` : null}
+            </div>
+            <span style="flex: 1"></span>
+            <div class="hide-m" style="display: flex; align-items: center; gap: 4px; color: #424650">
+              <button onClick=${v.pagePrev} aria-label="Previous hop" style="background: none; border: 0; cursor: pointer; padding: 4px; display: flex"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#8c8c94" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M11 2 5 8l6 6"></path></svg></button>
+              <span style="min-width: 22px; text-align: center; font-weight: 700; color: #0f141a">${v.pageNum}</span>
+              <button onClick=${v.pageNext} aria-label="Next hop" style="background: none; border: 0; cursor: pointer; padding: 4px; display: flex"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#8c8c94" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="m5 2 6 6-6 6"></path></svg></button>
+              <span aria-hidden="true" style="width: 1px; height: 24px; background: #c6c6cd; margin: 0 8px"></span>
+              <button onClick=${v.menuInfo} aria-label="Preferences" title="About this page" style="background: none; border: 0; cursor: pointer; padding: 4px; display: flex"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#0f141a" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M13.3 5.2l1.1-2.1-1.4-1.4-2.1 1.1c-.3-.2-.7-.3-1.1-.4L9 0H7l-.8 2.3c-.4.1-.7.2-1 .4L3.1 1.6 1.6 3.1l1.1 2.1c-.2.3-.3.7-.4 1.1L0 7v2l2.3.8c.1.4.3.7.4 1.1l-1.1 2.1 1.4 1.4 2.1-1.1c.3.2.7.3 1.1.4L7 16h2l.8-2.3c.4-.1.7-.3 1.1-.4l2.1 1.1 1.4-1.4-1.1-2.1c.2-.3.3-.7.4-1.1L16 9V7l-2.3-.8c-.1-.4-.3-.7-.4-1z"></path><circle cx="8" cy="8" r="2.5"></circle></svg></button>
+            </div>
+          </div>
         </div>
         <div class="stage" ref=${v.stageRef} style="flex: 1 1 auto; min-height: 0; position: relative; overflow: hidden">
     <div style="position: absolute; left: 50%; top: 50%; width: 1200px; height: 640px; transform: translate(-50%, -50%) scale(${v.k}); transform-origin: 50% 50%">
@@ -868,8 +906,10 @@ class Site extends Component {
     var nextLabel = step === 0 ? 'Send request' : (step >= 11 ? 'Send again' : 'Next service →');
     return Object.assign({
       nodes: nodes, segs: seg, heads: heads,
-      q: st.q, results: results, hasResults: !!q, noResults: !!q && results.length === 0,
-      onSearch: (e) => this.setState({ q: e.target.value }),
+      q: st.qw === 'arch' ? '' : st.q, qArch: st.qw === 'arch' ? st.q : '', results: results, hasResults: !!q && st.qw !== 'arch', hasResults2: !!q && st.qw === 'arch', noResults: !!q && results.length === 0,
+      onSearch: (e) => this.setState({ q: e.target.value, qw: 'top' }),
+      onSearch2: (e) => this.setState({ q: e.target.value, qw: 'arch' }),
+      pageNext: () => this.go(Math.min(11, this.state.step + 1)), pagePrev: () => this.go(Math.max(0, this.state.step - 1)), pageNum: st.step > 10 ? 10 : st.step,
       onSearchKey: (e) => { if (e.key === 'Enter' && results.length) results[0].pick(); if (e.key === 'Escape') this.setState({ q: '' }); },
       k: this.state.k.toFixed(4),
       stageRef: (el) => { this.stageEl = el; if (el) { setTimeout(this.onResize, 0); if (window.ResizeObserver && !this.ro) { this.ro = new ResizeObserver(() => this.onResize()); this.ro.observe(el); } } },
