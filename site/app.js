@@ -4,12 +4,13 @@ const view = (v) => html`
 <div class="app-root" style="height: 100vh; min-height: 560px; overflow: hidden; display: flex; flex-direction: column; background: #ffffff; color: #0f141a; font-family: 'Hind', 'Open Sans', 'Helvetica Neue', Roboto, Arial, sans-serif; font-size: 14px; line-height: 20px">
 
   
-  <header style="flex: none; position: relative; z-index: 60; height: 40px; background: #161d26; display: flex; align-items: center; gap: 16px; padding: 0 16px; border-bottom: 1px solid #424650">
+  <header style="flex: none; position: relative; z-index: 60; height: 44px; background: #161d26; display: flex; align-items: center; gap: 14px; padding: 0 16px; border-bottom: 1px solid #424650">
+    <a href="#" onClick=${v.restart} aria-label="Home" title="Home" class="mark" style="flex: none; width: 26px; height: 26px; border-radius: 6px; background: linear-gradient(225deg, #026be1 0%, #5d47ff 55%, #710bea 100%); display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6" fill="none" stroke="#ffffff" stroke-width="1.8"></circle><circle cx="8" cy="8" r="2.4" fill="#ffffff"></circle></svg></a>
+    <span aria-hidden="true" style="width: 1px; height: 24px; background: #8c8c94; flex: none"></span>
     ${v.anyMenu ? html`<div onClick=${v.closeMenus} style="position: fixed; inset: 0; z-index: 45"></div>` : null}
     <div style="position: relative; z-index: 56">
-    <button class="tnav" onClick=${v.menuServices} aria-expanded=${v.mServices} style="background: none; border: 0; cursor: pointer; display: flex; align-items: center; gap: 4px; padding: 4px 6px; border-radius: 4px; color: #dedee3; font: 700 14px 'Hind', 'Open Sans', sans-serif">
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="#dedee3" aria-hidden="true"><rect x="1" y="1" width="4" height="4" rx="1"></rect><rect x="6" y="1" width="4" height="4" rx="1"></rect><rect x="11" y="1" width="4" height="4" rx="1"></rect><rect x="1" y="6" width="4" height="4" rx="1"></rect><rect x="6" y="6" width="4" height="4" rx="1"></rect><rect x="11" y="6" width="4" height="4" rx="1"></rect><rect x="1" y="11" width="4" height="4" rx="1"></rect><rect x="6" y="11" width="4" height="4" rx="1"></rect><rect x="11" y="11" width="4" height="4" rx="1"></rect></svg>
-      Services <span style="font-size: 10px">▾</span>
+    <button class="tnav" onClick=${v.menuServices} aria-expanded=${v.mServices} aria-label="All services" title="All services" style="background: none; border: 0; cursor: pointer; display: flex; align-items: center; gap: 4px; padding: 6px; border-radius: 4px; color: #dedee3; font: 700 14px 'Hind', 'Open Sans', sans-serif">
+      <svg width="18" height="18" viewBox="0 0 16 16" fill="#dedee3" aria-hidden="true"><rect x="1" y="1" width="4" height="4" rx="1"></rect><rect x="6" y="1" width="4" height="4" rx="1"></rect><rect x="11" y="1" width="4" height="4" rx="1"></rect><rect x="1" y="6" width="4" height="4" rx="1"></rect><rect x="6" y="6" width="4" height="4" rx="1"></rect><rect x="11" y="6" width="4" height="4" rx="1"></rect><rect x="1" y="11" width="4" height="4" rx="1"></rect><rect x="6" y="11" width="4" height="4" rx="1"></rect><rect x="11" y="11" width="4" height="4" rx="1"></rect></svg>
     </button>
     ${v.mServices ? html`
       <div class="svc-menu" role="menu" style="position: absolute; top: 36px; z-index: 55; background: #ffffff; border-radius: 8px; box-shadow: 0px 1px 1px 1px #e9ebed, 0px 6px 36px #0007161a; padding: 6px 0; left: 0; width: 560px; padding: 12px 0; display: grid; grid-template-columns: 1fr 1fr">
@@ -27,10 +28,10 @@ const view = (v) => html`
       </div>
     ` : null}
     </div>
-    <div style="position: relative; flex: 0 1 560px; min-width: 0"><label class="search" style="display: flex; align-items: center; gap: 8px; height: 30px; padding: 0 10px; border: 1px solid #656871; border-radius: 8px; background: #161d26; color: #a4a4ad; box-sizing: border-box">
+    <div style="position: relative; flex: 0 1 560px; min-width: 0"><label class="search" style="display: flex; align-items: center; gap: 8px; height: 30px; padding: 0 10px; border: 1px solid #656871; border-radius: 8px; background: #0f141a; color: #a4a4ad; box-sizing: border-box">
       <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="#a4a4ad" stroke-width="2" aria-hidden="true"><circle cx="7" cy="7" r="5"></circle><path d="M11 11 L15 15"></path></svg>
-      <input type="search" placeholder="Search services, skills, places" aria-label="Search" value=${v.q} onInput=${v.onSearch} onKeyDown=${v.onSearchKey} style="flex: 1; min-width: 0; background: transparent; border: 0; outline: none; color: #f9f9fa; font: 400 14px 'Hind', 'Open Sans', sans-serif" />
-      <span style="font-size: 12px; color: #a4a4ad">[Alt+S]</span>
+      <input type="search" placeholder="Search" aria-label="Search" value=${v.q} onInput=${v.onSearch} onKeyDown=${v.onSearchKey} style="flex: 1; min-width: 0; background: transparent; border: 0; outline: none; color: #f9f9fa; font: 400 14px 'Hind', 'Open Sans', sans-serif" />
+      <span style="font-size: 12px; color: #a4a4ad; white-space: nowrap">[Alt+S]</span><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6" fill="none" stroke="#c6c6cd" stroke-width="1.6"></circle><circle cx="8" cy="8" r="2.2" fill="#c6c6cd"></circle></svg>
     </label>
     ${v.hasResults ? html`
       <div role="listbox" style="position: absolute; left: 0; right: 0; top: 34px; z-index: 50; background: #ffffff; border-radius: 8px; box-shadow: 0px 1px 1px 1px #e9ebed, 0px 6px 36px #0007161a; padding: 6px 0; overflow: hidden">
@@ -125,14 +126,7 @@ const view = (v) => html`
       
       ${v.bannerOpen ? html`
         <div class="banner" style="flex: none; position: relative; border: 1px solid #c8c3d8; border-radius: 16px; padding: 14px 52px 16px 20px">
-          <div style="font-size: 18px; line-height: 24px; font-weight: 700; color: #0f141a">Hi, I'm Ivan</div>
-          <div style="margin-top: 4px; color: #0f141a; max-width: 980px">Born in Moscow, raised between Bulgaria, Greece and Spain, now in Madrid. Communities opened doors for me, so now I open them for others: AWS Student Builder Group Leader at UC3M and VP of I2C. Borders changed, the builder didn't.</div>
-          <button onClick=${v.closeBanner} aria-label="Dismiss" style="position: absolute; right: 14px; top: 12px; background: none; border: 0; cursor: pointer; padding: 4px; display: flex"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#424650" stroke-width="2" aria-hidden="true"><path d="M3 3 L13 13 M13 3 L3 13"></path></svg></button>
-        </div>
-      ` : null}
-      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 24px">
-        <div style="flex: 1 1 520px; max-width: 900px">
-          <h1 style="margin: 0; font-size: 28px; line-height: 34px; font-weight: 700; position: relative">Ivan Dmitriev <span style="font-weight: 700">|</span> <i style="font-weight: 400">Student Builder</i> <a href="#" onClick=${v.menuInfo} style="font-size: 12px; font-weight: 700; margin-left: 6px; vertical-align: middle">Info</a>
+          <h1 style="margin: 0; font-size: 24px; line-height: 30px; font-weight: 700; position: relative">Ivan Dmitriev <span style="font-weight: 700">|</span> <i style="font-weight: 400">Student Builder</i> <a href="#" onClick=${v.menuInfo} style="font-size: 12px; font-weight: 700; margin-left: 6px; vertical-align: middle">Info</a>
             ${v.mInfo ? html`
               <div class="info-pop" role="dialog" style="position: absolute; top: 34px; z-index: 100; background: #ffffff; border-radius: 8px; box-shadow: 0px 1px 1px 1px #e9ebed, 0px 6px 36px #0007161a; padding: 14px 16px; left: 0; width: 420px; font-size: 14px; line-height: 20px; font-weight: 400; color: #0f141a">
                 <strong style="display: block; font-size: 16px; margin-bottom: 6px">About this page</strong>
@@ -141,14 +135,15 @@ const view = (v) => html`
                 <p style="margin: 0">Press <b>Send request</b>, click any service, use the search bar, or type <code>curl https://ivan.dmitriev</code> in CloudShell.</p>
               </div>
             ` : null}</h1>
+          <div style="margin-top: 4px; color: #0f141a; max-width: 980px">Born in Moscow, raised between Bulgaria, Greece and Spain, now in Madrid. Communities opened doors for me, so now I open them for others: AWS Student Builder Group Leader at UC3M and VP of I2C. Borders changed, the builder didn't.</div>
+          <div style="margin-top: 12px"><div style="display: flex; flex-wrap: wrap; gap: 8px">
+          <button class="btnN" onClick=${v.prev} style="min-height: 30px; padding: 4px 20px; border-radius: 20px; border: 2px solid #006ce0; background: #ffffff; color: #006ce0; font: 700 14px 'Hind', 'Open Sans', sans-serif; cursor: pointer">Previous</button>
+          <button class="btnN" onClick=${v.togglePlay} style="min-height: 30px; padding: 4px 20px; border-radius: 20px; border: 2px solid #006ce0; background: #ffffff; color: #006ce0; font: 700 14px 'Hind', 'Open Sans', sans-serif; cursor: pointer">${v.playLabel}</button>
+          <button class="btnP" onClick=${v.primary} style="min-height: 30px; padding: 4px 20px; border-radius: 20px; border: 2px solid #FF9900; background: #FF9900; color: #0f141a; font: 700 14px 'Hind', 'Open Sans', sans-serif; cursor: pointer">${v.primaryLabel}</button>
+        </div></div>
+          <button onClick=${v.closeBanner} aria-label="Dismiss" style="position: absolute; right: 14px; top: 12px; background: none; border: 0; cursor: pointer; padding: 4px; display: flex"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#424650" stroke-width="2" aria-hidden="true"><path d="M3 3 L13 13 M13 3 L3 13"></path></svg></button>
         </div>
-        <div style="display: flex; flex-wrap: wrap; gap: 8px">
-          <button class="btnN" onClick=${v.prev} style="min-height: 32px; padding: 4px 20px; border-radius: 20px; border: 2px solid #006ce0; background: #ffffff; color: #006ce0; font: 700 14px 'Hind', 'Open Sans', sans-serif; cursor: pointer">Previous</button>
-          <button class="btnN" onClick=${v.togglePlay} style="min-height: 32px; padding: 4px 20px; border-radius: 20px; border: 2px solid #006ce0; background: #ffffff; color: #006ce0; font: 700 14px 'Hind', 'Open Sans', sans-serif; cursor: pointer">${v.playLabel}</button>
-          <button class="btnP" onClick=${v.primary} style="min-height: 32px; padding: 4px 20px; border-radius: 20px; border: 2px solid #FF9900; background: #FF9900; color: #0f141a; font: 700 14px 'Hind', 'Open Sans', sans-serif; cursor: pointer">${v.primaryLabel}</button>
-        </div>
-      </div>
-
+      ` : null}
       
       <section style="flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; background: #ffffff; border-radius: 16px; border: 1px solid #c6c6cd">
         <div style="flex: none; padding: 12px 20px 4px; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px">
