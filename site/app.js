@@ -5,7 +5,6 @@ const view = (v) => html`
 
   
   <header style="flex: none; position: relative; z-index: 60; height: 40px; background: #161d26; display: flex; align-items: center; gap: 16px; padding: 0 16px; border-bottom: 1px solid #424650">
-    <a href="#" onClick=${v.restart} aria-label="Home" style="display: flex; align-items: center; gap: 8px; color: #ffffff; text-decoration: none; font: 700 15px 'Hind', 'Open Sans', sans-serif; white-space: nowrap"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="6" fill="#FF9900" stroke="#ffffff" stroke-width="2"></circle></svg>ivan.dmitriev</a>
     ${v.anyMenu ? html`<div onClick=${v.closeMenus} style="position: fixed; inset: 0; z-index: 45"></div>` : null}
     <div style="position: relative; z-index: 56">
     <button class="tnav" onClick=${v.menuServices} aria-expanded=${v.mServices} style="background: none; border: 0; cursor: pointer; display: flex; align-items: center; gap: 4px; padding: 4px 6px; border-radius: 4px; color: #dedee3; font: 700 14px 'Hind', 'Open Sans', sans-serif">
@@ -73,7 +72,6 @@ const view = (v) => html`
       ` : null}
     </div>
     <div style="position: relative; z-index: 56">
-      <button class="tnav hide-m" onClick=${v.menuRegion} style="background: none; border: 0; cursor: pointer; display: flex; align-items: center; gap: 4px; padding: 4px 6px; border-radius: 4px; color: #dedee3; font: 700 14px 'Hind', 'Open Sans', sans-serif">${v.regionName} <span style="font-size: 10px">▾</span></button>
       ${v.mRegion ? html`
         <div role="menu" style="position: absolute; top: 36px; z-index: 55; background: #ffffff; border-radius: 8px; box-shadow: 0px 1px 1px 1px #e9ebed, 0px 6px 36px #0007161a; padding: 6px 0; right: 0; width: 280px">
           ${(v.regions || []).map((rg) => html`
@@ -83,7 +81,7 @@ const view = (v) => html`
       ` : null}
     </div>
     <div style="position: relative; z-index: 56">
-      <button class="tnav hide-m" onClick=${v.menuAccount} style="background: none; border: 0; cursor: pointer; display: flex; align-items: center; gap: 4px; padding: 4px 6px; border-radius: 4px; color: #dedee3; font: 700 14px 'Hind', 'Open Sans', sans-serif">Ivan Dmitriev <span style="font-size: 10px">▾</span></button>
+      <button class="tnav hide-m" onClick=${v.menuAccount} style="background: none; border: 0; cursor: pointer; display: flex; flex-direction: column; align-items: flex-end; padding: 2px 6px; border-radius: 4px; color: #ffffff; font: 700 12px/15px 'Hind', 'Open Sans', sans-serif"><span>Student Builder <span style="font-size: 9px">▼</span></span><span style="font-weight: 500; color: #dedee3; letter-spacing: .02em">IVAN DMITRIEV</span></button>
       ${v.mAccount ? html`
         <div role="menu" style="position: absolute; top: 36px; z-index: 55; background: #ffffff; border-radius: 8px; box-shadow: 0px 1px 1px 1px #e9ebed, 0px 6px 36px #0007161a; padding: 6px 0; right: 0; width: 280px">
           <div style="padding: 8px 16px 10px; border-bottom: 1px solid #ebebf0"><strong style="display: block">Ivan Dmitriev</strong><span style="font-size: 12px; color: #656871">AWS Student Builder Group Leader · UC3M</span></div>
@@ -126,17 +124,13 @@ const view = (v) => html`
     <main class="app-main" style="flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; padding: 14px 32px 16px; gap: 12px; box-sizing: border-box">
       
       ${v.bannerOpen ? html`
-        <div class="banner" style="flex: none; position: relative; border: 1px solid #c8c3d8; border-radius: 16px; padding: 10px 48px 12px 20px">
-          <div style="font-size: 16px; line-height: 22px; font-weight: 700; color: #0f141a">You are the request</div>
-          <div style="margin-top: 2px; color: #0f141a">Send yourself through my network. Each AWS service on the diagram holds one part of my story.</div>
-          <div style="margin-top: 8px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px">
-            <button class="btnB" onClick=${v.primary} style="min-height: 30px; padding: 2px 20px; border-radius: 20px; border: 2px solid #006ce0; background: #ffffff; color: #006ce0; font: 700 14px 'Hind', 'Open Sans', sans-serif; cursor: pointer">Send request</button>
-            <span style="font-size: 12px; color: #424650">Or click any service, search above, or type <code style="font-size: 12px">curl https://ivan.dmitriev</code> in CloudShell.</span>
-          </div>
+        <div class="banner" style="flex: none; position: relative; border: 1px solid #c8c3d8; border-radius: 16px; padding: 14px 52px 16px 20px">
+          <div style="font-size: 18px; line-height: 24px; font-weight: 700; color: #0f141a">Hi, I'm Ivan</div>
+          <div style="margin-top: 4px; color: #0f141a; max-width: 980px">Born in Moscow, raised between Bulgaria, Greece and Spain, now in Madrid. Communities opened doors for me, so now I open them for others: AWS Student Builder Group Leader at UC3M and VP of I2C. Borders changed, the builder didn't.</div>
           <button onClick=${v.closeBanner} aria-label="Dismiss" style="position: absolute; right: 14px; top: 12px; background: none; border: 0; cursor: pointer; padding: 4px; display: flex"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#424650" stroke-width="2" aria-hidden="true"><path d="M3 3 L13 13 M13 3 L3 13"></path></svg></button>
         </div>
       ` : null}
-      <div style="display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 10px 24px">
+      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 24px">
         <div style="flex: 1 1 520px; max-width: 900px">
           <h1 style="margin: 0; font-size: 28px; line-height: 34px; font-weight: 700; position: relative">Ivan Dmitriev <span style="font-weight: 700">|</span> <i style="font-weight: 400">Student Builder</i> <a href="#" onClick=${v.menuInfo} style="font-size: 12px; font-weight: 700; margin-left: 6px; vertical-align: middle">Info</a>
             ${v.mInfo ? html`
@@ -147,7 +141,6 @@ const view = (v) => html`
                 <p style="margin: 0">Press <b>Send request</b>, click any service, use the search bar, or type <code>curl https://ivan.dmitriev</code> in CloudShell.</p>
               </div>
             ` : null}</h1>
-          <p style="margin: 4px 0 0; color: #424650">Born in Moscow, raised between Bulgaria, Greece and Spain, now in Madrid. Communities opened doors for me, so now I open them for others: AWS Student Builder Group Leader at UC3M and VP of I2C. Borders changed, the builder didn't.</p>
         </div>
         <div style="display: flex; flex-wrap: wrap; gap: 8px">
           <button class="btnN" onClick=${v.prev} style="min-height: 32px; padding: 4px 20px; border-radius: 20px; border: 2px solid #006ce0; background: #ffffff; color: #006ce0; font: 700 14px 'Hind', 'Open Sans', sans-serif; cursor: pointer">Previous</button>
@@ -215,7 +208,7 @@ const view = (v) => html`
 
         
         ${v.showHint ? html`
-          <div style="position: absolute; left: 10px; top: 390px; width: 200px; padding: 14px 16px; border-radius: 16px; background: #F2F8FD; border: 2px solid #0972D3; box-sizing: border-box; font-size: 13px; color: #002B66"><strong>You are the request.</strong> Press Send request or click any service to travel through the network.</div>
+          <div style="position: absolute; left: 10px; top: 390px; width: 200px; padding: 14px 16px; border-radius: 16px; border: 1px solid #c8c3d8; box-sizing: border-box; font-size: 13px; color: #0f141a" class="banner"><strong>You are the request.</strong> Press Send request or click any service to travel through the network.</div>
         ` : null}
 
         
